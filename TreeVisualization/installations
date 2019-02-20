@@ -1,0 +1,23 @@
+Plotly Installation (https://plot.ly/python/getting-started/)
+To install Plotly's python package, use the package manager pip inside your terminal.
+If you don't have pip installed on your machine, click here for pip's installation instructions. 
+
+$ pip install plotly 
+or 
+$ sudo pip install plotly 
+
+Plotly's Python package is updated frequently! To upgrade, run: 
+
+$ pip install plotly --upgrade
+
+Dash Installation (https://dash.plot.ly/installation)
+In your terminal, install several dash libraries. These libraries are under active development, so install and upgrade frequently. Python 2 and 3 are supported.
+pip install dash==0.35.1  # The core dash backend
+pip install dash-html-components==0.13.4  # HTML components
+pip install dash-core-components==0.42.1  # Supercharged components
+pip install dash-table==3.1.11  # Interactive DataTable component (new!)
+
+Installation of cStringIO import StringIO for Python2
+and IO for python3
+
+Install ete3
