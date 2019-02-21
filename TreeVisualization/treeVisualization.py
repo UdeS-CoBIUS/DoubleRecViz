@@ -1188,7 +1188,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
-    html.H1(children='Double reconciliation visualiszation tool',style={'textAlign': 'center', 'color': '#000000'}),
+    html.H1(children='Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
 
     html.H6(children='''
        This web application allows the double representation of a gene tree embeded inside one specie tree and transcript tree embeded inside one gene tree.
