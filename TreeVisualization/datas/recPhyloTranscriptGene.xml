@@ -2,20 +2,20 @@
   <gnTree>
     <phylogeny>
       <clade>
-        <name>n32</name>
+        <name>G1</name>
         <clade>
-          <name>n30</name>
+          <name>G3</name>
           <clade>
             <name>gA_human</name>
           </clade>
           <clade>
-            <name>gA_mouse</name>
+            <name>gB_human</name>
           </clade>
         </clade>
         <clade>
-          <name>n28</name>
+          <name>G4</name>
           <clade>
-            <name>gB_human</name>
+            <name>gA_mouse</name>
           </clade>
           <clade>
             <name>gB_mouse</name>
@@ -27,66 +27,66 @@
   <recTransTree>
     <phylogeny rooted="true">
       <clade>
-        <name>n12</name>
+        <name>T1</name>
         <eventsRec>
-          <duplication genesLocation="n32"></duplication>
+          <speciation genesLocation="G1"></speciation>
         </eventsRec>
         <clade>
-          <name>n10</name>
+          <name>T2</name>
           <eventsRec>
-            <duplication genesLocation="n30"></duplication>
+            <duplication genesLocation="G3"></duplication>
           </eventsRec>
             <clade>
-              <name>LOSS</name>
+              <name>-</name>
               <eventsRec>
-                <loss genesLocation="gA_mouse"></loss>
+                <loss genesLocation="gA_human"></loss>
               </eventsRec>
             </clade>
           <clade>
-            <name>n70</name>
+            <name>T3</name>
             <eventsRec>
-              <creation genesLocation="gA_human"></creation>
+              <creation genesLocation="gB_human"></creation>
             </eventsRec>
             <clade>
-              <name>transcript_2_gB_humain</name>
+              <name>t1_gB_human</name>
               <eventsRec>
-                <leaf genesLocation="gA_human"></leaf>
+                <leaf genesLocation="gB_human"></leaf>
               </eventsRec>
             </clade>
             <clade>
-              <name>transcript_3_gB_humain</name>
+              <name>t2_gB_human</name>
               <eventsRec>
-                <leaf genesLocation="gA_human"></leaf>
+                <leaf genesLocation="gB_human"></leaf>
               </eventsRec>
             </clade>
           </clade>
         </clade>
         <clade>
-          <name>n9</name>
+          <name>T4</name>
           <eventsRec>
-            <duplication genesLocation="n28"></duplication>
+            <duplication genesLocation="G4"></duplication>
           </eventsRec>
           <clade>
-            <name>transcript_1_gA_mouse</name>
+            <name>t1_gA_mouse</name>
             <eventsRec>
-              <leaf genesLocation="gB_mouse"></leaf>
+              <leaf genesLocation="gA_mouse"></leaf>
             </eventsRec>
           </clade>
           <clade>
-            <name>n7</name>
+            <name>T5</name>
             <eventsRec>
-              <creation genesLocation="gB_human"></creation>
+              <creation genesLocation="gB_mouse"></creation>
             </eventsRec>
             <clade>
-              <name>transcript_1_gB_humain</name>
+              <name>t1_gB_mouse</name>
               <eventsRec>
-                <leaf genesLocation="gB_human"></leaf>
+                <leaf genesLocation="gB_mouse"></leaf>
               </eventsRec>
             </clade>
             <clade>
-              <name>transcript_2_gB_humain</name>
+              <name>t2_gB_mouse</name>
               <eventsRec>
-                <leaf genesLocation="gB_human"></leaf>
+                <leaf genesLocation="gB_mouse"></leaf>
               </eventsRec>
             </clade>
           </clade>

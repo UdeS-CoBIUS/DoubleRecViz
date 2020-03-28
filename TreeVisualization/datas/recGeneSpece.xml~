@@ -65,12 +65,12 @@
 						<eventsRec>
 							<leaf speciesLocation="MOUSE"></leaf>
 						</eventsRec>
-					</clade>
-					<clade>
-						<name>gA_mouse</name>
-						<eventsRec>
-							<leaf speciesLocation="MOUSE"></leaf>
-						</eventsRec>
+						<clade>
+							<name>gA_mouse</name>
+							<eventsRec>
+								<leaf speciesLocation="MOUSE"></leaf>
+							</eventsRec>
+						</clade>
 					</clade>
 				</clade>
 			</clade>

@@ -1,0 +1,149 @@
+<doubleRecPhylo>
+	<spTree>
+		<phylogeny>
+			<clade>
+				<name>S1</name>
+				<clade>
+					<name>S2</name>
+					<clade>
+						<name>GORILLA</name>
+					</clade>
+					<clade>
+						<name>HUMAN</name>
+					</clade>
+				</clade>
+				<clade>
+					<name>MOUSE</name>
+				</clade>
+			</clade>
+		</phylogeny>
+	</spTree>
+	<recGeneTree>
+		<phylogeny rooted="true">
+			<clade>
+				<name>G1</name>
+				<eventsRec>
+					<speciation speciesLocation="S1"></speciation>
+				</eventsRec>
+				<clade>
+					<name>G2</name>
+					<eventsRec>
+						<speciation speciesLocation="S2"></speciation>
+					</eventsRec>
+					<clade>
+						<name>-</name>
+						<eventsRec>
+							<loss speciesLocation="GORILLA"></loss>
+						</eventsRec>
+					</clade>
+					<clade>
+						<name>G3</name>
+						<eventsRec>
+							<duplication speciesLocation="HUMAN"></duplication>
+						</eventsRec>
+						<clade>
+							<name>gA_human</name>
+							<eventsRec>
+								<leaf speciesLocation="HUMAN" geneName="gA_human"></leaf>
+							</eventsRec>
+						</clade>
+						<clade>
+							<name>gB_human</name>
+							<eventsRec>
+								<leaf speciesLocation="HUMAN" geneName="gB_human"></leaf>
+							</eventsRec>
+						</clade>
+					</clade>
+				</clade>
+				<clade>
+					<name>G4</name>
+					<eventsRec>
+						<duplication speciesLocation="MOUSE"></duplication>
+					</eventsRec>
+					<clade>
+						<name>gA_mouse</name>
+						<eventsRec>
+							<leaf speciesLocation="MOUSE" geneName="gA_mouse"></leaf>
+						</eventsRec>
+					</clade>
+					<clade>
+						<name>gB_mouse</name>
+						<eventsRec>
+							<leaf speciesLocation="MOUSE" geneName="gB_mouse"></leaf>
+						</eventsRec>
+					</clade>
+				</clade>
+			</clade>
+		</phylogeny>
+	</recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>T1</name>
+        <eventsRec>
+          <speciation genesLocation="G1"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <duplication genesLocation="G3"></duplication>
+          </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="gA_human"></loss>
+              </eventsRec>
+            </clade>
+          <clade>
+            <name>T3</name>
+            <eventsRec>
+              <creation genesLocation="gB_human"></creation>
+            </eventsRec>
+            <clade>
+              <name>t1_gB_human</name>
+              <eventsRec>
+                <leaf genesLocation="gB_human"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>t2_gB_human</name>
+              <eventsRec>
+                <leaf genesLocation="gB_human"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T4</name>
+          <eventsRec>
+            <duplication genesLocation="G4"></duplication>
+          </eventsRec>
+          <clade>
+            <name>t1_gA_mouse</name>
+            <eventsRec>
+              <leaf genesLocation="gA_mouse"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>T5</name>
+            <eventsRec>
+              <creation genesLocation="gB_mouse"></creation>
+            </eventsRec>
+            <clade>
+              <name>t1_gB_mouse</name>
+              <eventsRec>
+                <leaf genesLocation="gB_mouse"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>t2_gB_mouse</name>
+              <eventsRec>
+                <leaf genesLocation="gB_mouse"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+</doubleRecPhylo>

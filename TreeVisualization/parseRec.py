@@ -86,8 +86,8 @@ def buildRecTreeFromXml(sptre, tree, recType):
             if len(v) == 3:
                 tree.add_child(name=v['name'])
                 clade = tree.search_nodes(name=v["name"])[0]
-                event_recs = v["eventsRec"].keys()
-                event_rec = list(event_recs)[0]
+                event_recs = list(v["eventsRec"].keys())
+                event_rec = event_recs[0]
                 if recType == "geneSpecie":
                     species_location =v["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
@@ -104,8 +104,8 @@ def buildRecTreeFromXml(sptre, tree, recType):
         elif  len(sptre.keys()) == 2:
                 tree.add_child(name=sptre['name'])
                 clade = tree.search_nodes(name=sptre["name"])[0]
-                event_recs = sptre["eventsRec"].keys()
-                event_rec = list(event_recs)[0]
+                event_recs = list(sptre["eventsRec"].keys())
+                event_rec = event_recs[0]
                 if recType == "geneSpecie":                
                     species_location =sptre["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
@@ -120,8 +120,8 @@ def buildRecTreeFromXml(sptre, tree, recType):
 
                 tree.add_child(name=sptre['name'])
                 clade = tree.search_nodes(name=sptre["name"])[0]
-                event_recs = sptre["eventsRec"].keys()
-                event_rec = list(event_recs)[0]
+                event_recs = list(sptre["eventsRec"].keys())
+                event_rec = event_recs[0]
                 if recType == "geneSpecie":                
                     species_location =sptre["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
@@ -139,8 +139,6 @@ def buildRecTreeFromXml(sptre, tree, recType):
     return tree
                             
 def parseDictTree(dict_tree):
-    tmp_dict = dict_tree.keys()
-    
     if len(dict_tree.keys()) == 1 and list(dict_tree.keys())[0] == "recPhylo":
         recPhylo = dict_tree["recPhylo"]
         if len(recPhylo.keys())==2 and ("spTree" in recPhylo.keys()) and ("recGeneTree" in recPhylo.keys()):
