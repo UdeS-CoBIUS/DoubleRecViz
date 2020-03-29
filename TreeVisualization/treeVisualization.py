@@ -1039,7 +1039,14 @@ def create_tree(recData, slanted, recType, textcolor):
 	terminalNodeNameHost = []
 	for e in terminal:
 		terminalNodeNameHost.append(e.name)
-
+	print(terminalNodeNameHost, "______________________________")
+	print(x_coords)
+	print(x_coords_internal.keys())
+	"""	
+	for node in tree.get_descendants():
+		# Do some analysis on node
+		terminalNodeNameHost.append(node.name)
+	"""
 	for k in x_coords:		
 		if k in x_coords_internal.keys() and k.name != "999990":
 
@@ -1047,21 +1054,54 @@ def create_tree(recData, slanted, recType, textcolor):
 			selected_events_name = []
 			index_selected = []
 			for e in events:
-				if e[1] == "leaf" or e[1] == "loss":
+				print(k.name, "\t",e[0], e[1])
+				if e[1] == "leaf" or e[1] == "loss" or e[1] == "duplication" or e[1] == "creation" or e[1] == "speciation": 
 					selected_events_name.append(e[0])
 					index_selected.append(events.index(e))
+				#else:
+				#	selected_events_name.append(e[0])
+				#	index_selected.append(events.index(e))  
+			print(len(x_coords_internal[k]), "=============================")				              
+			if len(x_coords_internal[k])==1:
+					X.append(x_coords_internal[k][0])
+					Y.append(y_coords_internal[k][0]) 
+					leaf_name = selected_events_name.pop()
+					label_legend.append("\t" + "\t" + leaf_name)
+					
+			elif len(x_coords_internal[k])==3:
+					X.append(x_coords_internal[k][2])
+					Y.append(y_coords_internal[k][2]) 
+					leaf_name = selected_events_name.pop()
+					label_legend.append("\t" + "\t" + leaf_name)
 
+					X.append(x_coords_internal[k][1])
+					Y.append(y_coords_internal[k][1]) 
+					leaf_name = selected_events_name.pop()
+					label_legend.append("\t" + "\t" + leaf_name)
+
+					X.append(x_coords_internal[k][0])
+					Y.append(y_coords_internal[k][0]) 
+					leaf_name = selected_events_name.pop()
+					label_legend.append("\t" + "\t" + leaf_name)
+
+	"""    			    
 			for j in range(len(x_coords_internal[k])):
 				if j in index_selected:
-
+					print("________________", j, "______________", events[j])
 					if k.name not in terminalNodeNameHost:
-						pass
+						X.append(x_coords_internal[k][j])
+						Y.append(y_coords_internal[k][j]) 
+						leaf_name = selected_events_name.pop()
+						label_legend.append("\t" + "\t" + leaf_name)
+						print("++++++++++++",leaf_name)					
+						#pass
 					else:				
 						X.append(x_coords_internal[k][j])
 						Y.append(y_coords_internal[k][j]) 
 						leaf_name = selected_events_name.pop()
 						label_legend.append("\t" + "\t" + leaf_name)
-
+						print("_______",leaf_name)
+	"""
 	host_leaves_names = []
 	for x in terminalNodeNameHost:
 		host_leaves_names.append({"label": x, 'value': x})					
@@ -1091,7 +1131,7 @@ def create_tree(recData, slanted, recType, textcolor):
 					Y.append(y_coords[cl][1])			
 					text.append(cl.name)
 				else:
-					break					
+					#break					
 					if slanted == False:
 						if i== 5 or i==6 or i==7: #False : 
 							pass
@@ -1303,6 +1343,7 @@ app.layout = html.Div(children=[
 	   This web application allows the join representation of a genes tree embeded inside a species tree and transcripts tree embeded inside a genes tree.
 	''', style={'textAlign': 'center', 'color': '#000000'}),
 
+    
 	dcc.RadioItems(
 		id = "inputdatamode",
 	    options=[
@@ -1311,7 +1352,7 @@ app.layout = html.Div(children=[
 	    ],
 	    value='tree',
 	    style={'width': '100%','height':'50', 'textAlign': 'center'},
-	    labelStyle={'display': 'inline-block'}
+	    labelStyle={'display': 'None'}
 	),
 
 	html.Div([		
@@ -1435,7 +1476,7 @@ def set_cities_value(transcriptIdToRemove, GeneIdToRemove, specieIdToRemove):
     print(transcriptIdToRemove)
     print(GeneIdToRemove)
     print(specieIdToRemove)
-"""        
+"""       
 
 @app.callback(
     Output('trees', 'style'),
@@ -1444,9 +1485,9 @@ def set_cities_value(inputdatamode):
     #print (inputdatamode)
     if inputdatamode == "tree":
     	return {'display': 'block'}
-    else:
-    	return {'display': 'None'}
 
+
+"""
 @app.callback(
     Output('sequences', 'style'),
     [Input('inputdatamode', 'value')])
@@ -1457,7 +1498,7 @@ def set_cities_value(inputdatamode):
     else:
     	return {'display': 'None'}
 
-
+""" 
 """			   
 @app.callback(Output('figGeneSpecie', 'figure'),
 	[Input('button', 'n_clicks'),
@@ -1506,7 +1547,6 @@ def update_output(n_clicks, input2):
     tmp_tree.write(input2)
     tmp_tree.close()
     recTree = dataFromDoubleRecFile("./datas/tmp_tree.nw")
-
     if len(recTree) == 2 :
         
         if recTree[0][1] == "geneSpecie":
