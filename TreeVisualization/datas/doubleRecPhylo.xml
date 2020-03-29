@@ -81,7 +81,7 @@
       <clade>
         <name>T1</name>
         <eventsRec>
-          <speciation genesLocation="G1"></speciation>
+          <duplication genesLocation="G1"></duplication>
         </eventsRec>
         <clade>
           <name>T2</name>
