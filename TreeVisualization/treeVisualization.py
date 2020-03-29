@@ -618,7 +618,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 			)			   
 			
 
-	elif (len(x_coords[clade]) == len(y_coords[clade]) == 1) and (len(x_coords[child]) == len(y_coords[child]) == 3) and ((species_mapping[child.name][0][1]=="duplication")or(species_mapping[child.name][0][1]=="creation")):
+	elif (len(x_coords[clade]) == len(y_coords[clade]) == 1) and (len(x_coords[child]) == len(y_coords[child]) == 3) and ((species_mapping[child.name][0][1]=="speciation") or (species_mapping[child.name][0][1]=="duplication")or(species_mapping[child.name][0][1]=="creation")):
 		line_shapes.append(
 			dict(type='line',
 				 layer='below',
@@ -827,7 +827,7 @@ def addInternalTreeTransGene(clade, rec_gene_tree, species_mapping, x_coords, y_
 				else:
 					x_coords_internal[clade] = [x_coords[clade][1]]										   
 			
-			elif inter_clade[1] == "duplication":
+			elif (inter_clade[1] == "duplication") or (inter_clade[1] == "speciation"):
 				if clade in x_coords_internal.keys():
 					x_coords_internal[clade].append(x_coords[clade][1] + x_shift * (len(x_coords_internal[clade]) + 1))
 				else:
