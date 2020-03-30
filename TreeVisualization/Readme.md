@@ -1,228 +1,40 @@
 # DoubleRecViz
-Double reconciliation visualization tool is a web application which allows the double representation of a gene tree embeded inside one specie tree and a transcript tree embeded inside one gene tree.
-####Esaie Kuitche, Aïda Ouangraoua, Nadia Tahiri, Jack Parmer and Plotly team
-#####Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+DoubleRecViz is a tool for visualizing and editing double reconciliations between phylogenetic trees at three levels: transcript, gene and species. It displays reconciled gene trees embedded in species trees and reconciled transcript trees embedded in gene trees, with annotations on the nodes of the trees corresponding to the underlying co-evolutionary events.
 
-##Requirements
+#### Esaie Kuitche, Yanchun Qi, Nadia Tahiri, Jack Parmer, Aïda Ouangraoua
+
+##### Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+
+## Requirements
 The program requires the following to be available
-- python (2.7 and +) 
-- ete3 (https://pypi.python.org/pypi/ete3/)
+- Plotly and Dash libraries
+- Python (2.7 and +) 
+- ETE3 
 - cStringIO if you use python2.7 or just IO if you use python3
 
-##Usage
+A procedure for the installation of requirements can be found in file "Installation.txt"
+
+## Usage
 ```
-python2.7 treeVisualisation.py
+python Source/treeVisualisation.py
 ```
 
-##Input files
-###transcriptGeneReconciliation
-Example
-```
-<recPhylo>
-  <gnTree>
-    <phylogeny>
-      <clade>
-        <name>n32</name>
-        <clade>
-          <name>n30</name>
-          <clade>
-            <name>n28</name>
-            <clade>
-              <name>GORILLA</name>
-            </clade>
-            <clade>
-              <name>HUMAN</name>
-            </clade>
-          </clade>
-          <clade>
-            <name>MOUSE</name>
-          </clade>
-        </clade>
-        <clade>
-          <name>COW</name>
-        </clade>
-      </clade>
-    </phylogeny>
-  </gnTree>
-  <recTransTree>
-    <phylogeny rooted="true">
-      <clade>
-        <name>n12</name>
-        <eventsRec>
-          <duplication genesLocation="n32"></duplication>
-        </eventsRec>
-        <clade>
-          <name>n8</name>
-          <eventsRec>
-            <duplication genesLocation="n30"></duplication>
-          </eventsRec>
-          <clade>
-            <name>r21</name>
-            <eventsRec>
-              <duplication genesLocation="n28"></duplication>
-            </eventsRec>
-            <clade>
-              <name>LOSS</name>
-              <eventsRec>
-                <loss genesLocation="GORILLA"></loss>
-              </eventsRec>
-            </clade>
-            <clade>
-              <name>r21.c</name>
-              <eventsRec>
-                <creation genesLocation="HUMAN"></creation>
-              </eventsRec>
-              <clade>
-                <name>gB_human</name>
-                <eventsRec>
-                  <leaf genesLocation="HUMAN" geneName="gB_human"></leaf>
-                </eventsRec>
-              </clade>
-              <clade>
-                <name>gA_human</name>
-                <eventsRec>
-                  <leaf genesLocation="HUMAN" geneName="gA_human"></leaf>
-                </eventsRec>
-              </clade>
-            </clade>
-          </clade>
-          <clade>
-            <name>n7</name>
-            <eventsRec>
-              <creation genesLocation="MOUSE"></creation>
-            </eventsRec>
-            <clade>
-              <name>gB_mouse</name>
-              <eventsRec>
-                <leaf genesLocation="MOUSE"></leaf>
-              </eventsRec>
-              <clade>
-                <name>gA_mouse</name>
-                <eventsRec>
-                  <leaf genesLocation="MOUSE"></leaf>
-                </eventsRec>
-              </clade>                      
-            </clade>
-          </clade>
-        </clade>
-        <clade>
-          <name>cow_all</name>
-          <eventsRec>
-            <leaf genesLocation="COW"></leaf>
-          </eventsRec>                          
-        </clade>
-      </clade>
-    </phylogeny>
-  </recTransTree>
-</recPhylo>
-```
-##geneSpecieReconciliation
-Example
-```
-<recPhylo>
-  <spTree>
-    <phylogeny>
-      <clade>
-        <name>n32</name>
-        <clade>
-          <name>n30</name>
-          <clade>
-            <name>n28</name>
-            <clade>
-              <name>GORILLA</name>
-            </clade>
-            <clade>
-              <name>HUMAN</name>
-            </clade>
-          </clade>
-          <clade>
-            <name>MOUSE</name>
-          </clade>
-        </clade>
-        <clade>
-          <name>COW</name>
-        </clade>
-      </clade>
-    </phylogeny>
-  </spTree>
-  <recGeneTree>
-    <phylogeny rooted="true">
-      <clade>
-        <name>n12</name>
-        <eventsRec>
-          <speciation speciesLocation="n32"></speciation>
-        </eventsRec>
-        <clade>
-          <name>n8</name>
-          <eventsRec>
-            <speciation speciesLocation="n30"></speciation>
-          </eventsRec>
-          <clade>
-            <name>r21</name>
-            <eventsRec>
-              <speciation speciesLocation="n28"></speciation>
-            </eventsRec>
-            <clade>
-              <name>LOSS</name>
-              <eventsRec>
-                <loss speciesLocation="GORILLA"></loss>
-              </eventsRec>
-            </clade>
-            <clade>
-              <name>r21.c</name>
-              <eventsRec>
-                <duplication speciesLocation="HUMAN"></duplication>
-              </eventsRec>
-              <clade>
-                <name>gB_human</name>
-                <eventsRec>
-                  <leaf speciesLocation="HUMAN" geneName="gB_human"></leaf>
-                </eventsRec>
-              </clade>
-              <clade>
-                <name>gA_human</name>
-                <eventsRec>
-                  <leaf speciesLocation="HUMAN" geneName="gA_human"></leaf>
-                </eventsRec>
-              </clade>
-            </clade>
-          </clade>
-          <clade>
-            <name>n7</name>
-            <eventsRec>
-              <duplication speciesLocation="MOUSE"></duplication>
-            </eventsRec>
-            <clade>
-              <name>gB_mouse</name>
-              <eventsRec>
-                <leaf speciesLocation="MOUSE"></leaf>
-              </eventsRec>
-              <clade>
-                <name>gA_mouse</name>
-                <eventsRec>
-                  <leaf speciesLocation="MOUSE"></leaf>
-                </eventsRec>
-              </clade>                      
-            </clade>
-          </clade>
-        </clade>
-        <clade>
-          <name>cow_all</name>
-          <eventsRec>
-            <leaf speciesLocation="COW"></leaf>
-          </eventsRec>                          
-        </clade>
-      </clade>
-    </phylogeny>
-  </recGeneTree>
-</recPhylo>
-```
+## Input files
 
-outfile name
+DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see http://phylariane.univ-lyon1.fr/recphyloxml/ for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz.pdf
+
+DoubleRecViz takes as input one the following types of object:
+
+ - a <doubleRecPhylo> object containing 1 species tree (<spTree> object) followed by 1 to n sets such that each set is composed of 1 reconciled gene tree (<recGeneTree> object) followed by 0 to n reconciled transcript trees (<recTranscriptTree> object).
+
+ - a <recPhylo> object containing 1 species tree (<spTree> object) followed by 1 to n reconciled gene trees (<recGeneTree> object)
+
+ - a <recPhylo> object containing 1 gene tree (<gnTree> object) followed by 1 to n reconciled transcript trees (<recTransTree> object) 
+
+An example of <doubleRecPhylo> object for a transcript-gene-species tree reconciliation, and two <recPhylo> objects for a transcript-gene tree reconciliation and a gene-species tree reconciliation can be found on the "Data" directory.
+
+## Output
+
 ```
-the reconciliated trees are draw in your browser
-```
-##Running DoubleRecViz on an example
-```
-python2.7 treeVisualisation.py
+the reconciled trees are displayed in the browser.
 ```
