@@ -1274,8 +1274,8 @@ def dataFromFile(path):
 
 slanted = False
 
-recTree = dataFromDoubleRecFile("./datas/doubleRecPhylo.xml")
-file_tree = open("./datas/doubleRecPhylo.xml", "r")
+recTree = dataFromDoubleRecFile("./Data/doubleRecPhylo.xml")
+file_tree = open("./Data/doubleRecPhylo.xml", "r")
 tree_nw = file_tree.read()
 
 print(len(recTree))
@@ -1294,8 +1294,8 @@ if len(recTree) == 2 :
     #recProteinTree = 
     #recGeneSpecie =
 
-#recProteinTree = dataFromFile("./datas/recProteinGene.xml")
-#recGeneSpecie = dataFromFile("./datas/recGeneSpece.xml")
+#recProteinTree = dataFromFile("./Data/recProteinGene.xml")
+#recGeneSpecie = dataFromFile("./Data/recGeneSpece.xml")
 
 color1 = "blue"
 
@@ -1497,10 +1497,10 @@ def update_output(n_clicks, input2, input3):
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-    tmp_tree = open("./datas/tmp_tree.nw", "w")
+    tmp_tree = open("./Data/tmp_tree.nw", "w")
     tmp_tree.write(input2)
     tmp_tree.close()
-    recTree = dataFromDoubleRecFile("./datas/tmp_tree.nw")
+    recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
 
     if len(recTree) == 2 :
         
@@ -1518,10 +1518,10 @@ def update_output(n_clicks, input2):
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-    tmp_tree = open("./datas/tmp_tree.nw", "w")
+    tmp_tree = open("./Data/tmp_tree.nw", "w")
     tmp_tree.write(input2)
     tmp_tree.close()
-    recTree = dataFromDoubleRecFile("./datas/tmp_tree.nw")
+    recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
     if len(recTree) == 2 :
         
         if recTree[0][1] == "geneSpecie":
