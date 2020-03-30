@@ -36,5 +36,5 @@ An example of doubleRecPhylo object for a transcript-gene-species tree reconcili
 ## Output
 
 ```
-the reconciled trees are displayed in the browser.
+The reconciled trees are displayed in the browser.
 ```
