@@ -1511,8 +1511,8 @@ def update_output(n_clicks, input2):
                 recGeneSpecie = recTree[1][0]
                 recProteinTree = recTree[0][0]    
                 
-    figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
-    return figGeneSpecie
+        figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
+        return figGeneSpecie
 
 @app.callback(Output('figProteinGene', 'figure'),
 	[Input('button', 'n_clicks'),
@@ -1530,9 +1530,9 @@ def update_output(n_clicks, input2):
         elif recTree[0][1] == "transcriptGene":
                 recGeneSpecie = recTree[1][0]
                 recProteinTree = recTree[0][0]    
-                
-    figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
-    return figProteinGene 
+                    
+        figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
+        return figProteinGene 
     			
 if __name__ == '__main__':
 	app.run_server(debug=True)
