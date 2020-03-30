@@ -16,7 +16,7 @@ A procedure for the installation of requirements can be found in file "Installat
 
 ## Usage
 ```
-python Source/treeVisualisation.py
+python treeVisualisation.py
 ```
 
 ## Input files
