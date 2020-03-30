@@ -1133,7 +1133,12 @@ def create_tree(recData, slanted, recType, textcolor):
 				label_legend.append(cl.name)
 				X.append(x_coords[cl][2])
 				Y.append(y_coords[cl][2])			
-				text.append(cl.name)		        
+				text.append(cl.name)
+				
+				label_legend.append(cl.name)
+				X.append(x_coords[cl][3])
+				Y.append(y_coords[cl][3])			
+				text.append(cl.name)						        
 				"""
 				
 	axis = dict(showline=False,
