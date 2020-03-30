@@ -1061,7 +1061,7 @@ def create_tree(recData, slanted, recType, textcolor):
 				#else:
 				#	selected_events_name.append(e[0])
 				#	index_selected.append(events.index(e))  
-			print(len(x_coords_internal[k]), "=============================")				              
+
 			if len(x_coords_internal[k])==1:
 					X.append(x_coords_internal[k][0])
 					Y.append(y_coords_internal[k][0]) 
@@ -1119,38 +1119,22 @@ def create_tree(recData, slanted, recType, textcolor):
 		if cl.name == "999990":
 			pass
 		else:
-			for i in range(len(x_coords[cl])):
-				if len(x_coords[cl]) == 2:
-					#print (cl, x_coords[cl][0], y_coords[cl][0],  x_coords[cl][1], y_coords[cl][1])
-					#X.append(x_coords[cl][0])
-					#Y.append(y_coords[cl][0])			
-					#text.append(cl.name)
-					#label_legend.append(cl.name)
-					label_legend.append(cl.name)
-					X.append(x_coords[cl][1])
-					Y.append(y_coords[cl][1])			
-					text.append(cl.name)
-				else:
-					#break					
-					if slanted == False:
-						if i== 5 or i==6 or i==7: #False : 
-							pass
-						else:
-							X.append(x_coords[cl][i])
-							Y.append(y_coords[cl][i])			
-							text.append(cl.name)
-							label_legend.append(cl.name)
-					else:
-						if i== 5 or i==6 or i==7: #False : 
-							pass
-						else:
-							X.append(x_coords[cl][i])
-							Y.append(y_coords[cl][i])			
-							text.append(cl.name) 
-							label_legend.append(cl.name)   
+			if len(x_coords[cl]) == 2:
+				label_legend.append(cl.name)
+				X.append(x_coords[cl][1])
+				Y.append(y_coords[cl][1])			
+				text.append(cl.name)
+			elif len(x_coords[cl]) > 2:
+				label_legend.append(cl.name)
+				X.append(x_coords[cl][1])
+				Y.append(y_coords[cl][1])			
+				text.append(cl.name)		        
 
-
-
+				label_legend.append(cl.name)
+				X.append(x_coords[cl][2])
+				Y.append(y_coords[cl][2])			
+				text.append(cl.name)		        
+				
 	axis = dict(showline=False,
 				zeroline=False,
 				showgrid=False,
@@ -1158,24 +1142,9 @@ def create_tree(recData, slanted, recType, textcolor):
 				title=''  # y title
 				)
 
-	#label_legend = get_leaf_names(tree)
+
 	color = [intermediate_node_color] * len(X)
 	
-	"""
-	print (label_legend, len(label_legend), len(X), len(Y))
-	
-	for elt in label_legend:
-		node = dict(type='scatter',
-				x=X,
-				y=Y,
-				mode='markers',
-				marker=dict(color=color, size=5),
-				text=elt,  # vignet information of each node
-				hoverinfo='hoverinfo',
-				name=elt
-				)
-		nodes.append(node)
-	"""
 	
 	nodes = [dict(type='scatter',
 			x=X,
