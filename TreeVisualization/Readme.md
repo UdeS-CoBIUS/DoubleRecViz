@@ -12,7 +12,7 @@ The program requires the following to be available
 - ETE3 
 - cStringIO if you use python2.7 or just IO if you use python3
 
-A procedure for the installation of requirements can be found in file "Installation.txt"
+A procedure for the installation of requirements can be found in file "Installation.txt".
 
 ## Usage
 ```
@@ -25,13 +25,13 @@ DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars whi
 
 DoubleRecViz takes as input one the following types of object:
 
- - a <doubleRecPhylo> object containing 1 species tree (<spTree> object) followed by 1 to n sets such that each set is composed of 1 reconciled gene tree (<recGeneTree> object) followed by 0 to n reconciled transcript trees (<recTranscriptTree> object).
+ - a doubleRecPhylo object containing 1 species tree (spTree object) followed by 1 to n sets such that each set is composed of 1 reconciled gene tree (recGeneTree object) followed by 0 to n reconciled transcript trees (recTranscriptTree object).
 
- - a <recPhylo> object containing 1 species tree (<spTree> object) followed by 1 to n reconciled gene trees (<recGeneTree> object)
+ - a recPhylo object containing 1 species tree (spTree object) followed by 1 to n reconciled gene trees (recGeneTree object)
 
- - a <recPhylo> object containing 1 gene tree (<gnTree> object) followed by 1 to n reconciled transcript trees (<recTransTree> object) 
+ - a recPhylo object containing 1 gene tree (gnTree object) followed by 1 to n reconciled transcript trees (recTransTree object) 
 
-An example of <doubleRecPhylo> object for a transcript-gene-species tree reconciliation, and two <recPhylo> objects for a transcript-gene tree reconciliation and a gene-species tree reconciliation can be found on the "Data" directory.
+An example of doubleRecPhylo object for a transcript-gene-species tree reconciliation, and two recPhylo objects for a transcript-gene tree reconciliation and a gene-species tree reconciliation can be found on the "Data" directory.
 
 ## Output
 
