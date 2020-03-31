@@ -1312,12 +1312,15 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
-	html.H1(children='Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
+	html.H1(children='DoubleRecViz: Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
 
 	html.H6(children='''
-	   This web application allows the join representation of a genes tree embeded inside a species tree and transcripts tree embeded inside a genes tree.
-	''', style={'textAlign': 'center', 'color': '#000000'}),
+	   A tool for visualizing and editing double reconciliations between phylogenetic trees at three levels: transcript, gene and species. It jointly displays genes tree embedded in species tree and transcript trees embedded in gene trees.
+	''', style={'textAlign': 'left', 'color': '#000000'}),
 
+        html.H6(children='''
+	   Paste a doubleRecPhyloXML object:
+	''', style={'textAlign': 'left', 'color': '#000000'}),
     
 	dcc.RadioItems(
 		id = "inputdatamode",
