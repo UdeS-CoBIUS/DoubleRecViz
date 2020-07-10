@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="doubleRecPhylo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="spTree"/>
+        <xs:element ref="recGeneTree"/>
+        <xs:element ref="recTransTree"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="spTree" type="phylogeny"/>
+  <xs:element name="recGeneTree" type="phylogeny"/>
+  <xs:element name="recTransTree" type="phylogeny"/>
+  <xs:complexType name="phylogeny">
+    <xs:sequence>
+      <xs:element ref="phylogeny"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="phylogeny">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="clade"/>
+      </xs:sequence>
+      <xs:attribute name="rooted" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clade">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="clade"/>
+        <xs:element ref="eventsRec"/>
+        <xs:element ref="name"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eventsRec">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="creation"/>
+        <xs:element ref="duplication"/>
+        <xs:element ref="leaf"/>
+        <xs:element ref="loss"/>
+        <xs:element ref="speciation"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="creation">
+    <xs:complexType>
+      <xs:attribute name="genesLocation" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="duplication">
+    <xs:complexType>
+      <xs:attribute name="genesLocation" type="xs:NCName"/>
+      <xs:attribute name="speciesLocation" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="leaf">
+    <xs:complexType>
+      <xs:attribute name="geneName" type="xs:NCName"/>
+      <xs:attribute name="genesLocation" type="xs:NCName"/>
+      <xs:attribute name="speciesLocation" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loss">
+    <xs:complexType>
+      <xs:attribute name="genesLocation" type="xs:NCName"/>
+      <xs:attribute name="speciesLocation" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="speciation">
+    <xs:complexType>
+      <xs:attribute name="genesLocation" type="xs:NCName"/>
+      <xs:attribute name="speciesLocation" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:NMTOKEN"/>
+</xs:schema>
