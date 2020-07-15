@@ -81,7 +81,7 @@ def doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpe
 			elif len(p) == 2:
 				node.name = dictGeneInv[p[0]] + "_" + dictTransInv[p[1]]
 	print(recon_tree_transcript_gene)
-	file = open("Output/" + genefamilyid + "/" + genefamilyid + "_reconciliation_transcripts_genes.nw","w")
+	file = open("Output/" + genefamilyid + "/_" + genefamilyid + "reconciliation_transcripts_genes.nw","w")
 	file.write(recon_tree_transcript_gene.write(format=9))
 
 	recon_tree_gene_species, events_gene_species = gene_tree_newname.reconcile(species_tree_new_name)
@@ -93,7 +93,7 @@ def doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpe
 			elif len(p) == 2:
 				node.name = dictSpeciesInv[p[0]] + "_" + dictGeneInv[p[1]]
 	print(recon_tree_gene_species)
-	file = open("Output/" + genefamilyid + "/" + genefamilyid + "_reconciliation_genes_species.nw","w")
+	file = open("Output/" + genefamilyid + "/_" + genefamilyid + "reconciliation_genes_species.nw","w")
 	file.write(recon_tree_gene_species.write(format=9))
 
 
