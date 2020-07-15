@@ -1,0 +1,503 @@
+<html><head>
+<meta content="text/javascript" http-equiv="Content-Script-Type">
+<!-- <link type="text/css" rel="stylesheet" href="../sites_bioinfo/style/theme.css"> --> 
+<link href="theme.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="grey-box">
+
+<tbody><tr height="10">
+<td class="box-top-left"></td>
+<td class="box-top"></td>
+<td class="box-top-right"></td>
+</tr>
+
+<tr>
+<td class="box-left"></td>
+<td class="top">
+
+<div class="major-title"> PHYML User's guide (PHYLIP-like interface)</div>
+
+</td>
+<td class="box-right"></td>
+</tr>
+
+<tr height="10">
+<td class="box-bottom-left"></td>
+<td class="box-bottom"></td>
+<td class="box-bottom-right"></td>
+
+</tr>
+</tbody></table>
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="grey-box">
+
+<tbody><tr height="10">
+<td class="box-top-left"></td>
+<td class="box-top"></td>
+<td class="box-top-right"></td>
+</tr>
+
+<tr>
+<td class="box-left"></td>
+<td class="top">
+
+<h4>Overview</h4>
+<div style="text-align: justify;">
+PHYML is a software implementing a new method for building phylogenies
+from DNA and protein sequences using maximum likelihood. Data sets can
+be analysed under several models of evolution (JC69, K80, F81, F84,
+HKY85, TN93 and GTR for nucleotides and Dayhoff, JTT, mtREV, WAG,
+DCMut, RtREV, CpREV, VT, Blosum62 and MtMam for amino acids). A discrete-gamma model (Yang, 1994) is implemented to accommodate rate variation among sites. Invariable sites can also be taken into account. PHYML has been compared to several other softwares using extensive simulations. The results indicate that its topological accuracy is at least as high as that of fastDNAml, while being much faster.
+</li></div>
+
+</td>
+<td class="box-right"></td>
+</tr>
+
+<tr height="10">
+<td class="box-bottom-left"></td>
+<td class="box-bottom"></td>
+<td class="box-bottom-right"></td>
+
+</tr>
+</tbody></table>
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="grey-box">
+
+<tbody><tr height="10">
+<td class="box-top-left"></td>
+<td class="box-top"></td>
+<td class="box-top-right"></td>
+</tr>
+
+<tr>
+<td class="box-left"></td>
+<td class="top">
+
+
+<h4>The PHYLIP-like interface</h4>
+Download the binary files ; you can execute PHYML by double-clicking on the "phyml" file or by opening a shell window and typing "phyml" without parameters. The interactive command-line interface is PHYLIP-like. You can change the default value of an option by typing its corresponding character and validate your settings by typing 'Y'.
+<br>
+<br>PHYML produces several results files :
+<li>&lt;sequence file name&gt;_phyml_lk.txt : likelihood value(s)
+<li>&lt;sequence file name&gt;_phyml_tree.txt : inferred tree(s)
+<li>&lt;sequence file name&gt;_phyml_stat.txt : detailed execution stats
+<li>&lt;sequence file name&gt;_phyml_boot_trees.txt : bootstrap trees (special case)
+<li>&lt;sequence file name&gt;_phyml_boot_stats.txt : bootstrap statistics (special case)
+
+<br><br>
+Here are the possible uses of PHYML :
+
+<p><li>One data set, one starting tree
+<br>Standard analysis under a given substitution model, PHYML then returns the inferred tree. Moreover, a special option allows to perform non-parametric bootstrapp analysis on the original data set. PHYML then returns the bootstrap tree with branch lengths and bootstrap values, using standard NEWICK format (an option gives the pseudo trees in a *_boot_trees.txt file).
+
+
+<p><li>Several data sets, one starting tree
+<br>Several standard analysis start from the same intial tree with different data sets, without the bootstrap option.
+<br>The results are given in the order of the data sets.
+<br>This can be used to process multiple genes in a supertree approach.
+
+
+<p><li>One data set, several starting trees
+<br>Several standard analysis of  the same data set using different starting tree situations, without the bootstrap option.
+<br>All results are given in the order of the trees. Moreover, the most likely tree is provided in the *_best_stat.txt and *_best_tree.txt files.
+<br>This should be used to avoid being trapped into local optima and then obtain better trees. Fast parsimony methods can be used to obtain a set of starting trees.
+
+<p><li>Several data sets, several starting trees
+<br>Several standard runs, where each data set is analysed with the corresponding starting tree, without the bootstrap option.
+<br>The results are given in the order of the data sets.
+<br>This can be used when comparing the likelihood of various trees regarding different data sets.
+
+
+</li></td>
+<td class="box-right"></td>
+</tr>
+
+<tr height="10">
+<td class="box-bottom-left"></td>
+<td class="box-bottom"></td>
+<td class="box-bottom-right"></td>
+
+</tr>
+</tbody></table>
+
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="grey-box">
+
+<tbody><tr height="10">
+<td class="box-top-left"></td>
+<td class="box-top"></td>
+<td class="box-top-right"></td>
+</tr>
+
+<tr>
+<td class="box-left"></td>
+<td class="top">
+
+<H4>Options</H4>
+
+<p><li><strong>Sequences</strong>
+The input sequence file is a standard PHYLIP file of aligned DNA or amino-acids sequences.
+It should look like this in interleaved format :
+<pre>
+5 60
+Tax1        CCATCTCACGGTCGGTACGATACACCTGCTTTTGGCAG
+Tax2        CCATCTCACGGTCAGTAAGATACACCTGCTTTTGGCGG
+Tax3        CCATCTCCCGCTCAGTAAGATACCCCTGCTGTTGGCGG
+Tax4        TCATCTCATGGTCAATAAGATACTCCTGCTTTTGGCGG
+Tax5        CCATCTCACGGTCGGTAAGATACACCTGCTTTTGGCGG
+
+GAAATGGTCAATATTACAAGGT
+GAAATGGTCAACATTAAAAGAT
+GAAATCGTCAATATTAAAAGGT
+GAAATGGTCAATCTTAAAAGGT
+GAAATGGTCAATATTAAAAGGT
+</pre>
+
+The same data set in sequential format:
+<br>
+<pre>
+5 60
+Tax1        CCATCTCACGGTCGGTACGATACACCTGCTTTTGGCAGGAAATGGTCAATATTACAAGGT
+Tax2        CCATCTCACGGTCAGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAACATTAAAAGAT
+Tax3        CCATCTCCCGCTCAGTAAGATACCCCTGCTGTTGGCGGGAAATCGTCAATATTAAAAGGT
+Tax4        TCATCTCATGGTCAATAAGATACTCCTGCTTTTGGCGGGAAATGGTCAATCTTAAAAGGT
+Tax5        CCATCTCACGGTCGGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAATATTAAAAGGT
+</pre>
+
+<br>On the first line is the number of taxa, a space, then the number of characters for each taxon.
+<br><br>
+The maximum number of characters in species name MUST not exceed 50. Blanks within the species name are NOT allowed. However, blanks (one or more) MUST appear at the end of each species name.
+<br><br>
+In a sequence, three special characters '.', '-', and '?' may be used: a dot '.' means the same character as in the first sequence, a dash '-' means an alignment gap and a question mark '?' means an undetermined nucleotide. Sites at which one or more sequences involve '-' are NOT excluded from the analysis. Therefore, gaps are treated as unknown character (like '?') on the grounds that ''we don't know what would be there if something were there'' (J. Felsenstein, PHYLIP documentation). Finally, standard ambiguity characters for nucleotides are accepted (Table 1).
+<br>
+<br>
+
+<center>
+
+<table>
+<tr valign="top">
+<td>
+
+<table border cols=2>
+<caption> Table 1 - Nucleotide character coding </caption>
+<tr> <td align="center"> Character </td> <td align="center"> Nucleotide </td> </tr>
+
+<tr> <td align="center"> A </td> <td align="center"> Adenosine </td> </tr>
+<tr> <td align="center"> G </td> <td align="center"> Guanine </td> </tr>
+<tr> <td align="center"> C </td> <td align="center"> Cytosine </td> </tr>
+<tr> <td align="center"> T </td> <td align="center"> Thymine </td> </tr>
+<tr> <td align="center"> U </td> <td align="center"> Uracil </td> </tr>
+
+<tr> <td align="center"> M </td> <td align="center"> A or C </td> </tr>
+<tr> <td align="center"> R </td> <td align="center"> A or G </td> </tr>
+<tr> <td align="center"> W </td> <td align="center"> A or T </td> </tr>
+
+<tr> <td align="center"> S </td> <td align="center"> C or G </td> </tr>
+<tr> <td align="center"> Y </td> <td align="center"> C or T </td> </tr>
+<tr> <td align="center"> K </td> <td align="center"> G or T </td> </tr>
+
+<tr> <td align="center"> B </td> <td align="center"> C or G or T </td> </tr>
+<tr> <td align="center"> D </td> <td align="center"> A or G or T </td> </tr>
+<tr> <td align="center"> H </td> <td align="center"> A or C or T </td> </tr>
+
+<tr> <td align="center"> V </td> <td align="center"> A or C or G </td> </tr>
+<tr> <td align="center"> N or X or ? </td> <td align="center"> unknown </td> </tr>
+</table>
+
+</td>
+<td>
+
+<table border cols=2>
+<caption> Table 2 - Amino-acid character coding </caption>
+<tr> <td align="center"> Character </td> <td align="center"> Amino-acid </td> </tr>
+
+<tr> <td align="center"> A </td> <td align="center"> Alanine </td> </tr>
+<tr> <td align="center"> R </td> <td align="center"> Arginine </td> </tr>
+<tr> <td align="center"> N or B </td> <td align="center"> Asparagine </td> </tr>
+
+<tr> <td align="center"> D </td> <td align="center"> Aspartic acid </td> </tr>
+<tr> <td align="center"> C </td> <td align="center"> Cysteine </td> </tr>
+<tr> <td align="center"> Q or Z </td> <td align="center"> Glutamine </td> </tr>
+
+<tr> <td align="center"> E </td> <td align="center"> Glutamic acid </td> </tr>
+<tr> <td align="center"> G </td> <td align="center"> Glycine </td> </tr>
+<tr> <td align="center"> H </td> <td align="center"> Histidine </td> </tr>
+
+<tr> <td align="center"> I </td> <td align="center"> Isoleucine </td> </tr>
+<tr> <td align="center"> L </td> <td align="center"> Leucine </td> </tr>
+<tr> <td align="center"> K </td> <td align="center"> Lysine </td> </tr>
+
+<tr> <td align="center"> M </td> <td align="center"> Methionine </td> </tr>
+<tr> <td align="center"> F </td> <td align="center"> Phenylalanine </td> </tr>
+<tr> <td align="center"> P </td> <td align="center"> Proline </td> </tr>
+
+<tr> <td align="center"> S </td> <td align="center"> Serine </td> </tr>
+<tr> <td align="center"> T </td> <td align="center"> Threonine </td> </tr>
+<tr> <td align="center"> W </td> <td align="center"> Tryptophan </td> </tr>
+
+<tr> <td align="center"> Y </td> <td align="center"> Tyrosine </td> </tr>
+<tr> <td align="center"> V </td> <td align="center"> Valine </td> </tr>
+<tr> <td align="center"> X or ? </td> <td align="center"> unknown </td> </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</center>
+
+
+
+<br><br><li><strong>Data type</strong><br>
+This indicates if the sequence file contains DNA or amino-acids. The default choice is to analyse DNA sequences.
+
+
+
+<br><br><li><strong>Sequence format</strong><br>
+The input sequences can be either in interleaved (default) or sequential format, see "Sequences" above.
+
+
+
+<br><br><li><strong>Number of data sets</strong><br>
+Multiple data sets are allowed, e.g. to perform bootstrap analysis using SEQBOOT (from the PHYLIP package). In this case, the data sets are given one after the other, in the formats above explained. For example (with three data sets):
+<pre>
+5 60
+Tax1        CCATCTCACGGTCGGTACGATACACCTGCTTTTGGCAGGAAATGGTCAATATTACAAGGT
+Tax2        CCATCTCACGGTCAGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAACATTAAAAGAT
+Tax3        CCATCTCCCGCTCAGTAAGATACCCCTGCTGTTGGCGGGAAATCGTCAATATTAAAAGGT
+Tax4        TCATCTCATGGTCAATAAGATACTCCTGCTTTTGGCGGGAAATGGTCAATCTTAAAAGGT
+Tax5        CCATCTCACGGTCGGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAATATTAAAAGGT
+
+5 60
+Tax1        CCATCTCACGGTCGGTACGATACACCTGCTTTTGGCAGGAAATGGTCAATATTACAAGGT
+Tax2        CCATCTCACGGTCAGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAACATTAAAAGAT
+Tax3        CCATCTCCCGCTCAGTAAGATACCCCTGCTGTTGGCGGGAAATCGTCAATATTAAAAGGT
+Tax4        TCATCTCATGGTCAATAAGATACTCCTGCTTTTGGCGGGAAATGGTCAATCTTAAAAGGT
+Tax5        CCATCTCACGGTCGGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAATATTAAAAGGT
+
+5 60
+Tax1        CCATCTCACGGTCGGTACGATACACCTGCTTTTGGCAGGAAATGGTCAATATTACAAGGT
+Tax2        CCATCTCACGGTCAGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAACATTAAAAGAT
+Tax3        CCATCTCCCGCTCAGTAAGATACCCCTGCTGTTGGCGGGAAATCGTCAATATTAAAAGGT
+Tax4        TCATCTCATGGTCAATAAGATACTCCTGCTTTTGGCGGGAAATGGTCAATCTTAAAAGGT
+Tax5        CCATCTCACGGTCGGTAAGATACACCTGCTTTTGGCGGGAAATGGTCAATATTAAAAGGT
+</pre>
+
+
+
+<br><br><li><strong>Perform bootstrap and Number of pseudo data sets</strong><br>
+When there is only one data set you can ask PHYML to generate bootstrapped pseudo data sets from this original data set. PHYML then returns the bootstrap tree with branch lengths and bootstrap values, using standard NEWICK format. The "Print pseudo trees" option gives the pseudo trees in a *_boot_trees.txt file.
+
+
+
+
+<br><br><a name="models"></a><li><strong>Substitution model</strong><br>
+A nucleotide or amino-acid substitution model.
+For DNA sequences, the default choice is HKY85 (Hasegawa et al., 1985). This model is analogous to K80 (Kimura, 1980), but allows for different base frequencies. The other models are JC69 (Jukes and Cantor, 1969), K80 (Kimura, 1980), F81 (Felsenstein, 1981), F84 (Felsenstein, 1989), TN93 (Tamura and Nei, 1993) and GTR (e.g., Lanave et al. 1984, Tavar&eacute; 1986, Rodriguez et al. 1990). The rate matrices of these models are given in Swofford et al. (1996).
+<br>It is also possible to specify a custom substitution model, considering that six substitution rate parameters and four equilibrium frequencies define time-reversible DNA substitution models. The substitution rates are defined by a string of six digits :
+<center><table border=1>
+<tr><td>digit 1<td>digit 2<td>digit 3<td>digit 4<td>digit 5<td>digit 6</tr>
+<tr><td>A&lt;-&gt;C<td>A&lt;-&gt;G<td>A&lt;-&gt;T<td>C&lt;-&gt;G<td>C&lt;-&gt;T<td>G&lt;-&gt;T</tr>
+</table></center>
+<br>000000 defines a model where the six relative rate parameters are equal : this corresponds to the JC69 model if the equilibrium frequencies are equal (0.25), or the F81 model if they are different.
+<br>010010 corresponds to a model where the A&lt;-&gt;G and C&lt;-&gt;T rates are optimised independently of the other parameters : this is the K80 model if base frequencies are equal (0.25), or the HKY85 model if they are different. 010020 is the TN93 model. 012345 is the GTR model. This notation is very concise and allows to define a wide range of models in a comprehensive framework.
+For amino-acid sequences, the default choice is JTT (Jones, Taylor and
+Thornton, 1992). The other models are Dayhoff (Dayhoff et al., 1978),
+mtREV (as implemented in Yang's PAML), WAG (Whelan and Goldman, 2001)
+and DCMut (Kosiol and Goldman, 2005),  RtREV (Dimmic et al.), CpREV (Adachi et al., 2000)
+VT (Muller and Vingron, 2000), Blosum62 (Henikoff anf Henikoff, 1992) and
+MtMam (Cao, 1998).
+
+
+<br><br><li><strong>Base frequency estimates</strong><br>
+Under most of the nucleotide based models (except JC69 and K2P), base frequencies can be
+estimated from the data (empirical) or adjusted so as to maximise
+the likelihood (ML). The later makes the program slower. Comparing the
+results obtained under the two options might be useful when analysing sequences that correspond
+to concatenations of several genes with different nucleotide compositions.
+
+<br><br><li><strong>Transition / transversion ratio</strong><br>
+With DNA sequences, it is possible to set the transition/transversion ratio, except for the JC69 and F81 models, or to estimate its value by maximising the likelihood of the phylogeny. The later makes the program slower. The default value is 4.0. The definition of the transition/transversion ratio is the same as in PAML (Yang, 1994). In PHYLIP, the ''transition/transversion rate ratio'' is used instead. 4.0 in PHYML roughly corresponds to 2.0 in PHYLIP.
+
+
+
+<br><br><li><strong>Proportion of invariable sites</strong><br>
+The default is to consider that the data set does not contain invariable sites (0.0). However, this proportion can be set to any value in the 0.0-1.0 range. This parameter can also be estimated by maximising the likelihood of the phylogeny. The later makes the program slower.
+
+
+
+<br><br><li><strong>Number of substitution rate categories</strong><br>
+The default is having all the sites evolving at the same rate, hence having one substitution rate category. A discrete-gamma distribution can be used to account for variable substitution rates among sites, in which case the number of categories that defines this distribution is supplied by the user. The higher this number, the better is the goodness-of-fit regarding the continuous distribution. The default is to use four categories, in this case the likelihood of the phylogeny at one site is averaged over four conditional likelihoods corresponding to four rates and the computation of the likelihood is four times slower than with a unique rate. Number of categories less than four or higher than eight are not recommended. In the first case, the discrete distribution is a poor approximation of the continuous one. In the second case, the computational burden becomes high and an higher number of categories is not likely to enhance the accuracy of phylogeny estimation.
+
+
+
+<br><br><li><strong>Gamma distribution parameter</strong><br>
+The shape of a gamma distribution is defined by this numerical parameter. The higher its value, the lower the variation of substitution rates among sites (this option is used when having more than 1 substitution rate category). The default value is 1.0. It corresponds to a moderate variation. Values less than say 0.7 correspond to high variations. Values between 0.7 and 1.5 corresponds to moderate variations. Higher values correspond to low variations. This value can be fixed by the user. It can also be estimated by maximising the likelihood of the phylogeny.
+
+
+
+
+
+
+
+<br><br><li><strong>Starting tree(s)</strong><br>
+Used as the starting tree(s) to be refined by the maximum likelihood algorithm. The default is to use a BIONJ distance-based tree. It is also possible to supply one or several trees in NEWICK format, one per line in the file, which must be written in the standard parenthesis representation (NEWICK format) ; the branch lengths must be given, and the tree(s) must be unrooted. Labels on branches (such as bootstrap proportions) are supported. Therefore, a tree with four taxa named A, B, C, and D with a bootstrap value equal to 90 on its internal branch, should look like this:
+<br>
+<tt>
+(A:0.02,B:0.004,(C:0.1,D:0.04)90:0.05);
+</tt>
+<br>If you give several trees and analyse several data sets the two numbers must match.
+
+
+
+<br><br><li><strong>Optimise starting tree(s) options</strong><br>
+    You can optimise the starting tree(s) in three ways :
+-   You can optimise the topology, the branch lengths and rate parameters (transition/transversion ratio, proportion of invariant sites, gamma distribution parameter),
+-   You can keep the topology and optimise the branch lengths and rate parameters (it is not possible to optimise the tree topology and keep the branch lengths),
+-   You can ask for no optimisation, PHYML just returns the likelihood of the starting tree(s).
+
+
+
+
+</td>
+<td class="box-right"></td>
+</tr>
+
+<tr height="10">
+<td class="box-bottom-left"></td>
+<td class="box-bottom"></td>
+<td class="box-bottom-right"></td>
+</td>
+</tr>
+</table>
+
+
+
+
+<table class="grey-box" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr height="10">
+<td class="box-top-left"></td>
+<td class="box-top"></td>
+<td class="box-top-right"></td>
+</tr>
+
+<tr>
+<td class="box-left"></td>
+<td class="top">
+
+
+<h4>References</h4>
+
+<font size="-1"> 
+
+
+<li> Z.&nbsp;Yang (1994)
+<em>J. Mol. Evol.</em>&nbsp;<b>39</b>,&nbsp;306-14. </li> 
+<li> S.&nbsp;Ota &amp; W.-H. Li (2001)
+
+<em>Mol. Biol. Evol.</em>&nbsp;<b>  18</b>,&nbsp;1983-1992. </li>
+<li> N.&nbsp;Saitou &amp; M.&nbsp;Nei (1987)
+<em>Mol. Biol. Evol.</em>&nbsp;<b>  4</b>(4),&nbsp;406-425. </li>
+
+<li> W.&nbsp;Bruno, N.&nbsp;D. Socci, &amp; A.&nbsp;L. Halpern (2000) <em>Mol. Biol.
+  Evol.</em>&nbsp;<b>17</b>,&nbsp;189-197. </li>
+<li> J.&nbsp;Felsenstein (1989)
+<em>Cladistics</em>&nbsp;<b>5</b>,&nbsp;164-166. </li>
+
+<li> G.&nbsp;J. Olsen, H.&nbsp;Matsuda, R.&nbsp;Hagstrom, &amp;
+R.&nbsp;Overbeek (1994) <em>  CABIOS</em>&nbsp;<b>10</b>,&nbsp;41-48. </li>
+<li> N.&nbsp;Goldman (1993)
+
+<em>J. Mol. Evol.</em>&nbsp;<b>36</b>,&nbsp;182-198. </li>
+<li> M.&nbsp;Kimura (1980)
+<em>J. Mol. Evol.</em>&nbsp;<b>16</b>,&nbsp;111-120. </li>
+<li> T.&nbsp;H. Jukes &amp; C.&nbsp;R. Cantor (1969) in <em>Mammalian Protein
+  Metabolism</em>,  ed. H.&nbsp;N. Munro.  (Academic Press, New York) Vol. III,  pp.
+  21-132. </li>
+
+<li> M.&nbsp;Hasegawa, H.&nbsp;Kishino, &amp; T.&nbsp;Yano (1985)
+<em>J. Mol. Evol.</em>&nbsp;<b>  22</b>,&nbsp;160-174. </li>
+<li> J.&nbsp;Felsenstein (1981)
+<em>J. Mol. Evol.</em>&nbsp;<b>17</b>,&nbsp;368-376. </li>
+
+<li> David&nbsp;L. Swofford, Gary&nbsp;J. Olsen, Peter&nbsp;J. Waddel, &amp; David&nbsp;M. Hillis
+  (1996) in <em>Molecular Systematics</em>,  eds. David&nbsp;M. Hillis, Craig Moritz,
+  &amp; Barbara&nbsp;K. Mable.  (Sinauer Associates, Inc., Sunderland, Massachusetts,
+  USA). </li>
+<li> K.&nbsp;Tamura &amp; M.&nbsp;Nei (1993)
+
+<em>Mol. Biol. Evol.</em>&nbsp;<b>10</b>,&nbsp;512-526. </li>
+
+<li>Lanave C, Preparata G., Saccone C. and Serio G.. (1984) A new method for calculating evolutionary substitution rates. <em>J. Mol. Evol.</em> <b>20</b>,&nbsp;86-93.
+</li>
+
+<li> Dayhoff, M. O., R. M. Schwartz, and B. C. Orcutt. (1978). A model
+of evolutionary change in proteins. In: Dayhoff, M. O. (ed.) Atlas of
+Protein Sequence Structur, Vol. 5, Suppl. 3. National Biomedical
+Research Foundation, Washington DC, pp. 345-352.
+</li>
+
+<li>Jones, D. T., W. R. Taylor, and J. M. Thornton. 1992. The rapid generation of mutation data matrices from protein sequences. <i>CABIOS</i> <b>8</b>:
+275-282.
+</li>
+
+<li> S. Whelan and N. Goldman. (2001). A general empirical model of protein evolution derived from multiple protein families using a maximum-likelihood approach <i>Mol. Biol. Evol.</i> <b>18</b>, 691-699
+</li>
+
+<li> Dimmic M.W., J.S. Rest, D.P. Mindell, and D. Goldstein. 2002. RArtREV:
+    An amino acid substitution matrix for inference of retrovirus and
+    reverse transcriptase phylogeny. <i>Journal of Molecular Evolution
+</i> <b>55</b>: 65-73. </li>
+
+<li>  Adachi, J., P. Waddell, W. Martin, and M. Hasegawa. 2000. Plastid
+      genome phylogeny and a model of amino acid substitution for proteins
+      encoded by chloroplast DNA.<i> Journal of Molecular Evolution</i>
+      <b>50</b>:348-358.
+</li>
+
+<li>  Muller, T., and M. Vingron. 2000. Modeling amino acid replacement.
+      <i>Journal of Computational Biology</i> <b>7</b>:761-776.
+ </li>
+
+<li>  Henikoff, S., and J. G. Henikoff. 1992. Amino acid substitution
+      matrices from protein blocks. <i>Proc. Natl. Acad. Sci., U.S.A.</i>
+      <b>89</b>:10915-10919.
+</li>
+
+<li>  Cao, Y. et al. 1998 Conflict amongst individual mitochondrial
+      proteins in resolving the phylogeny of eutherian orders. <i> Journal
+      of Molecular Evolution </i> <b>15</b>:1600-1611.
+</li>
+
+</font>
+
+</td>
+<td class="box-right"></td>
+</tr>
+
+<tr height="10">
+<td class="box-bottom-left"></td>
+<td class="box-bottom"></td>
+<td class="box-bottom-right"></td>
+
+</tr>
+</tbody></table>
+
+
+</body></html>

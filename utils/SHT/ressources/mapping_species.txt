@@ -1,0 +1,453 @@
+Drosophila melanogaster	DROSOPHILAMELANOGASTER*
+Caenorhabditis elegans strain N2	CAENORHABDITISELEGANSSTRAINN2*
+Ecdysozoa	ECDYSOZOA
+Ciona intestinalis	CIONAINTESTINALIS*
+Ciona savignyi	CIONASAVIGNYI*
+Ciona	CIONA
+Eptatretus burgeri	EPTATRETUSBURGERI*
+Petromyzon marinus	PETROMYZONMARINUS*
+Cyclostomata	CYCLOSTOMATA
+Astyanax mexicanus Astyanax_mexicanus-2.0	ASTYANAXMEXICANUSASTYANAXMEXICANUS2.0*
+Astyanax mexicanus Astyanax_mexicanus-1.0.2	ASTYANAXMEXICANUSASTYANAXMEXICANUS1.0.2*
+Astyanax mexicanus	ASTYANAXMEXICANUS
+Pygocentrus nattereri	PYGOCENTRUSNATTERERI*
+Characoidei	CHARACOIDEI
+Electrophorus electricus	ELECTROPHORUSELECTRICUS*
+Characiphysae	CHARACIPHYSAE
+Ictalurus punctatus	ICTALURUSPUNCTATUS*
+Characiphysae	CHARACIPHYSAE
+Danio rerio	DANIORERIO*
+Otophysi	OTOPHYSI
+Clupea harengus	CLUPEAHARENGUS*
+Denticeps clupeoides	DENTICEPSCLUPEOIDES*
+Clupeiformes	CLUPEIFORMES
+Otomorpha	OTOMORPHA
+Fundulus heteroclitus	FUNDULUSHETEROCLITUS*
+Cyprinodon variegatus	CYPRINODONVARIEGATUS*
+Cyprinodontoidei	CYPRINODONTOIDEI
+Xiphophorus maculatus	XIPHOPHORUSMACULATUS*
+Xiphophorus couchianus	XIPHOPHORUSCOUCHIANUS*
+Xiphophorus	XIPHOPHORUS
+Gambusia affinis	GAMBUSIAAFFINIS*
+Poeciliinae	POECILIINAE
+Poecilia latipinna	POECILIALATIPINNA*
+Poecilia formosa	POECILIAFORMOSA*
+Poecilia	POECILIA
+Poecilia mexicana	POECILIAMEXICANA*
+Poecilia	POECILIA
+Poecilia reticulata	POECILIARETICULATA*
+Poecilia	POECILIA
+Poeciliinae	POECILIINAE
+Cyprinodontoidei	CYPRINODONTOIDEI
+Kryptolebias marmoratus	KRYPTOLEBIASMARMORATUS*
+Cyprinodontiformes	CYPRINODONTIFORMES
+Oryzias latipes ASM223467v1	ORYZIASLATIPESASM223467V1*
+Oryzias latipes ASM223471v1	ORYZIASLATIPESASM223471V1*
+Oryzias latipes	ORYZIASLATIPES
+Oryzias latipes ASM223469v1	ORYZIASLATIPESASM223469V1*
+Oryzias latipes	ORYZIASLATIPES
+Oryzias melastigma	ORYZIASMELASTIGMA*
+Oryzias	ORYZIAS
+Atherinomorphae	ATHERINOMORPHAE
+Gouania willdenowi	GOUANIAWILLDENOWI*
+Ovalentaria	OVALENTARIA
+Amphiprion percula	AMPHIPRIONPERCULA*
+Amphiprion ocellaris	AMPHIPRIONOCELLARIS*
+Amphiprion	AMPHIPRION
+Acanthochromis polyacanthus	ACANTHOCHROMISPOLYACANTHUS*
+Pomacentridae	POMACENTRIDAE
+Stegastes partitus	STEGASTESPARTITUS*
+Pomacentridae	POMACENTRIDAE
+Parambassis ranga	PARAMBASSISRANGA*
+Ovalentaria incertae sedis	OVALENTARIAINCERTAESEDIS
+Maylandia zebra	MAYLANDIAZEBRA*
+Astatotilapia calliptera	ASTATOTILAPIACALLIPTERA*
+Haplochromini	HAPLOCHROMINI
+Pundamilia nyererei	PUNDAMILIANYEREREI*
+Haplochromini	HAPLOCHROMINI
+Haplochromis burtoni	HAPLOCHROMISBURTONI*
+Haplochromini	HAPLOCHROMINI
+Neolamprologus brichardi	NEOLAMPROLOGUSBRICHARDI*
+Pseudocrenilabrinae	PSEUDOCRENILABRINAE
+Oreochromis niloticus	OREOCHROMISNILOTICUS*
+Pseudocrenilabrinae	PSEUDOCRENILABRINAE
+Amphilophus citrinellus	AMPHILOPHUSCITRINELLUS*
+Cichlidae	CICHLIDAE
+Ovalentaria	OVALENTARIA
+Ovalentaria	OVALENTARIA
+Tetraodon nigroviridis	TETRAODONNIGROVIRIDIS*
+Takifugu rubripes	TAKIFUGURUBRIPES*
+Tetraodontidae	TETRAODONTIDAE
+Mola mola	MOLAMOLA*
+Tetraodontiformes	TETRAODONTIFORMES
+Cottoperca gobio	COTTOPERCAGOBIO*
+Gasterosteus aculeatus	GASTEROSTEUSACULEATUS*
+Perciformes	PERCIFORMES
+Larimichthys crocea	LARIMICHTHYSCROCEA*
+Eupercaria	EUPERCARIA
+Labrus bergylta	LABRUSBERGYLTA*
+Eupercaria	EUPERCARIA
+Eupercaria	EUPERCARIA
+Cynoglossus semilaevis	CYNOGLOSSUSSEMILAEVIS*
+Scophthalmus maximus	SCOPHTHALMUSMAXIMUS*
+Pleuronectoidei	PLEURONECTOIDEI
+Seriola dumerili	SERIOLADUMERILI*
+Seriola lalandi dorsalis	SERIOLALALANDIDORSALIS*
+Seriola	SERIOLA
+Lates calcarifer	LATESCALCARIFER*
+Carangaria	CARANGARIA
+Carangaria	CARANGARIA
+Mastacembelus armatus	MASTACEMBELUSARMATUS*
+Monopterus albus	MONOPTERUSALBUS*
+Synbranchiformes	SYNBRANCHIFORMES
+Anabas testudineus	ANABASTESTUDINEUS*
+Betta splendens	BETTASPLENDENS*
+Anabantoidei	ANABANTOIDEI
+Anabantaria	ANABANTARIA
+Percomorphaceae	PERCOMORPHACEAE
+Percomorphaceae	PERCOMORPHACEAE
+Percomorphaceae	PERCOMORPHACEAE
+Hippocampus comes	HIPPOCAMPUSCOMES*
+Percomorphaceae	PERCOMORPHACEAE
+Periophthalmus magnuspinnatus	PERIOPHTHALMUSMAGNUSPINNATUS*
+Percomorphaceae	PERCOMORPHACEAE
+Gadus morhua	GADUSMORHUA*
+Acanthomorphata	ACANTHOMORPHATA
+Hucho hucho	HUCHOHUCHO*
+Esox lucius	ESOXLUCIUS*
+Protacanthopterygii	PROTACANTHOPTERYGII
+Euteleosteomorpha	EUTELEOSTEOMORPHA
+Clupeocephala	CLUPEOCEPHALA
+Scleropages formosus	SCLEROPAGESFORMOSUS*
+Paramormyrops kingsleyae	PARAMORMYROPSKINGSLEYAE*
+Osteoglossiformes	OSTEOGLOSSIFORMES
+Osteoglossocephalai	OSTEOGLOSSOCEPHALAI
+Lepisosteus oculatus	LEPISOSTEUSOCULATUS*
+Neopterygii	NEOPTERYGII
+Erpetoichthys calabaricus	ERPETOICHTHYSCALABARICUS*
+Actinopterygii	ACTINOPTERYGII
+Erinaceus europaeus	ERINACEUSEUROPAEUS*
+Sorex araneus	SOREXARANEUS*
+Eulipotyphla	EULIPOTYPHLA
+Pteropus vampyrus	PTEROPUSVAMPYRUS*
+Myotis lucifugus	MYOTISLUCIFUGUS*
+Chiroptera	CHIROPTERA
+Equus caballus	EQUUSCABALLUS*
+Equus asinus asinus	EQUUSASINUSASINUS*
+Equus	EQUUS
+Laurasiatheria	LAURASIATHERIA
+Ursus maritimus	URSUSMARITIMUS*
+Ursus americanus	URSUSAMERICANUS*
+Ursus	URSUS
+Ailuropoda melanoleuca	AILUROPODAMELANOLEUCA*
+Ursidae	URSIDAE
+Mustela putorius furo	MUSTELAPUTORIUSFURO*
+Neovison vison	NEOVISONVISON*
+Mustelinae	MUSTELINAE
+Caniformia	CANIFORMIA
+Canis lupus dingo	CANISLUPUSDINGO*
+Canis lupus familiaris	CANISLUPUSFAMILIARIS*
+Canis lupus	CANISLUPUS
+Vulpes vulpes	VULPESVULPES*
+Canidae	CANIDAE
+Caniformia	CANIFORMIA
+Panthera pardus	PANTHERAPARDUS*
+Panthera tigris altaica	PANTHERATIGRISALTAICA*
+Panthera	PANTHERA
+Felis catus	FELISCATUS*
+Felidae	FELIDAE
+Carnivora	CARNIVORA
+Laurasiatheria	LAURASIATHERIA
+Ovis aries	OVISARIES*
+Capra hircus	CAPRAHIRCUS*
+Caprinae	CAPRINAE
+Bos indicus x Bos taurus UOA_Brahman_1	BOSINDICUSXBOSTAURUSUOABRAHMAN1*
+Bos indicus x Bos taurus UOA_Angus_1	BOSINDICUSXBOSTAURUSUOAANGUS1*
+Bos indicus x Bos taurus	BOSINDICUSXBOSTAURUS
+Bos taurus	BOSTAURUS*
+Bos	BOS
+Bos mutus	BOSMUTUS*
+Bos	BOS
+Bison bison bison	BISONBISONBISON*
+Bovinae	BOVINAE
+Bovidae	BOVIDAE
+Tursiops truncatus	TURSIOPSTRUNCATUS*
+Cetartiodactyla	CETARTIODACTYLA
+Vicugna pacos	VICUGNAPACOS*
+Cetartiodactyla	CETARTIODACTYLA
+Sus scrofa strain jinhua	SUSSCROFASTRAINJINHUA*
+Sus scrofa strain meishan	SUSSCROFASTRAINMEISHAN*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain rongchang	SUSSCROFASTRAINRONGCHANG*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain tibetan	SUSSCROFASTRAINTIBETAN*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain bamei	SUSSCROFASTRAINBAMEI*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain wuzhishan	SUSSCROFASTRAINWUZHISHAN*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain reference	SUSSCROFASTRAINREFERENCE*
+Sus scrofa strain usmarc	SUSSCROFASTRAINUSMARC*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain largewhite	SUSSCROFASTRAINLARGEWHITE*
+Sus scrofa strain pietrain	SUSSCROFASTRAINPIETRAIN*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain hampshire	SUSSCROFASTRAINHAMPSHIRE*
+Sus scrofa strain berkshire	SUSSCROFASTRAINBERKSHIRE*
+Sus scrofa	SUSSCROFA
+Sus scrofa strain landrace	SUSSCROFASTRAINLANDRACE*
+Sus scrofa	SUSSCROFA
+Sus scrofa	SUSSCROFA
+Sus scrofa	SUSSCROFA
+Sus scrofa	SUSSCROFA
+Cetartiodactyla	CETARTIODACTYLA
+Laurasiatheria	LAURASIATHERIA
+Laurasiatheria	LAURASIATHERIA
+Cavia porcellus	CAVIAPORCELLUS*
+Cavia aperea	CAVIAAPEREA*
+Cavia	CAVIA
+Chinchilla lanigera	CHINCHILLALANIGERA*
+Hystricomorpha	HYSTRICOMORPHA
+Octodon degus	OCTODONDEGUS*
+Hystricomorpha	HYSTRICOMORPHA
+Heterocephalus glaber HetGla_female_1.0	HETEROCEPHALUSGLABERHETGLAFEMALE1.0*
+Heterocephalus glaber HetGla_1.0	HETEROCEPHALUSGLABERHETGLA1.0*
+Heterocephalus glaber	HETEROCEPHALUSGLABER
+Fukomys damarensis	FUKOMYSDAMARENSIS*
+Bathyergidae	BATHYERGIDAE
+Hystricomorpha	HYSTRICOMORPHA
+Urocitellus parryii	UROCITELLUSPARRYII*
+Spermophilus dauricus	SPERMOPHILUSDAURICUS*
+Marmotini	MARMOTINI
+Ictidomys tridecemlineatus	ICTIDOMYSTRIDECEMLINEATUS*
+Marmotini	MARMOTINI
+Marmota marmota marmota	MARMOTAMARMOTAMARMOTA*
+Marmotini	MARMOTINI
+Rodentia	RODENTIA
+Dipodomys ordii	DIPODOMYSORDII*
+Castor canadensis	CASTORCANADENSIS*
+Castorimorpha	CASTORIMORPHA
+Rodentia	RODENTIA
+Mus spicilegus	MUSSPICILEGUS*
+Mus spretus strain SPRET/EiJ	MUSSPRETUSSTRAINSPRETEIJ*
+Mus	MUS
+Mus musculus strain reference CL57BL6	MUSMUSCULUSSTRAINREFERENCECL57BL6*
+Mus musculus strain C57BL/6NJ	MUSMUSCULUSSTRAINC57BL6NJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus strain NZO/HlLtJ	MUSMUSCULUSSTRAINNZOHLLTJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus strain A/J	MUSMUSCULUSSTRAINAJ*
+Mus musculus strain BALB/cJ	MUSMUSCULUSSTRAINBALBCJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus strain C3H/HeJ	MUSMUSCULUSSTRAINC3HHEJ*
+Mus musculus strain CBA/J	MUSMUSCULUSSTRAINCBAJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus strain DBA/2J	MUSMUSCULUSSTRAINDBA2J*
+Mus musculus	MUSMUSCULUS
+Mus musculus	MUSMUSCULUS
+Mus musculus strain AKR/J	MUSMUSCULUSSTRAINAKRJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus strain FVB/NJ	MUSMUSCULUSSTRAINFVBNJ*
+Mus musculus strain NOD/ShiLtJ	MUSMUSCULUSSTRAINNODSHILTJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus	MUSMUSCULUS
+Mus musculus	MUSMUSCULUS
+Mus musculus strain 129S1/SvImJ	MUSMUSCULUSSTRAIN129S1SVIMJ*
+Mus musculus strain LP/J	MUSMUSCULUSSTRAINLPJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus	MUSMUSCULUS
+Mus musculus domesticus strain WSB/EiJ	MUSMUSCULUSDOMESTICUSSTRAINWSBEIJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus musculus strain PWK/PhJ	MUSMUSCULUSMUSCULUSSTRAINPWKPHJ*
+Mus musculus	MUSMUSCULUS
+Mus musculus castaneus strain CAST/EiJ	MUSMUSCULUSCASTANEUSSTRAINCASTEIJ*
+Mus musculus	MUSMUSCULUS
+Mus	MUS
+Mus caroli strain CAROLI_EIJ	MUSCAROLISTRAINCAROLIEIJ*
+Mus	MUS
+Mus pahari strain PAHARI_EIJ	MUSPAHARISTRAINPAHARIEIJ*
+Mus	MUS
+Rattus norvegicus	RATTUSNORVEGICUS*
+Murinae	MURINAE
+Meriones unguiculatus	MERIONESUNGUICULATUS*
+Muridae	MURIDAE
+Cricetulus griseus CHOK1GS_HDv1	CRICETULUSGRISEUSCHOK1GSHDV1*
+Cricetulus griseus CriGri_1.0	CRICETULUSGRISEUSCRIGRI1.0*
+Cricetulus griseus	CRICETULUSGRISEUS
+Cricetulus griseus CriGri-PICR	CRICETULUSGRISEUSCRIGRIPICR*
+Cricetulus griseus	CRICETULUSGRISEUS
+Mesocricetus auratus	MESOCRICETUSAURATUS*
+Cricetinae	CRICETINAE
+Peromyscus maniculatus bairdii	PEROMYSCUSMANICULATUSBAIRDII*
+Cricetidae	CRICETIDAE
+Microtus ochrogaster	MICROTUSOCHROGASTER*
+Cricetidae	CRICETIDAE
+Muroidea	MUROIDEA
+Nannospalax galili	NANNOSPALAXGALILI*
+Muroidea	MUROIDEA
+Jaculus jaculus	JACULUSJACULUS*
+Myomorpha	MYOMORPHA
+Rodentia	RODENTIA
+Oryctolagus cuniculus	ORYCTOLAGUSCUNICULUS*
+Ochotona princeps	OCHOTONAPRINCEPS*
+Lagomorpha	LAGOMORPHA
+Glires	GLIRES
+Pan troglodytes	PANTROGLODYTES*
+Pan paniscus	PANPANISCUS*
+Pan	PAN
+Homo sapiens	HOMOSAPIENS*
+Homininae	HOMININAE
+Gorilla gorilla gorilla	GORILLAGORILLAGORILLA*
+Homininae	HOMININAE
+Pongo abelii	PONGOABELII*
+Hominidae	HOMINIDAE
+Nomascus leucogenys	NOMASCUSLEUCOGENYS*
+Hominoidea	HOMINOIDEA
+Piliocolobus tephrosceles	PILIOCOLOBUSTEPHROSCELES*
+Colobus angolensis palliatus	COLOBUSANGOLENSISPALLIATUS*
+Colobinae	COLOBINAE
+Rhinopithecus roxellana	RHINOPITHECUSROXELLANA*
+Rhinopithecus bieti	RHINOPITHECUSBIETI*
+Rhinopithecus	RHINOPITHECUS
+Colobinae	COLOBINAE
+Cercocebus atys	CERCOCEBUSATYS*
+Mandrillus leucophaeus	MANDRILLUSLEUCOPHAEUS*
+Cercopithecinae	CERCOPITHECINAE
+Papio anubis	PAPIOANUBIS*
+Theropithecus gelada	THEROPITHECUSGELADA*
+Cercopithecinae	CERCOPITHECINAE
+Cercopithecinae	CERCOPITHECINAE
+Macaca fascicularis	MACACAFASCICULARIS*
+Macaca mulatta	MACACAMULATTA*
+Macaca	MACACA
+Macaca nemestrina	MACACANEMESTRINA*
+Macaca	MACACA
+Cercopithecinae	CERCOPITHECINAE
+Chlorocebus sabaeus	CHLOROCEBUSSABAEUS*
+Cercopithecinae	CERCOPITHECINAE
+Cercopithecidae	CERCOPITHECIDAE
+Catarrhini	CATARRHINI
+Cebus capucinus imitator	CEBUSCAPUCINUSIMITATOR*
+Saimiri boliviensis boliviensis	SAIMIRIBOLIVIENSISBOLIVIENSIS*
+Cebidae	CEBIDAE
+Callithrix jacchus	CALLITHRIXJACCHUS*
+Cebidae	CEBIDAE
+Aotus nancymaae	AOTUSNANCYMAAE*
+Platyrrhini	PLATYRRHINI
+Simiiformes	SIMIIFORMES
+Carlito syrichta	CARLITOSYRICHTA*
+Haplorrhini	HAPLORRHINI
+Prolemur simus	PROLEMURSIMUS*
+Propithecus coquereli	PROPITHECUSCOQUERELI*
+Lemuriformes	LEMURIFORMES
+Microcebus murinus	MICROCEBUSMURINUS*
+Lemuriformes	LEMURIFORMES
+Otolemur garnettii	OTOLEMURGARNETTII*
+Strepsirrhini	STREPSIRRHINI
+Primates	PRIMATES
+Tupaia belangeri	TUPAIABELANGERI*
+Euarchontoglires	EUARCHONTOGLIRES
+Euarchontoglires	EUARCHONTOGLIRES
+Boreoeutheria	BOREOEUTHERIA
+Loxodonta africana	LOXODONTAAFRICANA*
+Procavia capensis	PROCAVIACAPENSIS*
+Afrotheria	AFROTHERIA
+Echinops telfairi	ECHINOPSTELFAIRI*
+Afrotheria	AFROTHERIA
+Dasypus novemcinctus	DASYPUSNOVEMCINCTUS*
+Choloepus hoffmanni	CHOLOEPUSHOFFMANNI*
+Xenarthra	XENARTHRA
+Eutheria	EUTHERIA
+Eutheria	EUTHERIA
+Vombatus ursinus	VOMBATUSURSINUS*
+Phascolarctos cinereus	PHASCOLARCTOSCINEREUS*
+Diprotodontia	DIPROTODONTIA
+Notamacropus eugenii	NOTAMACROPUSEUGENII*
+Diprotodontia	DIPROTODONTIA
+Sarcophilus harrisii	SARCOPHILUSHARRISII*
+Marsupialia	MARSUPIALIA
+Monodelphis domestica	MONODELPHISDOMESTICA*
+Marsupialia	MARSUPIALIA
+Theria	THERIA
+Ornithorhynchus anatinus	ORNITHORHYNCHUSANATINUS*
+Mammalia	MAMMALIA
+Pogona vitticeps	POGONAVITTICEPS*
+Anolis carolinensis	ANOLISCAROLINENSIS*
+Iguania	IGUANIA
+Notechis scutatus	NOTECHISSCUTATUS*
+Toxicofera	TOXICOFERA
+Salvator merianae	SALVATORMERIANAE*
+Episquamata	EPISQUAMATA
+Sphenodon punctatus	SPHENODONPUNCTATUS*
+Lepidosauria	LEPIDOSAURIA
+Gallus gallus	GALLUSGALLUS*
+Meleagris gallopavo	MELEAGRISGALLOPAVO*
+Phasianidae	PHASIANIDAE
+Coturnix japonica	COTURNIXJAPONICA*
+Phasianidae	PHASIANIDAE
+Numida meleagris	NUMIDAMELEAGRIS*
+Galliformes	GALLIFORMES
+Anas platyrhynchos platyrhynchos	ANASPLATYRHYNCHOSPLATYRHYNCHOS*
+Anser brachyrhynchus	ANSERBRACHYRHYNCHUS*
+Anatidae	ANATIDAE
+Galloanserae	GALLOANSERAE
+Calidris pugnax	CALIDRISPUGNAX*
+Calidris pygmaea	CALIDRISPYGMAEA*
+Calidris	CALIDRIS
+Melopsittacus undulatus	MELOPSITTACUSUNDULATUS*
+Neognathae	NEOGNATHAE
+Cyanistes caeruleus	CYANISTESCAERULEUS*
+Parus major	PARUSMAJOR*
+Paridae	PARIDAE
+Ficedula albicollis	FICEDULAALBICOLLIS*
+Passeriformes	PASSERIFORMES
+Lonchura striata domestica	LONCHURASTRIATADOMESTICA*
+Taeniopygia guttata	TAENIOPYGIAGUTTATA*
+Estrildinae	ESTRILDINAE
+Serinus canaria	SERINUSCANARIA*
+Passeroidea	PASSEROIDEA
+Zonotrichia albicollis	ZONOTRICHIAALBICOLLIS*
+Junco hyemalis	JUNCOHYEMALIS*
+Passerellidae	PASSERELLIDAE
+Passeriformes	PASSERIFORMES
+Passeriformes	PASSERIFORMES
+Lepidothrix coronata	LEPIDOTHRIXCORONATA*
+Manacus vitellinus	MANACUSVITELLINUS*
+Pipridae	PIPRIDAE
+Passeriformes	PASSERIFORMES
+Neognathae	NEOGNATHAE
+Neognathae	NEOGNATHAE
+Apteryx owenii	APTERYXOWENII*
+Apteryx haastii	APTERYXHAASTII*
+Apteryx	APTERYX
+Apteryx rowi	APTERYXROWI*
+Apteryx	APTERYX
+Dromaius novaehollandiae	DROMAIUSNOVAEHOLLANDIAE*
+Palaeognathae	PALAEOGNATHAE
+Nothoprocta perdicaria	NOTHOPROCTAPERDICARIA*
+Palaeognathae	PALAEOGNATHAE
+Aves	AVES
+Crocodylus porosus	CROCODYLUSPOROSUS*
+Archosauria	ARCHOSAURIA
+Chelonoidis abingdonii	CHELONOIDISABINGDONII*
+Gopherus agassizii	GOPHERUSAGASSIZII*
+Testudinidae	TESTUDINIDAE
+Chrysemys picta bellii	CHRYSEMYSPICTABELLII*
+Testudinoidea	TESTUDINOIDEA
+Pelodiscus sinensis	PELODISCUSSINENSIS*
+Cryptodira	CRYPTODIRA
+Archelosauria	ARCHELOSAURIA
+Sauria	SAURIA
+Amniota	AMNIOTA
+Xenopus tropicalis	XENOPUSTROPICALIS*
+Tetrapoda	TETRAPODA
+Latimeria chalumnae	LATIMERIACHALUMNAE*
+Sarcopterygii	SARCOPTERYGII
+Euteleostomi	EUTELEOSTOMI
+Callorhinchus milii	CALLORHINCHUSMILII*
+Gnathostomata	GNATHOSTOMATA
+Vertebrata	VERTEBRATA
+Chordata	CHORDATA
+Bilateria	BILATERIA
+Saccharomyces cerevisiae strain S288C	SACCHAROMYCESCEREVISIAESTRAINS288C*
+ENSEMBLTREE	ENSEMBLTREE
