@@ -1,0 +1,23 @@
+
+- PHYML v2.4.4 -
+
+. Sequence file : [seq]
+
+. Model of nucleotides substitution : HKY
+
+. Initial tree : [BIONJ]
+
+
+. Data	Nb of 	Likelihood	Discrete   	Proportion of	Transition/ 	Nucleotides frequencies               	
+  set	taxa	loglk     	gamma model	invariant    	transversion	f(A)      f(C)      f(G)      f(T)    	
+
+  #1	60   	-9559.46974	No         	0.000    	4.000     	 0.24387   0.24433   0.27220   0.23960	
+
+  #2	60   	-9400.95803	No         	0.000    	4.000     	 0.25783   0.26090   0.24353   0.23773	
+
+  #3	60   	-9288.69661	No         	0.000    	4.000     	 0.25663   0.23400   0.23840   0.27097	
+
+  #4	60   	-9604.59078	No         	0.000    	4.000     	 0.23840   0.24917   0.28337   0.22907	
+
+  #5	60   	-9463.63459	No         	0.000    	4.000     	 0.22690   0.25557   0.26547   0.25207	
+
