@@ -3,6 +3,8 @@ from shutil import copyfile
 import argparse
 from ete3 import PhyloTree
 import copy
+import os
+
 
 def build_arg_parser():
 	parser = argparse.ArgumentParser(description="Compute Double Reconciliation")
@@ -51,6 +53,18 @@ def pruneSpeciesTree(gene_familly_id):
 	speciesTree.prune(specieslist)
 	file = open("SuperProteinTree/datas/" + gene_familly_id + "_speciesTree.nw","w")
 	file.write(speciesTree.write(format=9))
+
+	gene_tree_to_print = copy.deepcopy(gene_tree)
+	for node in gene_tree_to_print:
+		if node.is_leaf():						
+			node.name = gene2specie[node.name] + "_" + node.name
+	
+	transcript_tree_to_print = copy.deepcopy(transcrit_tree)
+	for node in transcript_tree_to_print:
+		if node.is_leaf():						
+			node.name = protein2gene[node.name] + "_" + node.name
+	
+
 	transcrit_tree_label = copy.deepcopy(transcrit_tree)
 	gene_tree_label = copy.deepcopy(gene_tree)
 	species_tree_label = copy.deepcopy(speciesTree)
@@ -68,7 +82,7 @@ def pruneSpeciesTree(gene_familly_id):
 		if node.is_leaf():
 			node.name = dictSpecies[gene2specie[dictGeneInv[node.name]]]  + "_" + node.name
 
-	return dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv, transcrit_tree, transcrit_tree_label, gene_tree_newname_label,  gene_tree, gene_tree_newname, speciesTree, species_tree_new_name
+	return gene_tree_to_print, transcript_tree_to_print, dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv, transcrit_tree, transcrit_tree_label, gene_tree_newname_label,  gene_tree, gene_tree_newname, speciesTree, species_tree_new_name
 
 def doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv,transcrit_tree, transcrit_tree_label, gene_tree_newname_label, gene_tree, gene_tree_newname, speciesTree, species_tree_new_name, genefamilyid):
 	recon_tree_transcript_gene, events_transcript_gene = transcrit_tree_label.reconcile(gene_tree_newname_label)
@@ -95,16 +109,28 @@ def doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpe
 	print(recon_tree_gene_species)
 	file = open("Output/" + genefamilyid + "/" + genefamilyid + "_reconciliation_genes_species.nw","w")
 	file.write(recon_tree_gene_species.write(format=9))
+	return recon_tree_transcript_gene, events_transcript_gene, recon_tree_gene_species, events_gene_species
+
+def generatetab(nb):
+	tab = ""
+	for i in range(nb):
+		tab += "\t"
+	return tab
 
 
 def main():
 	parser = build_arg_parser()
 	arg = parser.parse_args()
 	genefamilyid = arg.genefamilyid
+	try: 
+		if not(os.path.isdir(genefamilyid)):
+			os.mkdir("Output/" + genefamilyid)
+	except OSError as error: 
+		pass
 
-	dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv, transcrit_tree, transcrit_tree_label, gene_tree_newname_label,  gene_tree, gene_tree_newname, speciesTree, species_tree_new_name = pruneSpeciesTree(genefamilyid)
-
-	doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv,transcrit_tree, transcrit_tree_label, gene_tree_newname_label, gene_tree, gene_tree_newname, speciesTree, species_tree_new_name, genefamilyid)
+	gene_tree_to_print, transcript_tree_to_print,dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv, transcrit_tree, transcrit_tree_label, gene_tree_newname_label,  gene_tree, gene_tree_newname, speciesTree, species_tree_new_name = pruneSpeciesTree(genefamilyid)
+	
+	recon_tree_transcript_gene, events_transcript_gene, recon_tree_gene_species, events_gene_species = doubleReconciliation(dictTrans, dictTransInv, dictGene, dictGeneInv, dictSpecies, dictSpeciesInv,transcrit_tree, transcrit_tree_label, gene_tree_newname_label, gene_tree, gene_tree_newname, speciesTree, species_tree_new_name, genefamilyid)
 
 if __name__ == "__main__":
 	main()

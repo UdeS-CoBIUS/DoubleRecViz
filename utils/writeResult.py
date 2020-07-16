@@ -4,17 +4,12 @@ import argparse
 import os	
 
 def build_arg_parser():
-    parser = argparse.ArgumentParser(description="move gene family files")
-    parser.add_argument('-id', '--genefamilyid')
-    return parser
+	parser = argparse.ArgumentParser(description="move gene family files")
+	parser.add_argument('-id', '--genefamilyid')
+	return parser
 
 
 def writeResults(gene_familly_id):
-	try: 
-		if not(os.path.isdir):
-			os.mkdir("Output/" + gene_familly_id) 
-	except OSError as error: 
-		print(error) 
 	
 	copyfile("SuperProteinTree/output/" + gene_familly_id + "_superProteinTree.nw", "Output/" + gene_familly_id + "/" + gene_familly_id + "_superProteinTree.nw")
 
@@ -34,5 +29,5 @@ def main():
 	writeResults(genefamilyid)
 
 if __name__ == "__main__":
-    main()
+	main()
 

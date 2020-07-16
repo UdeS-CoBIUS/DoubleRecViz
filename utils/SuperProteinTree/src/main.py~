@@ -543,6 +543,33 @@ def algorithm2(Q, spanTree, proteinTreeSet, spanSetExtend, proteinLeafSet):
                 print tree.write(format=9)
             exit()
     return creationTrees
+def makeBinary(tree):
+    while len(tree.get_children()) == 1:
+        tree = deepcopy(tree.get_children()[0])
+
+    for node in tree.traverse("preorder"):
+        l = len(node.get_children())
+        if l == 0:
+
+            pass
+        else:
+
+            if l == 2:
+                continue
+            elif l == 1:
+                c = deepcopy(node.get_children()[0])
+                parent = node.up
+                parent.add_child(c)
+                node.detach()
+
+                return tree, True
+            elif l == 4:
+                node.get_children()[1].detach()
+                node.get_children()[0].detach()
+                return tree, True
+
+    return tree, False
+
 
 def main():
 
@@ -611,21 +638,23 @@ def main():
     if len(Q.keys()) == 1:
         print "\n\n SOLUTION : \t \t " +   "\n\n\n\n" + " " + str(len(spanTree[Q.keys()[0]].get_leaf_names())) ,  spanTree[Q.keys()[0]]
         print ("\n\n TREE IN NEWICK FORMAT : \n")        
-        print spanTree[Q.keys()[0]].write(format=9)
+        tree = spanTree[Q.keys()[0]].
+        makeBinary(tree)
+        print tree.write(format=9)
         i = 1
-        result.write("SOLUTION : \t \t " +   "\n" + " " + str(len(spanTree[Q.keys()[0]].get_leaf_names())))
+        result.write("Super Proteine Tree : \t \t " +   "\n" + " " + str(len(tree.get_leaf_names())))
 
-        #result.write(spanTree[Q.keys()[0]])
+        #result.write(tree)
 
         result.write("TREE IN NEWICK FORMAT : \n")
-        result.write(spanTree[Q.keys()[0]].write(format=9))
-        outputfile.write(spanTree[Q.keys()[0]].write(format=9)) 
+        result.write(tree.write(format=9))
+        outputfile.write(tree.write(format=9)) 
         outputfile.close()
         print("\n\n SET OF CREATION FREE SUBTREES IN NEWICK FORMAT : \n")
         result.write("\n\n SET OF CREATION FREE SUBTREES IN NEWICK FORMAT : \n")
         for tree in creationTrees:
             print tree.write(format = 9)
-            result.write(spanTree[Q.keys()[0]].write(format=9))
+            result.write(tree.write(format=9))
             i = i +1
     else:
         print "NOT POSSIBLE TO BUILD  P", "\n Q :", Q, "\n spanTree : ", spanTree, "\n proteinTreeSet :", proteinTreeSet, "\n spanSetExtend : ", spanSetExtend
