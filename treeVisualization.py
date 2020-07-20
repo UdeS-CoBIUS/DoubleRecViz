@@ -1421,7 +1421,18 @@ app.layout = html.Div(children=[
 		#},
 		id='figGeneSpecie',
 		#Gene Specie Reconciliation
-		figure=figGeneSpecie
+		figure=figGeneSpecie,
+
+		# Customize Download Plot figure's format:svg 
+		config = {
+		  'toImageButtonOptions': {
+		    'format': 'svg', # one of png, svg, jpeg, webp
+		    # 'filename': 'custom_image',
+		    # 'height': 500,
+		    # 'width': 700,
+		    # 'scale': 1
+		  }
+		}
 	),
     dcc.Graph(
 	
@@ -1431,7 +1442,18 @@ app.layout = html.Div(children=[
 		#},
 		id='figProteinGene',
 		#Protein Gene Reconciliation',
-		figure=figProteinGene
+		figure=figProteinGene,
+
+		# Customize Download Plot figure's format:svg 
+		config = {
+		  'toImageButtonOptions': {
+		    'format': 'svg', # one of png, svg, jpeg, webp
+		    # 'filename': 'custom_image',
+		    # 'height': 500,
+		    # 'width': 700,
+		    # 'scale': 1
+		  }
+		}
 	),		
 ])
 
