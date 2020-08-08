@@ -310,7 +310,7 @@ def get_clade_lines(clade, line_shapes, width, child, line_color='rgb(25,25,25)'
 					 )
 			) 
 		 
-  		
+		
 	elif len(x_coords[clade]) == 9 and len(x_coords[child]) == 9: 
 		if (y_child[0] < y_parent[0]):								 
 			line_shapes.append(
@@ -492,7 +492,7 @@ def get_clade_lines_slanted(clade, line_shapes, width, child, line_color='rgb(25
 					 )
 			) 
 		 
-  		
+		
 	elif len(x_coords[clade]) == 9 and len(x_coords[child]) == 9: 
 		if (y_child[0] < y_parent[0]):								 
 			line_shapes.append(
@@ -1269,43 +1269,39 @@ def random_color():
 def dataFromFile(path):
 	file = open(path, "r")
 	return file.read()
-	
 
-slanted = False
 
-recTree = dataFromDoubleRecFile("./Data/doubleRecPhylo.xml")
-file_tree = open("./Data/doubleRecPhylo.xml", "r")
-tree_nw = file_tree.read()
+def textarea_example():
+	file_tree = open("./Data/doubleRecPhylo.xml", "r")
+	tree_nw = file_tree.read()
+	return tree_nw
 
-print(len(recTree))
-print(recTree[0][1])
-print(recTree[1][1])
 
-if len(recTree) == 2 :
-    
-    if recTree[0][1] == "geneSpecie":
-            recGeneSpecie = recTree[0][0]
-            recProteinTree = recTree[1][0]
-    elif recTree[0][1] == "transcriptGene":
-            recGeneSpecie = recTree[1][0]
-            recProteinTree = recTree[0][0]
+def get_recGeneSpecie_recProteinTree():
+	recTree = dataFromDoubleRecFile("./Data/doubleRecPhylo.xml")
+	if len(recTree) == 2 :
+		if recTree[0][1] == "geneSpecie":
+			recGeneSpecie = recTree[0][0]
+			recProteinTree = recTree[1][0]
+		elif recTree[0][1] == "transcriptGene":
+			recGeneSpecie = recTree[1][0]
+			recProteinTree = recTree[0][0]
+	return recGeneSpecie, recProteinTree
 
-    #recProteinTree = 
-    #recGeneSpecie =
 
-#recProteinTree = dataFromFile("./Data/recProteinGene.xml")
-#recGeneSpecie = dataFromFile("./Data/recGeneSpece.xml")
+def draw_example_figGeneSpecie():
+	slanted = False
+	recGeneSpecie, recProteinTree = get_recGeneSpecie_recProteinTree()
+	figGeneSpecie, options_list2 = create_tree(recGeneSpecie, slanted, "geneSpecie", "red")
+	return figGeneSpecie
 
-color1 = "blue"
 
-color2 = "red"
+def draw_example_figProteinGene():
+	slanted = False
+	recGeneSpecie, recProteinTree = get_recGeneSpecie_recProteinTree()
+	figProteinGene, options_list = create_tree(recProteinTree, slanted, "transcriptGene", "blue")
+	return figProteinGene
 
-figGeneSpecie, options_list2 = create_tree(recGeneSpecie, slanted, "geneSpecie", color2)
-
-figProteinGene, options_list = create_tree(recProteinTree, slanted, "transcriptGene", color1)
-
-#options_list = options_list2
-#figProteinGene = figGeneSpecie
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']			   
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
@@ -1317,16 +1313,16 @@ app.layout = html.Div(children=[
 	   This web application allows the join representation of a genes tree embeded inside a species tree and transcripts tree embeded inside a genes tree.
 	''', style={'textAlign': 'center', 'color': '#000000'}),
 
-    
+	
 	dcc.RadioItems(
 		id = "inputdatamode",
-	    options=[
-	        {'label': 'Enter sequences data to compute tree', 'value': 'sequences'},
-	        {'label': 'Enter Reconciliated trees', 'value': 'tree'},
-	    ],
-	    value='tree',
-	    style={'width': '100%','height':'50', 'textAlign': 'center'},
-	    labelStyle={'display': 'None'}
+		options=[
+			{'label': 'Enter sequences data to compute tree', 'value': 'sequences'},
+			{'label': 'Enter Reconciliated trees', 'value': 'tree'},
+		],
+		value='tree',
+		style={'width': '100%','height':'50', 'textAlign': 'center'},
+		labelStyle={'display': 'None'}
 	),
 
 	html.Div([		
@@ -1344,50 +1340,50 @@ app.layout = html.Div(children=[
 		dcc.Textarea(
 			id = "geneid",
 			title = "",
-		    placeholder='>gene1 \nCGTATGGAATGCGTAAGAAGCAGGTCTGGGTAAGCATACGTGGGTAAGGGGAATGATTGAAAG\n>gene2\nCGTATGGAATGGGTAAGAAGCCAGTCTGGGTAAGCATACGTGGGTAAGGGGTTTGATTGAAAG',
-		    #value='This is a TextArea component',
-		    style={'width': '100%','height':'100'}
+			placeholder='>gene1 \nCGTATGGAATGCGTAAGAAGCAGGTCTGGGTAAGCATACGTGGGTAAGGGGAATGATTGAAAG\n>gene2\nCGTATGGAATGGGTAAGAAGCCAGTCTGGGTAAGCATACGTGGGTAAGGGGTTTGATTGAAAG',
+			#value='This is a TextArea component',
+			style={'width': '100%','height':'100'}
 		),
 
 		html.B("Transcript sequences (fasta format):"),
 		dcc.Textarea(
 			id = "transcriptid",
 			title = "",
-		    placeholder='>transcript1\nATGCAAGCAGGTCTGGGGGAATGA\n>transcript2\nATGGAATGCAAGCAGCATACGTGGGGGAATGATTGA\n>transcript3\nATGGAAGCCAGTCTGGGGGTTTGA\n>transcript4\nATGGAATGGAAGCCACATACGTGGGGGTTTGATTGA',
-		    #value='>transcript1\nATGCAAGCAGGTCTGGGGGAATGA\n>transcript2\nATGGAATGCAAGCAGCATACGTGGGGGAATGATTGA\n>transcript3\nATGGAAGCCAGTCTGGGGGTTTGA\n>transcript4\nATGGAATGGAAGCCACATACGTGGGGGTTTGATTGA',
-		    style={'width': '100%','height':'100'}
+			placeholder='>transcript1\nATGCAAGCAGGTCTGGGGGAATGA\n>transcript2\nATGGAATGCAAGCAGCATACGTGGGGGAATGATTGA\n>transcript3\nATGGAAGCCAGTCTGGGGGTTTGA\n>transcript4\nATGGAATGGAAGCCACATACGTGGGGGTTTGATTGA',
+			#value='>transcript1\nATGCAAGCAGGTCTGGGGGAATGA\n>transcript2\nATGGAATGCAAGCAGCATACGTGGGGGAATGATTGA\n>transcript3\nATGGAAGCCAGTCTGGGGGTTTGA\n>transcript4\nATGGAATGGAAGCCACATACGTGGGGGTTTGATTGA',
+			style={'width': '100%','height':'100'}
 		),
 
 		html.B("Transcript to gene information:"),
 		dcc.Textarea(
 			id = "transcript2gene",
 			title = "",
-		    placeholder='transcript1 gene1\ntranscript2 gene1\ntranscript3 gene2\ntranscript4 gene2',
-		    #value='transcript1 gene1\ntranscript2 gene1\ntranscript3 gene2\ntranscript4 gene2',
-		    style={'width': '100%','height':'100'}
+			placeholder='transcript1 gene1\ntranscript2 gene1\ntranscript3 gene2\ntranscript4 gene2',
+			#value='transcript1 gene1\ntranscript2 gene1\ntranscript3 gene2\ntranscript4 gene2',
+			style={'width': '100%','height':'100'}
 		),
 
 		html.B("Transcript exon position information:"),
 		dcc.Textarea(
 			id = "exonlist",
 			title = "",
-		    placeholder='>transcript1\n0 4 8 12\n4 16 17 29\n16 24 48 56\n>transcript2\n0 9 3 12\n9 15 17 23\n15 24 34 43\n24 36 48 60\ntranscript3\n0 4 8 12\n4 16 17 29\n16 24 48 56\n>transcript4\n0 9 3 12\n9 15 17 23\n15 24 34 43\n24 36 48 60\n',
-		    #value='This is a TextArea component',
-		    style={'width': '100%','height':'100'}
+			placeholder='>transcript1\n0 4 8 12\n4 16 17 29\n16 24 48 56\n>transcript2\n0 9 3 12\n9 15 17 23\n15 24 34 43\n24 36 48 60\ntranscript3\n0 4 8 12\n4 16 17 29\n16 24 48 56\n>transcript4\n0 9 3 12\n9 15 17 23\n15 24 34 43\n24 36 48 60\n',
+			#value='This is a TextArea component',
+			style={'width': '100%','height':'100'}
 		),
 		html.B("Gene to species information:"),
 		dcc.Textarea(
 			id = "gene2species",
 			title = "",
-		    placeholder='gene1 species1\ngene2 species2\ngene3 species3\ngene4 species3',
-		    style={'width': '100%','height':'100'}
+			placeholder='gene1 species1\ngene2 species2\ngene3 species3\ngene4 species3',
+			style={'width': '100%','height':'100'}
 		),		
 		html.B("species tree:"),
 		dcc.Textarea(
 			id = "species tree",
 			title = "",
-		    placeholder='(species2:1.00,((species1:0.45,species4:0.30):0.20,species3:0.32):0.22);',
-		    style={'width': '100%','height':'50'}
+			placeholder='(species2:1.00,((species1:0.45,species4:0.30):0.20,species3:0.32):0.22);',
+			style={'width': '100%','height':'50'}
 		),	
 		html.Button('Computed Reconciliated trees', id='computed_trees', style={'textAlign': 'center', 'color': 'green', 'margin-left': '43%'}),
 	],
@@ -1400,7 +1396,7 @@ app.layout = html.Div(children=[
 			id = "proteinGeneSpecies", 
 			title = "Protein Gene Reconciliation",   
 			placeholder='Enter a value...',
-			value=tree_nw,
+			value=textarea_example(),
 			style={'width': '100%','height':'150', 'margin-right': '9%'}
 		),
 		html.Button('Compute and draw', id='button', style={'textAlign': 'center', 'color': 'green', 'margin-left': '43%'}),
@@ -1417,20 +1413,20 @@ app.layout = html.Div(children=[
 		#},
 		id='figGeneSpecie',
 		#Gene Specie Reconciliation
-		figure=figGeneSpecie,
+		figure=draw_example_figGeneSpecie(),
 
 		# Customize Download Plot figure's format:svg 
 		config = {
 		  'toImageButtonOptions': {
-		    'format': 'svg', # one of png, svg, jpeg, webp
-		    # 'filename': 'custom_image',
-		    # 'height': 500,
-		    # 'width': 700,
-		    # 'scale': 1
+			'format': 'svg', # one of png, svg, jpeg, webp
+			# 'filename': 'custom_image',
+			# 'height': 500,
+			# 'width': 700,
+			# 'scale': 1
 		  }
 		}
 	),
-    dcc.Graph(
+	dcc.Graph(
 	
 		#style={
 		 #   'width': 600,
@@ -1438,16 +1434,16 @@ app.layout = html.Div(children=[
 		#},
 		id='figProteinGene',
 		#Protein Gene Reconciliation',
-		figure=figProteinGene,
+		figure=draw_example_figProteinGene(),
 
 		# Customize Download Plot figure's format:svg 
 		config = {
 		  'toImageButtonOptions': {
-		    'format': 'svg', # one of png, svg, jpeg, webp
-		    # 'filename': 'custom_image',
-		    # 'height': 500,
-		    # 'width': 700,
-		    # 'scale': 1
+			'format': 'svg', # one of png, svg, jpeg, webp
+			# 'filename': 'custom_image',
+			# 'height': 500,
+			# 'width': 700,
+			# 'scale': 1
 		  }
 		}
 	),		
@@ -1455,44 +1451,44 @@ app.layout = html.Div(children=[
 
 """
 @app.callback(
-    Output('proteinGene', 'value'),
-    Output('geneSpecie', 'value'),
-    [Input('computed_trees', 'n_clicks')]
+	Output('proteinGene', 'value'),
+	Output('geneSpecie', 'value'),
+	[Input('computed_trees', 'n_clicks')]
 )
 def on_click(number_of_times_button_has_clicked):
-    print("computed_trees")
+	print("computed_trees")
 
 @app.callback(
-    Output('proteinGene', 'lang'),
-    [Input('transcriptId', 'values'),
+	Output('proteinGene', 'lang'),
+	[Input('transcriptId', 'values'),
 	Input('geneId', 'values'),
 	Input('specieId', 'values')
-    ])
+	])
 def set_cities_value(transcriptIdToRemove, GeneIdToRemove, specieIdToRemove):
-    print(transcriptIdToRemove)
-    print(GeneIdToRemove)
-    print(specieIdToRemove)
+	print(transcriptIdToRemove)
+	print(GeneIdToRemove)
+	print(specieIdToRemove)
 """       
 
 @app.callback(
-    Output('trees', 'style'),
-    [Input('inputdatamode', 'value')])
+	Output('trees', 'style'),
+	[Input('inputdatamode', 'value')])
 def set_cities_value(inputdatamode):
-    #print (inputdatamode)
-    if inputdatamode == "tree":
-    	return {'display': 'block'}
+	#print (inputdatamode)
+	if inputdatamode == "tree":
+		return {'display': 'block'}
 
 
 """
 @app.callback(
-    Output('sequences', 'style'),
-    [Input('inputdatamode', 'value')])
+	Output('sequences', 'style'),
+	[Input('inputdatamode', 'value')])
 def set_cities_value(inputdatamode):
-    #print (inputdatamode)
-    if inputdatamode == "sequences":
-    	return {'display': 'block'}
-    else:
-    	return {'display': 'None'}
+	#print (inputdatamode)
+	if inputdatamode == "sequences":
+		return {'display': 'block'}
+	else:
+		return {'display': 'None'}
 
 """ 
 """			   
@@ -1518,43 +1514,43 @@ def update_output(n_clicks, input2, input3):
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-    tmp_tree = open("./Data/tmp_tree.nw", "w")
-    tmp_tree.write(input2)
-    tmp_tree.close()
-    recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+	tmp_tree = open("./Data/tmp_tree.nw", "w")
+	tmp_tree.write(input2)
+	tmp_tree.close()
+	recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
 
-    if len(recTree) == 2 :
-        
-        if recTree[0][1] == "geneSpecie":
-                recGeneSpecie = recTree[0][0]
-                recProteinTree = recTree[1][0]
-        elif recTree[0][1] == "transcriptGene":
-                recGeneSpecie = recTree[1][0]
-                recProteinTree = recTree[0][0]    
-                
-        figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
-        return figGeneSpecie
+	if len(recTree) == 2 :
+		
+		if recTree[0][1] == "geneSpecie":
+				recGeneSpecie = recTree[0][0]
+				recProteinTree = recTree[1][0]
+		elif recTree[0][1] == "transcriptGene":
+				recGeneSpecie = recTree[1][0]
+				recProteinTree = recTree[0][0]    
+				
+		figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
+		return figGeneSpecie
 
 @app.callback(Output('figProteinGene', 'figure'),
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-    tmp_tree = open("./Data/tmp_tree.nw", "w")
-    tmp_tree.write(input2)
-    tmp_tree.close()
-    recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
-    if len(recTree) == 2 :
-        
-        if recTree[0][1] == "geneSpecie":
-                recGeneSpecie = recTree[0][0]
-                recProteinTree = recTree[1][0]
-        elif recTree[0][1] == "transcriptGene":
-                recGeneSpecie = recTree[1][0]
-                recProteinTree = recTree[0][0]    
-                    
-        figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
-        return figProteinGene 
-    			
+	tmp_tree = open("./Data/tmp_tree.nw", "w")
+	tmp_tree.write(input2)
+	tmp_tree.close()
+	recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+	if len(recTree) == 2 :
+		
+		if recTree[0][1] == "geneSpecie":
+				recGeneSpecie = recTree[0][0]
+				recProteinTree = recTree[1][0]
+		elif recTree[0][1] == "transcriptGene":
+				recGeneSpecie = recTree[1][0]
+				recProteinTree = recTree[0][0]    
+					
+		figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
+		return figProteinGene 
+				
 if __name__ == '__main__':
 	app.run_server(debug=True)
 	
