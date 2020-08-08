@@ -984,8 +984,8 @@ def create_tree(recData, slanted, recType, textcolor):
 	x_coords = get_x_coordinates(tree, width)
 	#y_coords = get_y_coordinates_old(tree, x_coords, width, dist)
 	y_coords = get_y_coordinates(tree, width, dist)			  
-	print(y_coords)
-	print(x_coords)
+	# print(y_coords)
+	# print(x_coords)
 	line_shapes = []
 	child = None
 	if recType == "geneSpecie":	
@@ -1036,9 +1036,9 @@ def create_tree(recData, slanted, recType, textcolor):
 	terminalNodeNameHost = []
 	for e in terminal:
 		terminalNodeNameHost.append(e.name)
-	print(terminalNodeNameHost, "______________________________")
-	print(x_coords)
-	print(x_coords_internal.keys())
+	# print(terminalNodeNameHost, "______________________________")
+	# print(x_coords)
+	# print(x_coords_internal.keys())
 	"""	
 	for node in tree.get_descendants():
 		# Do some analysis on node
@@ -1186,7 +1186,7 @@ def create_tree(recData, slanted, recType, textcolor):
 				  #width="100%",
 				  height=800,
 				  autosize=True,
-				  showlegend=True,							   
+				  showlegend=False,							   
 				  xaxis=dict(
 						range = [0, 100],
 						titlefont=dict(
@@ -1230,11 +1230,11 @@ def create_tree(recData, slanted, recType, textcolor):
 					hovermode='closest',
 					shapes=line_shapes,				   
 					plot_bgcolor='rgb(250,250,250)',
-					paper_bgcolor='rgb(250,250,250)'				  
+					paper_bgcolor='rgb(250,250,250)'
 					#legend={'x': 0, 'y': 0}
 				  )
 
-	fig = dict(data=nodes, layout=layout)  
+	fig = dict(data=nodes, layout=layout)
 	return fig, [host_leaves_names, parasite_leaves_names]
 
 
@@ -1419,10 +1419,10 @@ app.layout = html.Div(children=[
 		config = {
 		  'toImageButtonOptions': {
 			'format': 'svg', # one of png, svg, jpeg, webp
-			# 'filename': 'custom_image',
-			# 'height': 500,
-			# 'width': 700,
-			# 'scale': 1
+			'filename': 'figGeneSpecie',
+			'height': 1000,
+			'width': 2000,
+			'scale': 1
 		  }
 		}
 	),
@@ -1440,10 +1440,10 @@ app.layout = html.Div(children=[
 		config = {
 		  'toImageButtonOptions': {
 			'format': 'svg', # one of png, svg, jpeg, webp
-			# 'filename': 'custom_image',
-			# 'height': 500,
-			# 'width': 700,
-			# 'scale': 1
+			'filename': 'figProteinGene',
+			'height': 1000,
+			'width': 2000,
+			'scale': 1
 		  }
 		}
 	),		
@@ -1477,6 +1477,7 @@ def set_cities_value(inputdatamode):
 	#print (inputdatamode)
 	if inputdatamode == "tree":
 		return {'display': 'block'}
+	return dash.no_update
 
 
 """
@@ -1514,43 +1515,49 @@ def update_output(n_clicks, input2, input3):
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-	tmp_tree = open("./Data/tmp_tree.nw", "w")
-	tmp_tree.write(input2)
-	tmp_tree.close()
-	recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+	if n_clicks:
+		tmp_tree = open("./Data/tmp_tree.nw", "w")
+		tmp_tree.write(input2)
+		tmp_tree.close()
+		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
 
-	if len(recTree) == 2 :
-		
-		if recTree[0][1] == "geneSpecie":
-				recGeneSpecie = recTree[0][0]
-				recProteinTree = recTree[1][0]
-		elif recTree[0][1] == "transcriptGene":
-				recGeneSpecie = recTree[1][0]
-				recProteinTree = recTree[0][0]    
-				
-		figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
-		return figGeneSpecie
+		if len(recTree) == 2 :
+			
+			if recTree[0][1] == "geneSpecie":
+					recGeneSpecie = recTree[0][0]
+					recProteinTree = recTree[1][0]
+			elif recTree[0][1] == "transcriptGene":
+					recGeneSpecie = recTree[1][0]
+					recProteinTree = recTree[0][0]    
+					
+			figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
+			return figGeneSpecie
+	return dash.no_update
+
 
 @app.callback(Output('figProteinGene', 'figure'),
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
-	tmp_tree = open("./Data/tmp_tree.nw", "w")
-	tmp_tree.write(input2)
-	tmp_tree.close()
-	recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
-	if len(recTree) == 2 :
-		
-		if recTree[0][1] == "geneSpecie":
-				recGeneSpecie = recTree[0][0]
-				recProteinTree = recTree[1][0]
-		elif recTree[0][1] == "transcriptGene":
-				recGeneSpecie = recTree[1][0]
-				recProteinTree = recTree[0][0]    
-					
-		figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
-		return figProteinGene 
-				
+	if n_clicks:
+		tmp_tree = open("./Data/tmp_tree.nw", "w")
+		tmp_tree.write(input2)
+		tmp_tree.close()
+		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+		if len(recTree) == 2 :
+			
+			if recTree[0][1] == "geneSpecie":
+					recGeneSpecie = recTree[0][0]
+					recProteinTree = recTree[1][0]
+			elif recTree[0][1] == "transcriptGene":
+					recGeneSpecie = recTree[1][0]
+					recProteinTree = recTree[0][0]    
+						
+			figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
+			return figProteinGene 
+	return dash.no_update
+
+
 if __name__ == '__main__':
 	app.run_server(debug=True)
 	
