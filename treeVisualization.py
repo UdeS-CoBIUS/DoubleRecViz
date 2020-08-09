@@ -13,6 +13,7 @@ from dash.dependencies import Input, Output
 from parseRec import *
 from doubleRecPhylo2recPhylo import *
 import base64
+import lxml
 
 
 app = dash.Dash()
@@ -1308,13 +1309,20 @@ def draw_example_figProteinGene():
 
 
 def get_local_fig_base64(path, format):
-	encoded_fig = base64.b64encode(open(path, 'rb').read())
+	tmp_file = open(path, 'rb')
+	encoded_fig = base64.b64encode(tmp_file.read())
+	tmp_file.close()
 	return 'data:application/'+format+';base64,{}'.format(encoded_fig.decode())
 
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']			   
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+# app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+# webserver config
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets, url_base_pathname='/DoubleRecViz/')
+app.css.config.serve_locally = True
+app.scripts.config.serve_locally = True
 
 app.layout = html.Div(children=[
 	html.H1(children='Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
@@ -1414,7 +1422,15 @@ app.layout = html.Div(children=[
 	id ="trees",
 	style = {'display' : 'None'}
 	),
-
+	dcc.ConfirmDialog(
+			id='confirm',
+			message='Input is not accepted, please check your input!!!',
+		),
+	dcc.Input(
+		id='output-confirm',
+		type='text',
+		style={'display': 'none'}
+		),
 	dcc.Graph(
 	
 		#style={
@@ -1558,14 +1574,42 @@ def update_output(n_clicks, input2, input3):
 	return figProteinGene   
 	
 """
+@app.callback(Output('output-confirm', 'value'),
+			  [Input('button', 'n_clicks'), Input('proteinGeneSpecies', 'value')])
+def display_confirm(n_clicks, input_xml):
+	if n_clicks:
+		tmp_xml = open("./Data/tmp_xml.xml", "w")
+		tmp_xml.write(input_xml)
+		tmp_xml.close()
+
+		xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
+		xml_validator = lxml.etree.XMLSchema(file="./Data/DoubleRecViz.xsd")
+		is_valid = xml_validator.validate(xml_file)
+		if is_valid:
+			return "YES"
+		return "NO"
+	return dash.no_update
+
+
+@app.callback(Output('confirm', 'displayed'),
+			  [Input('output-confirm', 'value'), Input('button', 'n_clicks')])
+def display_confirm(value, n_clicks):
+	if n_clicks:
+		if value == 'NO':
+			return True
+		return False
+	return dash.no_update
+
+
 @app.callback(
 	[Output('figGeneSpecie', 'figure'),
 	Output('figGeneSpecie_pdf', 'href'),
 	Output('figGeneSpecie_svg', 'href')],
 	[Input('button', 'n_clicks'),
-	Input('proteinGeneSpecies', 'value')])
-def update_output(n_clicks, input2):
-	if n_clicks:
+	Input('proteinGeneSpecies', 'value'),
+	Input('output-confirm', 'value')])
+def update_output(n_clicks, input2, output_confirm):
+	if n_clicks and output_confirm=="YES":
 		tmp_tree = open("./Data/tmp_tree.nw", "w")
 		tmp_tree.write(input2)
 		tmp_tree.close()
@@ -1592,9 +1636,10 @@ def update_output(n_clicks, input2):
 	Output('figProteinGene_pdf', 'href'),
 	Output('figProteinGene_svg', 'href')],
 	[Input('button', 'n_clicks'),
-	Input('proteinGeneSpecies', 'value')])
-def update_output(n_clicks, input2):
-	if n_clicks:
+	Input('proteinGeneSpecies', 'value'),
+	Input('output-confirm', 'value')])
+def update_output(n_clicks, input2, output_confirm):
+	if n_clicks and output_confirm=="YES":
 		tmp_tree = open("./Data/tmp_tree.nw", "w")
 		tmp_tree.write(input2)
 		tmp_tree.close()
