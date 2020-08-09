@@ -12,6 +12,8 @@ from io import StringIO #python3
 from dash.dependencies import Input, Output
 from parseRec import *
 from doubleRecPhylo2recPhylo import *
+import base64
+
 
 app = dash.Dash()
 
@@ -1156,9 +1158,9 @@ def create_tree(recData, slanted, recType, textcolor):
 			#marker=dict(color=color, size=5),
 			text=label_legend,  # vignet information of each node
 			hoverinfo='text',			
-			textposition='center right',
+			textposition='middle right',
 			#font=dict(family='Balto', size=20, color=color),
-			name=label_legend,
+			# name=label_legend,
 			textfont = {
 				"size" : 14,
 				"color" : "black"
@@ -1169,7 +1171,8 @@ def create_tree(recData, slanted, recType, textcolor):
 				"line" : {
 					"width" : 1
 				}
-			})
+			}
+			)
 			]
 
 	#nodes = []
@@ -1179,7 +1182,8 @@ def create_tree(recData, slanted, recType, textcolor):
 	elif recType == "transcriptGene":
 		graphTitle = "Transcript-gene reconciliation"
 		
-	layout = dict(title=graphTitle,
+	layout = dict(
+				title = {'text': graphTitle, 'xanchor': 'auto', 'yanchor': 'auto'},
 				  #paper_bgcolor='rgba(0,0,0,0)',
 				  dragmode="select",
 				  font=dict(family='Balto', size=10),
@@ -1194,13 +1198,13 @@ def create_tree(recData, slanted, recType, textcolor):
 							size=15,
 							color='black'
 						),
-						animate=False,
+						# animate=False,
 						showticklabels=False,
 						tickangle=45,
 						tickfont=dict(
 							family='Old Standard TT, serif',
 							size=14,
-							color=color,
+							color='rgb(100,100,100)',
 						),
 						exponentformat='e',
 						showexponent='all',					  
@@ -1211,7 +1215,7 @@ def create_tree(recData, slanted, recType, textcolor):
 						#showticklabels=True,
 						title=text_legend),
 					yaxis=dict(
-						animate=False,
+						# animate=False,
 						range = [-50, 20],					
 						scaleanchor = "x",
 						automargin=True,
@@ -1234,7 +1238,7 @@ def create_tree(recData, slanted, recType, textcolor):
 					#legend={'x': 0, 'y': 0}
 				  )
 
-	fig = dict(data=nodes, layout=layout)
+	fig = go.Figure(data=nodes, layout=layout)
 	return fig, [host_leaves_names, parasite_leaves_names]
 
 
@@ -1418,7 +1422,7 @@ app.layout = html.Div(children=[
 		# Customize Download Plot figure's format:svg 
 		config = {
 		  'toImageButtonOptions': {
-			'format': 'svg', # one of png, svg, jpeg, webp
+			'format': 'png', # one of png, svg, jpeg, webp
 			'filename': 'figGeneSpecie',
 			'height': 1000,
 			'width': 2000,
@@ -1426,6 +1430,22 @@ app.layout = html.Div(children=[
 		  }
 		}
 	),
+	html.Div(children=[
+		html.A(
+		'Download: pdf format',
+		id='figGeneSpecie_pdf',
+		download="figGeneSpecie.pdf",
+		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figGeneSpecie.pdf",
+		target="_blank"
+	)]),
+	html.Div(children=[
+	html.A(
+		'Download: svg format',
+		id='figGeneSpecie_svg',
+		download="figGeneSpecie.svg",
+		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figGeneSpecie_svg",
+		target="_blank"
+	)]),
 	dcc.Graph(
 	
 		#style={
@@ -1439,14 +1459,30 @@ app.layout = html.Div(children=[
 		# Customize Download Plot figure's format:svg 
 		config = {
 		  'toImageButtonOptions': {
-			'format': 'svg', # one of png, svg, jpeg, webp
+			'format': 'png', # one of png, svg, jpeg, webp
 			'filename': 'figProteinGene',
 			'height': 1000,
 			'width': 2000,
 			'scale': 1
 		  }
 		}
-	),		
+	),
+	html.Div(children=[
+	html.A(
+		'Download: pdf format',
+		id='figProteinGene_pdf',
+		download="figProteinGene.pdf",
+		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figProteinGene.pdf",
+		target="_blank"
+	)]),
+	html.Div(children=[
+	html.A(
+		'Download: svg format',
+		id='figProteinGene_svg',
+		download="figProteinGene.svg",
+		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figProteinGene.svg",
+		target="_blank"
+	)]),		
 ])
 
 """
@@ -1469,7 +1505,6 @@ def set_cities_value(transcriptIdToRemove, GeneIdToRemove, specieIdToRemove):
 	print(GeneIdToRemove)
 	print(specieIdToRemove)
 """       
-
 @app.callback(
 	Output('trees', 'style'),
 	[Input('inputdatamode', 'value')])
@@ -1511,7 +1546,10 @@ def update_output(n_clicks, input2, input3):
 	return figProteinGene   
 	
 """
-@app.callback(Output('figGeneSpecie', 'figure'),
+@app.callback(
+	[Output('figGeneSpecie', 'figure'),
+	Output('figGeneSpecie_pdf', 'href'),
+	Output('figGeneSpecie_svg', 'href')],
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
@@ -1530,12 +1568,17 @@ def update_output(n_clicks, input2):
 					recGeneSpecie = recTree[1][0]
 					recProteinTree = recTree[0][0]    
 					
-			figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")               
-			return figGeneSpecie
+			figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")
+
+			encoded_figGeneSpecie_pdf = base64.b64encode(figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
+			encoded_figGeneSpecie_svg = base64.b64encode(figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
+			return figGeneSpecie, 'data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode())
 	return dash.no_update
 
 
-@app.callback(Output('figProteinGene', 'figure'),
+@app.callback([Output('figProteinGene', 'figure'),
+	Output('figProteinGene_pdf', 'href'),
+	Output('figProteinGene_svg', 'href')],
 	[Input('button', 'n_clicks'),
 	Input('proteinGeneSpecies', 'value')])
 def update_output(n_clicks, input2):
@@ -1554,7 +1597,9 @@ def update_output(n_clicks, input2):
 					recProteinTree = recTree[0][0]    
 						
 			figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
-			return figProteinGene 
+			encoded_figProteinGene_pdf = base64.b64encode(figProteinGene.to_image(format="pdf", width=2000, height=1000, scale=2))
+			encoded_figProteinGene_svg = base64.b64encode(figProteinGene.to_image(format="svg", width=2000, height=1000, scale=2))
+			return figProteinGene, 'data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode())
 	return dash.no_update
 
 
