@@ -1307,6 +1307,12 @@ def draw_example_figProteinGene():
 	return figProteinGene
 
 
+def get_local_fig_base64(path, format):
+	encoded_fig = base64.b64encode(open(path, 'rb').read())
+	return 'data:application/'+format+';base64,{}'.format(encoded_fig.decode())
+
+
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']			   
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
@@ -1430,22 +1436,25 @@ app.layout = html.Div(children=[
 		  }
 		}
 	),
+	html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
 	html.Div(children=[
 		html.A(
-		'Download: pdf format',
+		'figGeneSpecie.pdf',
 		id='figGeneSpecie_pdf',
 		download="figGeneSpecie.pdf",
-		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figGeneSpecie.pdf",
+		href=get_local_fig_base64("./Data/figGeneSpecie.pdf", "pdf"),
 		target="_blank"
-	)]),
+	)
+	]),
 	html.Div(children=[
 	html.A(
-		'Download: svg format',
+		'figGeneSpecie.svg',
 		id='figGeneSpecie_svg',
 		download="figGeneSpecie.svg",
-		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figGeneSpecie_svg",
+		href=get_local_fig_base64("./Data/figGeneSpecie.svg", "svg"),
 		target="_blank"
-	)]),
+	)
+	]),
 	dcc.Graph(
 	
 		#style={
@@ -1467,22 +1476,25 @@ app.layout = html.Div(children=[
 		  }
 		}
 	),
+	html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
 	html.Div(children=[
 	html.A(
-		'Download: pdf format',
+		'figProteinGene.pdf',
 		id='figProteinGene_pdf',
 		download="figProteinGene.pdf",
-		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figProteinGene.pdf",
+		href=get_local_fig_base64("./Data/figProteinGene.pdf", "pdf"),
 		target="_blank"
-	)]),
+	)
+	]),
 	html.Div(children=[
 	html.A(
-		'Download: svg format',
+		'figProteinGene.svg',
 		id='figProteinGene_svg',
 		download="figProteinGene.svg",
-		href="https://github.com/UdeS-CoBIUS/DoubleRecViz/tree/master/Data/figProteinGene.svg",
+		href=get_local_fig_base64("./Data/figProteinGene.svg", "svg"),
 		target="_blank"
-	)]),		
+	)
+	]),		
 ])
 
 """
