@@ -9,7 +9,7 @@ import numpy as np
 import random
 #from cStringIO import StringIO #python2.7
 from io import StringIO #python3
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from parseRec import *
 from doubleRecPhylo2recPhylo import *
 import base64
@@ -1417,7 +1417,7 @@ app.layout = html.Div(children=[
 			value=textarea_example(),
 			style={'width': '100%','height':'150', 'margin-right': '9%'}
 		),
-		html.Button('Compute and draw', id='button', style={'textAlign': 'center', 'color': 'green', 'margin-left': '43%'}),
+		html.Button('Compute and draw', id='button', n_clicks=0, style={'textAlign': 'center', 'color': 'green', 'margin-left': '43%'}),
 	],
 	id ="trees",
 	style = {'display' : 'None'}
@@ -1575,9 +1575,10 @@ def update_output(n_clicks, input2, input3):
 	
 """
 @app.callback(Output('output-confirm', 'value'),
-			  [Input('button', 'n_clicks'), Input('proteinGeneSpecies', 'value')])
+			  [Input('button', 'n_clicks')],
+			  [State('proteinGeneSpecies', 'value')])
 def display_confirm(n_clicks, input_xml):
-	if n_clicks:
+	if n_clicks > 0:
 		tmp_xml = open("./Data/tmp_xml.xml", "w")
 		tmp_xml.write(input_xml)
 		tmp_xml.close()
@@ -1594,7 +1595,7 @@ def display_confirm(n_clicks, input_xml):
 @app.callback(Output('confirm', 'displayed'),
 			  [Input('output-confirm', 'value'), Input('button', 'n_clicks')])
 def display_confirm(value, n_clicks):
-	if n_clicks:
+	if n_clicks > 0:
 		if value == 'NO':
 			return True
 		return False
@@ -1605,11 +1606,11 @@ def display_confirm(value, n_clicks):
 	[Output('figGeneSpecie', 'figure'),
 	Output('figGeneSpecie_pdf', 'href'),
 	Output('figGeneSpecie_svg', 'href')],
-	[Input('button', 'n_clicks'),
-	Input('proteinGeneSpecies', 'value'),
-	Input('output-confirm', 'value')])
-def update_output(n_clicks, input2, output_confirm):
-	if n_clicks and output_confirm=="YES":
+	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
+	[State('proteinGeneSpecies', 'value')],
+	)
+def update_output(n_clicks, output_confirm, input2):
+	if n_clicks > 0 and output_confirm=="YES":
 		tmp_tree = open("./Data/tmp_tree.nw", "w")
 		tmp_tree.write(input2)
 		tmp_tree.close()
@@ -1635,11 +1636,11 @@ def update_output(n_clicks, input2, output_confirm):
 @app.callback([Output('figProteinGene', 'figure'),
 	Output('figProteinGene_pdf', 'href'),
 	Output('figProteinGene_svg', 'href')],
-	[Input('button', 'n_clicks'),
-	Input('proteinGeneSpecies', 'value'),
-	Input('output-confirm', 'value')])
-def update_output(n_clicks, input2, output_confirm):
-	if n_clicks and output_confirm=="YES":
+	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
+	[State('proteinGeneSpecies', 'value')],
+	)
+def update_output(n_clicks, output_confirm, input2):
+	if n_clicks > 0 and output_confirm=="YES":
 		tmp_tree = open("./Data/tmp_tree.nw", "w")
 		tmp_tree.write(input2)
 		tmp_tree.close()
@@ -1662,6 +1663,3 @@ def update_output(n_clicks, input2, output_confirm):
 
 if __name__ == '__main__':
 	app.run_server(debug=True)
-	
-	
-	
