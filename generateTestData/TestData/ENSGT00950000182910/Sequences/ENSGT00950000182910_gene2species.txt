@@ -1,0 +1,7 @@
+ENSPCIG00000033169 Phascolarctoscinereus
+ENSVURG00010021819 Vombatusursinus
+ENSMEUG00000010460 Notamacropuseugenii
+ENSMODG00000014859 Monodelphisdomestica
+ENSSHAG00000014592 Sarcophilusharrisii
+ENSPVAG00000003892 Pteropusvampyrus
+ENSMLUG00000025515 Myotislucifugus

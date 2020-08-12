@@ -1,0 +1,618 @@
+<doubleRecPhylo>
+  <spTree>
+    <phylogeny>
+      <clade>
+        <name>SROOT</name>
+        <clade>
+          <name>Nothoproctaperdicaria</name>
+        </clade>
+        <clade>
+          <name>Palaeognathae</name>
+          <clade>
+            <name>Apteryx1</name>
+            <clade>
+              <name>Apteryx</name>
+              <clade>
+                <name>Apteryxowenii</name>
+              </clade>
+              <clade>
+                <name>Apteryxhaastii</name>
+              </clade>
+            </clade>
+            <clade>
+              <name>Apteryxrowi</name>
+            </clade>
+          </clade>
+          <clade>
+            <name>Dromaiusnovaehollandiae</name>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </spTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <speciation speciesLocation="Palaeognathae"></speciation>
+        </eventsRec>
+        <clade>
+          <name>G1</name>
+          <eventsRec>
+            <speciation speciesLocation="Apteryx1"></speciation>
+          </eventsRec>
+          <clade>
+            <name>G0</name>
+            <eventsRec>
+              <speciation speciesLocation="Apteryx"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSAOWG00000010852</name>
+              <eventsRec>
+                <leaf speciesLocation="Apteryxowenii"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSAHAG00000000142</name>
+              <eventsRec>
+                <leaf speciesLocation="Apteryxhaastii"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSARWG00000001024</name>
+            <eventsRec>
+              <leaf speciesLocation="Apteryxrowi"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>ENSDNVG00000016899</name>
+          <eventsRec>
+            <leaf speciesLocation="Dromaiusnovaehollandiae"></leaf>
+          </eventsRec>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T1</name>
+          <eventsRec>
+            <speciation genesLocation="G1"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T0</name>
+            <eventsRec>
+              <speciation genesLocation="G0"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSAOWT00000018101</name>
+              <eventsRec>
+                <leaf genesLocation="ENSAOWG00000010852"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSAHAT00000000153</name>
+              <eventsRec>
+                <leaf genesLocation="ENSAHAG00000000142"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSARWT00000001477</name>
+            <eventsRec>
+              <leaf genesLocation="ENSARWG00000001024"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <creation genesLocation="G1"></creation>
+          </eventsRec>
+          <clade>
+            <name>T1</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>2</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSAHAG00000000142"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAOWT00000018101</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSAOWG00000010852"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSARWT00000001477</name>
+              <eventsRec>
+                <leaf genesLocation="ENSARWG00000001024"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>9</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="ENSARWG00000001024"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>8</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSAOWG00000010852"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAHAT00000000153</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSAHAG00000000142"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T0</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T1</name>
+          <eventsRec>
+            <creation genesLocation="G1"></creation>
+          </eventsRec>
+          <clade>
+            <name>T0</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>2</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSAHAG00000000142"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAOWT00000018101</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSAOWG00000010852"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSARWT00000001477</name>
+              <eventsRec>
+                <leaf genesLocation="ENSARWG00000001024"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>9</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="ENSARWG00000001024"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>8</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSAOWG00000010852"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAHAT00000000153</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSAHAG00000000142"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <speciation speciesLocation="Palaeognathae"></speciation>
+        </eventsRec>
+        <clade>
+          <name>G1</name>
+          <eventsRec>
+            <duplication speciesLocation="Apteryx1"></duplication>
+          </eventsRec>
+          <clade>
+            <name>G0</name>
+            <eventsRec>
+              <speciation speciesLocation="Apteryx1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>2</name>
+              <eventsRec>
+                <speciation speciesLocation="Apteryx"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss speciesLocation="Apteryxhaastii"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAOWG00000010852</name>
+                <eventsRec>
+                  <leaf speciesLocation="Apteryxowenii"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSARWG00000001024</name>
+              <eventsRec>
+                <leaf speciesLocation="Apteryxrowi"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>9</name>
+            <eventsRec>
+              <speciation speciesLocation="Apteryx1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss speciesLocation="Apteryxrowi"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>8</name>
+              <eventsRec>
+                <speciation speciesLocation="Apteryx"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss speciesLocation="Apteryxowenii"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAHAG00000000142</name>
+                <eventsRec>
+                  <leaf speciesLocation="Apteryxhaastii"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>ENSDNVG00000016899</name>
+          <eventsRec>
+            <leaf speciesLocation="Dromaiusnovaehollandiae"></leaf>
+          </eventsRec>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>T1</name>
+          <eventsRec>
+            <creation genesLocation="G1"></creation>
+          </eventsRec>
+          <clade>
+            <name>7</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="ENSAHAG00000000142"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>6</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSAOWG00000010852"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSARWT00000001477</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSARWG00000001024"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T0</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>10</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSARWG00000001024"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSAOWT00000018101</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSAOWG00000010852"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSAHAT00000000153</name>
+              <eventsRec>
+                <leaf genesLocation="ENSAHAG00000000142"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T0</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <speciation genesLocation="G1"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T1</name>
+            <eventsRec>
+              <speciation genesLocation="G0"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSARWT00000001477</name>
+              <eventsRec>
+                <leaf genesLocation="ENSARWG00000001024"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSAOWT00000018101</name>
+              <eventsRec>
+                <leaf genesLocation="ENSAOWG00000010852"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSAHAT00000000153</name>
+            <eventsRec>
+              <leaf genesLocation="ENSAHAG00000000142"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T2</name>
+          <eventsRec>
+            <creation genesLocation="ENSDNVG00000016899"></creation>
+          </eventsRec>
+          <clade>
+            <name>ENSDNVT00000029416</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSDNVT00000029421</name>
+            <eventsRec>
+              <leaf genesLocation="ENSDNVG00000016899"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>T1</name>
+          <eventsRec>
+            <speciation genesLocation="G1"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T0</name>
+            <eventsRec>
+              <speciation genesLocation="G0"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSARWT00000001477</name>
+              <eventsRec>
+                <leaf genesLocation="ENSARWG00000001024"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSAOWT00000018101</name>
+              <eventsRec>
+                <leaf genesLocation="ENSAOWG00000010852"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSAHAT00000000153</name>
+            <eventsRec>
+              <leaf genesLocation="ENSAHAG00000000142"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+</doubleRecPhylo>
+

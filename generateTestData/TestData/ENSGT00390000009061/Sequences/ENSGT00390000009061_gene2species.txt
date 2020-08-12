@@ -1,0 +1,5 @@
+ENSDNVG00000016899 Dromaiusnovaehollandiae
+ENSNPEG00000012589 Nothoproctaperdicaria
+ENSARWG00000001024 Apteryxrowi
+ENSAHAG00000000142 Apteryxhaastii
+ENSAOWG00000010852 Apteryxowenii

@@ -1,0 +1,5 @@
+ENSPMAG00000000684 Petromyzonmarinus
+ENSEBUG00000002498 Eptatretusburgeri
+ENSSFOG00015011349 Scleropagesformosus
+ENSSFOG00015013984 Scleropagesformosus
+ENSPKIG00000022541 Paramormyropskingsleyae

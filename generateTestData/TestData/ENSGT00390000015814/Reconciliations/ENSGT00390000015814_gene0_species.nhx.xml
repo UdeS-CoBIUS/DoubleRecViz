@@ -1,0 +1,94 @@
+<recPhylo>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>10</name>
+        <confidence>1.0</confidence>
+        <branch_length>0.0</branch_length>
+        <eventsRec>
+          <speciation speciesLocation="SROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>G0</name>
+          <confidence>1.0</confidence>
+          <branch_length>1.0</branch_length>
+          <eventsRec>
+            <speciation speciesLocation="Cyclostomata"></speciation>
+          </eventsRec>
+          <clade>
+            <name>ENSEBUG00000002498_Eptatretusburgeri</name>
+            <confidence>1.0</confidence>
+            <branch_length>1.0</branch_length>
+            <eventsRec>
+              <leaf speciesLocation="Eptatretusburgeri"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSPMAG00000000684_Petromyzonmarinus</name>
+            <confidence>1.0</confidence>
+            <branch_length>1.0</branch_length>
+            <eventsRec>
+              <leaf speciesLocation="Petromyzonmarinus"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>G2</name>
+          <branch_length>1.0</branch_length>
+          <confidence>1.0</confidence>
+          <eventsRec>
+            <duplication speciesLocation="Osteoglossiformes"></duplication>
+          </eventsRec>
+          <clade>
+            <name>ENSSFOG00015013984_Scleropagesformosus</name>
+            <confidence>1.0</confidence>
+            <branch_length>1.0</branch_length>
+            <eventsRec>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
+            </eventsRec>
+            <clade>
+              <name>LOSS</name>
+              <confidence>1.0</confidence>
+              <branch_length>1.0</branch_length>
+              <eventsRec>
+                <loss speciesLocation="Paramormyropskingsleyae"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>4</name>
+              <confidence>1.0</confidence>
+              <branch_length>1.0</branch_length>
+              <eventsRec>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>G1</name>
+            <confidence>1.0</confidence>
+            <branch_length>1.0</branch_length>
+            <eventsRec>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSSFOG00015011349_Scleropagesformosus</name>
+              <confidence>1.0</confidence>
+              <branch_length>1.0</branch_length>
+              <eventsRec>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSPKIG00000022541_Paramormyropskingsleyae</name>
+              <confidence>1.0</confidence>
+              <branch_length>1.0</branch_length>
+              <eventsRec>
+                <leaf speciesLocation="Paramormyropskingsleyae"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+</recPhylo>

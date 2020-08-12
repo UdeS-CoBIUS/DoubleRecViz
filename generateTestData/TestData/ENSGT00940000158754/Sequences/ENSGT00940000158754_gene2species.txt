@@ -1,0 +1,7 @@
+ENSPMJG00000005371 Parusmajor
+ENSCCEG00000016835 Cyanistescaeruleus
+ENSFALG00000002237 Ficedulaalbicollis
+ENSZALG00000004157 Zonotrichiaalbicollis
+ENSMVIG00005004228 Manacusvitellinus
+ENSLCOG00000016407 Lepidothrixcoronata
+ENSABRG00000003143 Anserbrachyrhynchus

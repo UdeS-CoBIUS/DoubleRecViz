@@ -1,0 +1,269 @@
+<doubleRecPhylo>
+  <spTree>
+    <phylogeny>
+      <clade>
+        <name>SROOT</name>
+        <clade>
+          <name>Anserbrachyrhynchus</name>
+        </clade>
+        <clade>
+          <name>Passeriformes11</name>
+          <clade>
+            <name>Passeriformes1</name>
+            <clade>
+              <name>Passeriformes</name>
+              <clade>
+                <name>Ficedulaalbicollis</name>
+              </clade>
+              <clade>
+                <name>Paridae</name>
+                <clade>
+                  <name>Cyanistescaeruleus</name>
+                </clade>
+                <clade>
+                  <name>Parusmajor</name>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>Zonotrichiaalbicollis</name>
+            </clade>
+          </clade>
+          <clade>
+            <name>Pipridae</name>
+            <clade>
+              <name>Lepidothrixcoronata</name>
+            </clade>
+            <clade>
+              <name>Manacusvitellinus</name>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </spTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <speciation speciesLocation="SROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>ENSABRG00000003143</name>
+          <eventsRec>
+            <leaf speciesLocation="Anserbrachyrhynchus"></leaf>
+          </eventsRec>
+        </clade>
+        <clade>
+          <name>G4</name>
+          <eventsRec>
+            <speciation speciesLocation="Passeriformes11"></speciation>
+          </eventsRec>
+          <clade>
+            <name>G2</name>
+            <eventsRec>
+              <speciation speciesLocation="Passeriformes1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>G1</name>
+              <eventsRec>
+                <speciation speciesLocation="Passeriformes"></speciation>
+              </eventsRec>
+              <clade>
+                <name>ENSFALG00000002237</name>
+                <eventsRec>
+                  <leaf speciesLocation="Ficedulaalbicollis"></leaf>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>G0</name>
+                <eventsRec>
+                  <speciation speciesLocation="Paridae"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>ENSCCEG00000016835</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Cyanistescaeruleus"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSPMJG00000005371</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Parusmajor"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSZALG00000004157</name>
+              <eventsRec>
+                <leaf speciesLocation="Zonotrichiaalbicollis"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>G3</name>
+            <eventsRec>
+              <speciation speciesLocation="Pipridae"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSLCOG00000016407</name>
+              <eventsRec>
+                <leaf speciesLocation="Lepidothrixcoronata"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSMVIG00005004228</name>
+              <eventsRec>
+                <leaf speciesLocation="Manacusvitellinus"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>ENSABRT00000004810</name>
+          <eventsRec>
+            <leaf genesLocation="ENSABRG00000003143"></leaf>
+          </eventsRec>
+        </clade>
+        <clade>
+          <name>T9</name>
+          <eventsRec>
+            <speciation genesLocation="G4"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T3</name>
+            <eventsRec>
+              <speciation genesLocation="G2"></speciation>
+            </eventsRec>
+            <clade>
+              <name>T1</name>
+              <eventsRec>
+                <speciation genesLocation="G1"></speciation>
+              </eventsRec>
+              <clade>
+                <name>ENSFALT00000002338</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSFALG00000002237"></leaf>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>T0</name>
+                <eventsRec>
+                  <speciation genesLocation="G0"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>ENSCCET00000028128</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSCCEG00000016835"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSPMJT00000008910</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSPMJG00000005371"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T2</name>
+              <eventsRec>
+                <creation genesLocation="ENSZALG00000004157"></creation>
+              </eventsRec>
+              <clade>
+                <name>ENSZALT00000006684</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSZALG00000004157"></leaf>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSZALT00000006688</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSZALG00000004157"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T8</name>
+            <eventsRec>
+              <speciation genesLocation="G3"></speciation>
+            </eventsRec>
+            <clade>
+              <name>T4</name>
+              <eventsRec>
+                <creation genesLocation="ENSLCOG00000016407"></creation>
+              </eventsRec>
+              <clade>
+                <name>ENSLCOT00000024712</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSLCOG00000016407"></leaf>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSLCOT00000024713</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSLCOG00000016407"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>T7</name>
+              <eventsRec>
+                <creation genesLocation="ENSMVIG00005004228"></creation>
+              </eventsRec>
+              <clade>
+                <name>T6</name>
+                <eventsRec>
+                  <creation genesLocation="ENSMVIG00005004228"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENSMVIT00005006322</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSMVIG00005004228"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T5</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSMVIG00005004228"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENSMVIT00005006353</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSMVIG00005004228"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSMVIT00005006388</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSMVIG00005004228"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENSMVIT00005006330</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSMVIG00005004228"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+</doubleRecPhylo>
