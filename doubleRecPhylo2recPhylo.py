@@ -1,8 +1,17 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/python3.7
+'''
+@author : Aida Ouangraoua
+@date : April 2020
+@location : University of Sherbrooke
+
+'''
 import xml.etree.ElementTree
 
 def dataFromDoubleRecFile(path):
         recPhylo = []
         spTree = ""
+        gnTree = ""
         file = open(path, "r")
         lines = file.readlines()
         i = 0
@@ -24,6 +33,13 @@ def dataFromDoubleRecFile(path):
                         recPhyloTree = "<recPhylo>\n"+spTree+recGeneTree+"</recPhylo>"
                         recPhylo[-1] = [recPhyloTree,"geneSpecie"]
                         gnTree = recGeneTree2gnTree(recGeneTree)
+                elif("<gnTree>" in lines[i]):
+                        gnTree = ""
+                        while("</gnTree>" not in lines[i]):
+                                gnTree += lines[i]
+                                i += 1
+                        gnTree += lines[i]
+                        i += 1
                 elif("<recTransTree>" in lines[i]):
                         recPhylo.append([])
                         recTransTree = ""
