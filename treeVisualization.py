@@ -1579,16 +1579,31 @@ def update_output(n_clicks, input2, input3):
 			  [State('proteinGeneSpecies', 'value')])
 def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
+		recPhylo_spTree_recGene = False
+		recPhylo_gnTree_recTrans = False
 		tmp_xml = open("./Data/tmp_xml.xml", "w")
 		tmp_xml.write(input_xml)
 		tmp_xml.close()
-
-		xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
-		xml_validator = lxml.etree.XMLSchema(file="./Data/DoubleRecViz.xsd")
-		is_valid = xml_validator.validate(xml_file)
-		if is_valid:
-			return "YES"
-		return "NO"
+		try:
+			xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
+			xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/doubleRecPhylo.xsd")
+			if xml_file.getroot().tag == "recPhylo":
+				if xml_file.find(".//spTree"):
+					recPhylo_spTree_recGene = True
+					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_spTree_recGene.xsd")
+				if xml_file.find(".//gnTree"):
+					recPhylo_gnTree_recTrans = True
+					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_gnTree_recTrans.xsd")
+			is_valid = xml_validator.validate(xml_file)
+			if is_valid:
+				if recPhylo_spTree_recGene:
+					return "YES_recPhylo_spTree_recGene"
+				if recPhylo_gnTree_recTrans:
+					return "YES_recPhylo_gnTree_recTrans"
+				return "YES"
+			return "NO"
+		except lxml.etree.XMLSyntaxError:
+			return "NO"
 	return dash.no_update
 
 
@@ -1610,23 +1625,26 @@ def display_confirm(value, n_clicks):
 	[State('proteinGeneSpecies', 'value')],
 	)
 def update_output(n_clicks, output_confirm, input2):
-	if n_clicks > 0 and output_confirm=="YES":
-		tmp_tree = open("./Data/tmp_tree.nw", "w")
-		tmp_tree.write(input2)
-		tmp_tree.close()
-		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+	if n_clicks > 0:
+		if output_confirm in ["YES", "YES_recPhylo_spTree_recGene"]:
+			if output_confirm == "YES":
+				tmp_tree = open("./Data/tmp_tree.nw", "w")
+				tmp_tree.write(input2)
+				tmp_tree.close()
+				recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
 
-		if len(recTree) == 2 :
-			
-			if recTree[0][1] == "geneSpecie":
-					recGeneSpecie = recTree[0][0]
-					recProteinTree = recTree[1][0]
-			elif recTree[0][1] == "transcriptGene":
-					recGeneSpecie = recTree[1][0]
-					recProteinTree = recTree[0][0]    
+				if len(recTree) == 2 :
 					
+					if recTree[0][1] == "geneSpecie":
+							recGeneSpecie = recTree[0][0]
+							recProteinTree = recTree[1][0]
+					elif recTree[0][1] == "transcriptGene":
+							recGeneSpecie = recTree[1][0]
+							recProteinTree = recTree[0][0]
+			if output_confirm == "YES_recPhylo_spTree_recGene":
+				recGeneSpecie = input2
+			
 			figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")
-
 			encoded_figGeneSpecie_pdf = base64.b64encode(figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
 			encoded_figGeneSpecie_svg = base64.b64encode(figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
 			return figGeneSpecie, 'data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode())
@@ -1640,20 +1658,23 @@ def update_output(n_clicks, output_confirm, input2):
 	[State('proteinGeneSpecies', 'value')],
 	)
 def update_output(n_clicks, output_confirm, input2):
-	if n_clicks > 0 and output_confirm=="YES":
-		tmp_tree = open("./Data/tmp_tree.nw", "w")
-		tmp_tree.write(input2)
-		tmp_tree.close()
-		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
-		if len(recTree) == 2 :
-			
-			if recTree[0][1] == "geneSpecie":
-					recGeneSpecie = recTree[0][0]
-					recProteinTree = recTree[1][0]
-			elif recTree[0][1] == "transcriptGene":
-					recGeneSpecie = recTree[1][0]
-					recProteinTree = recTree[0][0]    
-						
+	if n_clicks > 0:
+		if output_confirm in ["YES", "YES_recPhylo_gnTree_recTrans"]: 
+			if output_confirm=="YES":
+				tmp_tree = open("./Data/tmp_tree.nw", "w")
+				tmp_tree.write(input2)
+				tmp_tree.close()
+				recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+				if len(recTree) == 2 :
+					
+					if recTree[0][1] == "geneSpecie":
+							recGeneSpecie = recTree[0][0]
+							recProteinTree = recTree[1][0]
+					elif recTree[0][1] == "transcriptGene":
+							recGeneSpecie = recTree[1][0]
+							recProteinTree = recTree[0][0]    
+			if output_confirm == "YES_recPhylo_gnTree_recTrans":
+				recProteinTree = input2
 			figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
 			encoded_figProteinGene_pdf = base64.b64encode(figProteinGene.to_image(format="pdf", width=2000, height=1000, scale=2))
 			encoded_figProteinGene_svg = base64.b64encode(figProteinGene.to_image(format="svg", width=2000, height=1000, scale=2))

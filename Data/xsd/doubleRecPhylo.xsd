@@ -58,7 +58,6 @@
   </xs:element>
   <xs:element name="leaf">
     <xs:complexType>
-      <xs:attribute name="geneName" type="xs:NCName"/>
       <xs:attribute name="genesLocation" type="xs:NCName"/>
       <xs:attribute name="speciesLocation" type="xs:NCName"/>
     </xs:complexType>

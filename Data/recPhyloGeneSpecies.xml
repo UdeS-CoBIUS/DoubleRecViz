@@ -44,13 +44,13 @@
 						<clade>
 							<name>gA_human</name>
 							<eventsRec>
-								<leaf speciesLocation="HUMAN" geneName="gA_human"></leaf>
+								<leaf speciesLocation="HUMAN"></leaf>
 							</eventsRec>
 						</clade>
 						<clade>
 							<name>gB_human</name>
 							<eventsRec>
-								<leaf speciesLocation="HUMAN" geneName="gB_human"></leaf>
+								<leaf speciesLocation="HUMAN"></leaf>
 							</eventsRec>
 						</clade>
 					</clade>
@@ -63,13 +63,13 @@
 					<clade>
 						<name>gA_mouse</name>
 						<eventsRec>
-							<leaf speciesLocation="MOUSE" geneName="gA_mouse"></leaf>
+							<leaf speciesLocation="MOUSE"></leaf>
 						</eventsRec>
 					</clade>
 					<clade>
 						<name>gB_mouse</name>
 						<eventsRec>
-							<leaf speciesLocation="MOUSE" geneName="gB_mouse"></leaf>
+							<leaf speciesLocation="MOUSE"></leaf>
 						</eventsRec>
 					</clade>
 				</clade>
