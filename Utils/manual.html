@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="CoBIUS Lab">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>doubleRecPhyloXML</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/manual.css" rel="stylesheet">
+    <link href="css/agate.min.css" rel="stylesheet">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="container"></div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <!-- <h3 class="pb-4 mb-4 font-italic border-bottom">
+        From the Firehose
+      </h3> -->
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">doubleRecPhyloXML</h2>
+        <p class="blog-post-meta">XML for transcript-gene-species tree</p>
+
+
+        <!-- <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+        <hr>
+        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+        <blockquote>
+          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        </blockquote>
+        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p> -->
+
+        <h2 id="introduction">
+          <a class="anchor" href="#introduction" aria-hidden="true"> </a>
+          Introduction
+        </h2>
+        <p>The <strong>doubleRecPhyloXML</strong> is designed to represent transcript-gene-species tree reconciliations.</p>
+
+        <h2 id="doubleRecPhylo">
+          <a class="anchor" href="#doubleRecPhylo" aria-hidden="true"> </a>
+          doubleRecPhylo
+        </h2>
+        <p>
+          Skeleton of a <code>&lt;doubleRecPhylo&gt;</code> object with a species tree, followed by a first reconciled gene tree with two reconciled transcript trees, a second reconciled gene tree with one reconciled transcript tree, and a third reconciled gene tree with zero reconciled transcript tree.
+        </p>
+
+        <pre class="code highlight js-syntax-highlight xml dark">
+          <code class="hljs">
+            <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">doubleRecPhylo</span>&gt;</span></span>
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">spTree</span>&gt;</span></span>
+                species tree as defined in the recPhyloXML grammar
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;spTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recGeneTree</span>&gt;</span></span>
+                1st recGeneTreeXML reconciled gene tree as defined in the recPhyloXML grammar
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recGeneTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recTransTree</span>&gt;</span></span>
+                1st recTransTreeXML reconciled transcript tree with 1st gene tree
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recTransTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recTransTree</span>&gt;</span></span>
+                2nd recTransTreeXML reconciled transcript tree with 1st gene tree
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recTransTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recGeneTree</span>&gt;</span></span>
+                2nd recGeneTreeXML reconciled gene tree as defined in the recPhyloXML grammar
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recGeneTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recTransTree</span>&gt;</span></span>
+                1st recTransTreeXML reconciled transcript tree with 2nd gene tree
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recTransTree</span>&gt;</span></span>
+
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">recGeneTree</span>&gt;</span></span>
+                3rd recGeneTreeXML reconciled gene tree as defined in the recPhyloXML grammar
+                ...
+              <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;recGeneTree</span>&gt;</span></span>
+
+            <span class="hljs-tag"><span class="hljs-tag">&lt;<span class="hljs-name">&frasl;doubleRecPhylo</span>&gt;</span></span>
+          </code>
+        </pre>
+
+        <h2 id="recTransTreeXML">
+          <a class="anchor" href="#recTransTreeXML" aria-hidden="true"> </a>
+          recTransTreeXML
+        </h2>
+        <p>
+          The <strong>recTransTreeXML</strong> format is designed to represent transcript-gene tree reconciliations.
+        </p>
+
+        <p>
+          The <a href="http://phylariane.univ-lyon1.fr/recphyloxml/">recGeneTreeXML grammar</a> contains an <code>&lt;eventsRec&gt;</code> tag that is included inside a <code>&lt;clade&gt;</code> tag to allow the representation of the evolutionary events associated to branches and nodes of a reconciled gene tree. The recTransTreeXML grammar enriches the recGeneTreeXML grammar by extending the set of evolutionary events that can be included in an <code>&lt;eventsRec&gt;</code> object.
+        </p>  
+
+        <p>
+          The set of possible evolutionary events that can be included inside an <code>&lt;eventsRec&gt;</code> object in the recTransTreeXML grammar are then:
+        </p>
+
+        <p>
+            - those inherited from the annotation of bifurcation nodes in a reconciled gene tree (<code>&lt;recGeneTree&gt;</code> object): <code>&lt;speciation&gt;</code>, <code>&lt;duplication&gt;</code>, <code>&lt;branchingOut&gt;</code>, and <code>&lt;leaf&gt;</code>.
+        </p>
+
+        <p>
+            - those specific to the recTransTreeXML grammar: <code>&lt;creation&gt;</code>, and <code>&lt;loss&gt;</code>. A <code>&lt;creation&gt;</code> tag describes a transcript lineage undergoing a bifurcation due to the creation of a new lineage of transcript isoforms, and a <code>&lt;loss&gt;</code> tag describes the loss of a transcript isoform.
+        </p>
+
+        <p> 
+          See examples of <code>&lt;recTransTree&gt;</code> objects in input files examples on the <a href="https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz/">webserver</a>.
+        </p>
+
+        <h2 id="files">
+          <a class="anchor" href="#files" aria-hidden="true"> </a>
+          Files
+        </h2>
+        <ul>
+          <li>.xsd files: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/DoubleRecViz.xsd">get them here</a></li>
+          <li>doubleRecPhylo Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/doubleRecPhylo.xml" download="">Download here</a></li>
+          <li>recPhyloGeneSpecies Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/recPhyloGeneSpecies.xml" download="">Download here</a></li>
+          <li>recPhyloTranscriptGene Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/recPhyloTranscriptGene.xml" download="">Download here</a></li>
+        </ul>
+        
+        <h2 id="tools">
+          <a class="anchor" href="#tools" aria-hidden="true"> </a>
+          Tools
+        </h2>
+        <ul>
+          <li><a href="https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz/">DoubleRecViz</a></li>
+        </ul>
+
+        
+
+        <!-- <h3>Sub-heading</h3>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <ul>
+          <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
+          <li>Donec id elit non mi porta gravida at eget metus.</li>
+          <li>Nulla vitae elit libero, a pharetra augue.</li>
+        </ul>
+        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+        <ol>
+          <li>Vestibulum id ligula porta felis euismod semper.</li>
+          <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+          <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+        </ol>
+        <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p> -->
+      </div>
+
+      <!-- <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+      </nav> -->
+
+    </div><!-- /.blog-main -->
+
+    <aside class="col-md-4 blog-sidebar">
+      <!-- <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">About</h4>
+        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div> -->
+
+      <div class="p-4" style="position: fixed;">
+        <h4 class="font-italic">
+          <a class="summary-title" href="#">Home</a>
+        </h4>
+
+        <h4 class="font-italic">
+          <a class="summary-title" href="#introduction">Introduction</a>
+        </h4>
+        <!-- <ol class="list-unstyled mb-0">
+          <li><a href="#">March 2014</a></li>
+          <li><a href="#">February 2014</a></li>
+          <li><a href="#">January 2014</a></li>
+        </ol> -->
+
+        <h4 class="font-italic">
+          <a class="summary-title" href="#doubleRecPhylo">doubleRecPhylo</a>
+        </h4>
+
+        <h4 class="font-italic">
+          <a class="summary-title" href="#recTransTreeXML">recTransTreeXML</a>
+        </h4>
+
+        <h4 class="font-italic">
+          <a class="summary-title" href="#files">Files</a>
+        </h4>
+
+        <h4 class="font-italic">
+          <a class="summary-title" href="#tools">Tools</a>
+        </h4>
+      </div>
+
+      <!-- <div class="p-4">
+        <h4 class="font-italic">Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div> -->
+    </aside><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer class="blog-footer">
+  <a href="https://cobius.usherbrooke.ca/">CoBIUS Lab </a>
+  &copy; Copyright 2020 All rights reserved.
+  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+</body>
+</html>
