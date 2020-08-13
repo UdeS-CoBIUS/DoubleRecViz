@@ -14,6 +14,8 @@ from functions import *
 
 def NHXtoRecPhyloXML(file_nhx, file_tree,type):
     dir_name = os.path.dirname(sys.argv[0])
+    if(dir_name ==  ""):
+        dir_name =  "."
     NHXtoRecPhyloXML = dir_name+"/recPhyloXML-master-20-07-2020/python/NHXtoRecPhyloXML.py"
     first_nhx = True
     tmp_file_nhx = "tmp_file.nhx"
@@ -58,6 +60,8 @@ def NHXtoRecPhyloXML(file_nhx, file_tree,type):
 
 def NHXtoDoubleRecPhyloXML(file_nhx, file_species_tree):
     dir_name = os.path.dirname(sys.argv[0])
+    if(dir_name ==  ""):
+        dir_name =  "."
     NHXtoRecPhyloXML = dir_name+"/recPhyloXML-master-20-07-2020/python/NHXtoRecPhyloXML.py"
     new_genetree = True
     first_genetree = True
