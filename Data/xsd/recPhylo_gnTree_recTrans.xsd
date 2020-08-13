@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="doubleRecPhylo">
+  <xs:element name="recPhylo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="spTree"/>
-        <xs:element ref="recGeneTree"/>
+        <xs:element ref="gnTree"/>
         <xs:element ref="recTransTree"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="spTree" type="phylogeny"/>
-  <xs:element name="recGeneTree" type="phylogeny"/>
+  <xs:element name="gnTree" type="phylogeny"/>
   <xs:element name="recTransTree" type="phylogeny"/>
   <xs:complexType name="phylogeny">
     <xs:sequence>
@@ -58,7 +56,6 @@
   </xs:element>
   <xs:element name="leaf">
     <xs:complexType>
-      <xs:attribute name="geneName" type="xs:NCName"/>
       <xs:attribute name="genesLocation" type="xs:NCName"/>
       <xs:attribute name="speciesLocation" type="xs:NCName"/>
     </xs:complexType>

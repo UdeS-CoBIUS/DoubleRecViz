@@ -1462,7 +1462,7 @@ app.layout = html.Div(children=[
 		  }
 		}
 	),
-	html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+	html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
 	html.Div(children=[
 		html.A(
 		'figGeneSpecie.pdf',
@@ -1481,6 +1481,9 @@ app.layout = html.Div(children=[
 		target="_blank"
 	)
 	]),
+
+	html.Div(id='multiple_reconciliation_figGeneSpecie'),	
+
 	dcc.Graph(
 	
 		#style={
@@ -1520,7 +1523,9 @@ app.layout = html.Div(children=[
 		href=get_local_fig_base64("./Data/figProteinGene.svg", "svg"),
 		target="_blank"
 	)
-	]),		
+	]),
+
+	html.Div(id='multiple_reconciliation_figProteinGene'),	
 ])
 
 """
@@ -1589,16 +1594,31 @@ def update_output(n_clicks, input2, input3):
 			  [State('proteinGeneSpecies', 'value')])
 def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
+		recPhylo_spTree_recGene = False
+		recPhylo_gnTree_recTrans = False
 		tmp_xml = open("./Data/tmp_xml.xml", "w")
 		tmp_xml.write(input_xml)
 		tmp_xml.close()
-
-		xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
-		xml_validator = lxml.etree.XMLSchema(file="./Data/DoubleRecViz.xsd")
-		is_valid = xml_validator.validate(xml_file)
-		if is_valid:
-			return "YES"
-		return "NO"
+		try:
+			xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
+			xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/doubleRecPhylo.xsd")
+			if xml_file.getroot().tag == "recPhylo":
+				if xml_file.find(".//spTree"):
+					recPhylo_spTree_recGene = True
+					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_spTree_recGene.xsd")
+				if xml_file.find(".//gnTree"):
+					recPhylo_gnTree_recTrans = True
+					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_gnTree_recTrans.xsd")
+			is_valid = xml_validator.validate(xml_file)
+			if is_valid:
+				if recPhylo_spTree_recGene:
+					return "YES_recPhylo_spTree_recGene"
+				if recPhylo_gnTree_recTrans:
+					return "YES_recPhylo_gnTree_recTrans"
+				return "YES"
+			return "NO"
+		except lxml.etree.XMLSyntaxError:
+			return "NO"
 	return dash.no_update
 
 
@@ -1613,61 +1633,115 @@ def display_confirm(value, n_clicks):
 
 
 @app.callback(
-	[Output('figGeneSpecie', 'figure'),
+	[
+	Output('figGeneSpecie', 'figure'),
 	Output('figGeneSpecie_pdf', 'href'),
-	Output('figGeneSpecie_svg', 'href')],
-	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
-	[State('proteinGeneSpecies', 'value')],
-	)
-def update_output(n_clicks, output_confirm, input2):
-	if n_clicks > 0 and output_confirm=="YES":
-		tmp_tree = open("./Data/tmp_tree.nw", "w")
-		tmp_tree.write(input2)
-		tmp_tree.close()
-		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
-
-		if len(recTree) == 2 :
-			
-			if recTree[0][1] == "geneSpecie":
-					recGeneSpecie = recTree[0][0]
-					recProteinTree = recTree[1][0]
-			elif recTree[0][1] == "transcriptGene":
-					recGeneSpecie = recTree[1][0]
-					recProteinTree = recTree[0][0]    
-					
-			figGeneSpecie,options_list = create_tree(recGeneSpecie, False, "geneSpecie", "red")
-
-			encoded_figGeneSpecie_pdf = base64.b64encode(figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
-			encoded_figGeneSpecie_svg = base64.b64encode(figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
-			return figGeneSpecie, 'data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode())
-	return dash.no_update
-
-
-@app.callback([Output('figProteinGene', 'figure'),
+	Output('figGeneSpecie_svg', 'href'),
+	Output('multiple_reconciliation_figGeneSpecie','children'),
+	Output('figProteinGene', 'figure'),
 	Output('figProteinGene_pdf', 'href'),
-	Output('figProteinGene_svg', 'href')],
+	Output('figProteinGene_svg', 'href'),
+	Output('multiple_reconciliation_figProteinGene','children')
+	],
 	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
 	[State('proteinGeneSpecies', 'value')],
 	)
 def update_output(n_clicks, output_confirm, input2):
-	if n_clicks > 0 and output_confirm=="YES":
-		tmp_tree = open("./Data/tmp_tree.nw", "w")
-		tmp_tree.write(input2)
-		tmp_tree.close()
-		recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
-		if len(recTree) == 2 :
+	if n_clicks > 0:
+		if output_confirm in ["YES", "YES_recPhylo_spTree_recGene", "YES_recPhylo_gnTree_recTrans"]:
+			# add multiple reconciliation figs
+			multiple_reconciliation_figGeneSpecie_list = []
+			multiple_reconciliation_figs = []
+
+			multiple_reconciliation_figProteinGene_list = []
+			multiple_reconciliation_figProteinGene = []
+
+			if output_confirm == "YES":
+				tmp_tree = open("./Data/tmp_tree.nw", "w")
+				tmp_tree.write(input2)
+				tmp_tree.close()
+				recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+				
+				for i in range(len(recTree)):
+					if recTree[i][1] == "geneSpecie":
+						fig_GeneSpecie,options_list = create_tree(recTree[i][0], False, "geneSpecie", "red")
+						multiple_reconciliation_figGeneSpecie_list.append(fig_GeneSpecie)
+
+					if recTree[i][1] == "transcriptGene":
+						fig_ProteinGene,options_list = create_tree(recTree[i][0], False, "transcriptGene", "blue")
+						multiple_reconciliation_figProteinGene_list.append(fig_ProteinGene)
+
+				first_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[0]
+				first_recProteinTree = multiple_reconciliation_figProteinGene_list[0]
+
+				
+			if output_confirm == "YES_recPhylo_spTree_recGene":
+				first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
+
+			if output_confirm == "YES_recPhylo_gnTree_recTrans":
+				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
 			
-			if recTree[0][1] == "geneSpecie":
-					recGeneSpecie = recTree[0][0]
-					recProteinTree = recTree[1][0]
-			elif recTree[0][1] == "transcriptGene":
-					recGeneSpecie = recTree[1][0]
-					recProteinTree = recTree[0][0]    
-						
-			figProteinGene,options_list = create_tree(recProteinTree, False, "transcriptGene", "blue")
-			encoded_figProteinGene_pdf = base64.b64encode(figProteinGene.to_image(format="pdf", width=2000, height=1000, scale=2))
-			encoded_figProteinGene_svg = base64.b64encode(figProteinGene.to_image(format="svg", width=2000, height=1000, scale=2))
-			return figProteinGene, 'data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode())
+			encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+			encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+
+			encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+			encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+
+			for recGeneSpecie in multiple_reconciliation_figGeneSpecie_list[1:]:
+				encoded_figGeneSpecie_pdf = base64.b64encode(recGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_svg = base64.b64encode(recGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				div = html.Div([
+					dcc.Graph(figure=recGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+					html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+					html.Div(children=[
+						html.A(
+						'figGeneSpecie.pdf',
+						download="figGeneSpecie.pdf",
+						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+						target="_blank"
+					)
+					]),
+					html.Div(children=[
+					html.A(
+						'figGeneSpecie.svg',
+						download="figGeneSpecie.svg",
+						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+						target="_blank"
+					)
+					]),
+				])
+				multiple_reconciliation_figs.append(div)
+
+			for recProteinTree in multiple_reconciliation_figProteinGene_list[1:]:
+				encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				div = html.Div([
+					dcc.Graph(figure=recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+					
+					html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+					html.Div(children=[
+						html.A(
+						'figProteinGene.pdf',
+						download="figProteinGene.pdf",
+						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+						target="_blank"
+					)
+					]),
+					html.Div(children=[
+					html.A(
+						'figProteinGene.svg',
+						download="figProteinGene.svg",
+						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+						target="_blank"
+					)
+					]),
+				])
+				multiple_reconciliation_figProteinGene.append(div)
+
+			result_multiple_reconciliation_figGeneSpecie = html.Div(children = multiple_reconciliation_figs)
+			result_multiple_reconciliation_figProteinGene = html.Div(children = multiple_reconciliation_figProteinGene)
+
+			return first_figGeneSpecie, 'data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()), result_multiple_reconciliation_figGeneSpecie, first_recProteinTree, 'data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode()), result_multiple_reconciliation_figProteinGene
 	return dash.no_update
 
 import argparse
