@@ -1,4 +1,4 @@
-<doubleRecPhylo>
+<recPhylo>
   <spTree>
     <phylogeny>
       <clade>
@@ -94,86 +94,145 @@
       </clade>
     </phylogeny>
   </recGeneTree>
-  <recTransTree>
+  <recGeneTree>
     <phylogeny rooted="true">
       <clade>
-        <name>TROOT</name>
+        <name>GROOT</name>
         <eventsRec>
-          <speciation genesLocation="GROOT"></speciation>
+          <speciation speciesLocation="SROOT"></speciation>
         </eventsRec>
         <clade>
-          <name>T1</name>
+          <name>G0</name>
           <eventsRec>
-            <speciation genesLocation="G0"></speciation>
+            <speciation speciesLocation="Cyclostomata"></speciation>
           </eventsRec>
           <clade>
-            <name>ENSPMAT00000000755</name>
+            <name>ENSEBUG00000002498</name>
             <eventsRec>
-              <leaf genesLocation="ENSPMAG00000000684"></leaf>
+              <leaf speciesLocation="Eptatretusburgeri"></leaf>
             </eventsRec>
           </clade>
           <clade>
-            <name>T0</name>
+            <name>ENSPMAG00000000684</name>
             <eventsRec>
-              <creation genesLocation="ENSEBUG00000002498"></creation>
+              <leaf speciesLocation="Petromyzonmarinus"></leaf>
             </eventsRec>
-            <clade>
-              <name>ENSEBUT00000003803</name>
-              <eventsRec>
-                <leaf genesLocation="ENSEBUG00000002498"></leaf>
-              </eventsRec>
-            </clade>
-            <clade>
-              <name>ENSEBUT00000003826</name>
-              <eventsRec>
-                <leaf genesLocation="ENSEBUG00000002498"></leaf>
-              </eventsRec>
-            </clade>
           </clade>
         </clade>
         <clade>
-          <name>T4</name>
+          <name>G2</name>
           <eventsRec>
-            <speciation genesLocation="G2"></speciation>
+            <duplication speciesLocation="Osteoglossiformes"></duplication>
           </eventsRec>
           <clade>
-            <name>T2</name>
+            <name>5</name>
             <eventsRec>
-              <creation genesLocation="ENSSFOG00015013984"></creation>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
             </eventsRec>
             <clade>
-              <name>ENSSFOT00015021966</name>
+              <name>-</name>
               <eventsRec>
-                <leaf genesLocation="ENSSFOG00015013984"></leaf>
+                <loss speciesLocation="Paramormyropskingsleyae"></loss>
               </eventsRec>
             </clade>
             <clade>
-              <name>ENSSFOT00015021975</name>
+              <name>ENSSFOG00015013984</name>
               <eventsRec>
-                <leaf genesLocation="ENSSFOG00015013984"></leaf>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
               </eventsRec>
             </clade>
           </clade>
           <clade>
-            <name>T3</name>
+            <name>G1</name>
             <eventsRec>
-              <speciation genesLocation="G1"></speciation>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
             </eventsRec>
             <clade>
-              <name>ENSSFOT00015017878</name>
+              <name>ENSSFOG00015011349</name>
               <eventsRec>
-                <leaf genesLocation="ENSSFOG00015011349"></leaf>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
               </eventsRec>
             </clade>
             <clade>
-              <name>ENSPKIT00000030168</name>
+              <name>ENSPKIG00000022541</name>
               <eventsRec>
-                <leaf genesLocation="ENSPKIG00000022541"></leaf>
+                <leaf speciesLocation="Paramormyropskingsleyae"></leaf>
               </eventsRec>
             </clade>
           </clade>
         </clade>
       </clade>
     </phylogeny>
-  </recTransTree>
-</doubleRecPhylo>
+  </recGeneTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <speciation speciesLocation="SROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>G2</name>
+          <eventsRec>
+            <speciation speciesLocation="Cyclostomata"></speciation>
+          </eventsRec>
+          <clade>
+            <name>ENSEBUG00000002498</name>
+            <eventsRec>
+              <leaf speciesLocation="Eptatretusburgeri"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>ENSPMAG00000000684</name>
+            <eventsRec>
+              <leaf speciesLocation="Petromyzonmarinus"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+        <clade>
+          <name>G1</name>
+          <eventsRec>
+            <duplication speciesLocation="Osteoglossiformes"></duplication>
+          </eventsRec>
+          <clade>
+            <name>5</name>
+            <eventsRec>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss speciesLocation="Paramormyropskingsleyae"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSSFOG00015013984</name>
+              <eventsRec>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>G0</name>
+            <eventsRec>
+              <speciation speciesLocation="Osteoglossiformes"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSSFOG00015011349</name>
+              <eventsRec>
+                <leaf speciesLocation="Scleropagesformosus"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSPKIG00000022541</name>
+              <eventsRec>
+                <leaf speciesLocation="Paramormyropskingsleyae"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+</recPhylo>
+

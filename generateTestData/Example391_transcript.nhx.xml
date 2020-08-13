@@ -1,0 +1,120 @@
+<doubleRecPhylo>
+  <spTree>
+    <phylogeny>
+      <clade>
+        <name>GROOT</name>
+        <clade>
+          <name>G0</name>
+          <clade>
+            <name>ENSPMAG00000000684</name>
+          </clade>
+          <clade>
+            <name>ENSEBUG00000002498</name>
+          </clade>
+        </clade>
+        <clade>
+          <name>G2</name>
+          <clade>
+            <name>ENSSFOG00015013984</name>
+          </clade>
+          <clade>
+            <name>G1</name>
+            <clade>
+              <name>ENSSFOG00015011349</name>
+            </clade>
+            <clade>
+              <name>ENSPKIG00000022541</name>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </spTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <speciation speciesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T1</name>
+          <eventsRec>
+            <speciation speciesLocation="G0"></speciation>
+          </eventsRec>
+          <clade>
+            <name>ENSPMAT00000000755</name>
+            <eventsRec>
+              <leaf speciesLocation="ENSPMAG00000000684"></leaf>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>T0</name>
+            <eventsRec>
+              <duplication speciesLocation="ENSEBUG00000002498"></duplication>
+            </eventsRec>
+            <clade>
+              <name>ENSEBUT00000003803</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSEBUG00000002498"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSEBUT00000003826</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSEBUG00000002498"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T4</name>
+          <eventsRec>
+            <speciation speciesLocation="G2"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T2</name>
+            <eventsRec>
+              <duplication speciesLocation="ENSSFOG00015013984"></duplication>
+            </eventsRec>
+            <clade>
+              <name>ENSSFOT00015021966</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSSFOG00015013984"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSSFOT00015021975</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSSFOG00015013984"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>T3</name>
+            <eventsRec>
+              <speciation speciesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>ENSSFOT00015017878</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSSFOG00015011349"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSPKIT00000030168</name>
+              <eventsRec>
+                <leaf speciesLocation="ENSPKIG00000022541"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+  </recTransTree>
+  <recTransTree>
+  </recTransTree>
+</doubleRecPhylo>
+
