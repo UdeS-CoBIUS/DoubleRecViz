@@ -8,7 +8,11 @@
 '''
 
 import os
-from functions import *
+import sys
+
+sys.path.insert(1, '../Utils/')
+
+from utils import *
 
 def reconcile(tree1,tree2, file_mapping):
 	t1 = add_content_tree(tree1,file_mapping)

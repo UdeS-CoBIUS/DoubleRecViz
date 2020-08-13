@@ -9,14 +9,18 @@
 
 import sys
 import os
-import os.path
+
+Dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(1, Dir+'/../Utils/')
+sys.path.insert(2, Dir+'/../convertFormat/')
+
 from prune_species_tree import *
 from copy_gene_tree_init import *
 from compute_gene_trees import *
 from compute_transcript_trees import *
 from reconcile_trees import *
 from NHXtoDoubleRecPhyloXML import *
-from functions import *
+from utils import *
 
 Dir = sys.argv[1]
 

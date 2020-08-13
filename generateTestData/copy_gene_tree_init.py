@@ -9,8 +9,11 @@
 
 
 import sys
+
+sys.path.insert(1, '../Utils/')
+
 from ete3 import Tree
-from functions import *
+from utils import *
 
 
 def copy_gene_tree_init(file_input_tree):

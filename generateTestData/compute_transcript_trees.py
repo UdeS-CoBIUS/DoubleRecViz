@@ -9,11 +9,14 @@
 '''
 
 import sys
+
+sys.path.insert(1, '../Utils/')
+
 import os
 from Bio import SeqIO
 from Bio.Seq import translate
 from ete3 import Tree
-from functions import *
+from utils import *
 
 def compute_transcript_trees(file_transcript,file_transcript2gene,file_genetree_treebest, file_genetree_phyml):
 	transcript_aln = compute_alignment(file_transcript,file_transcript2gene)

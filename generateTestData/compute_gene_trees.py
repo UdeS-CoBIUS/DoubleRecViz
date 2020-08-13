@@ -10,11 +10,14 @@ input parameter : transcript_sequence_file.fasta transcript2gene_file.txt name_o
 '''
 
 import sys
+
+sys.path.insert(1, '../Utils/')
+
 import os
 from Bio import SeqIO
 from Bio.Seq import translate
 from ete3 import Tree
-from functions import *
+from utils import *
 
 def compute_gene_trees(file_transcript,file_transcript2gene,file_gene2species,file_speciestree):
 	# input : transcript_sequence_file.fasta transcript2gene_file.tx

@@ -8,8 +8,13 @@
 '''
 
 import sys
+import os
+
+Dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(Dir+'/../Utils/')
+
 from ete3 import Tree
-from functions import *
+from utils import *
 
 def prune_species_tree(file_input_tree,file_taxa_list):
 	# input : name_of_input.tree, list_of_taxa_to_keep.txt
