@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/python3.7
+'''
+@author : Esaie Kuitche
+@date : April 2020
+@update : Yanchun Qi
+@date : July 2020
+
+@location : University of Sherbrooke
+
+'''
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -1660,6 +1670,17 @@ def update_output(n_clicks, output_confirm, input2):
 			return figProteinGene, 'data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode())
 	return dash.no_update
 
+import argparse
+def build_arg_parser():
+	parser = argparse.ArgumentParser(description="Run DoubleRecViz webserver")
+	parser.add_argument('-d', '--debug', help="debug output option: True or False default(True)", default="True")
+	return parser
 
 if __name__ == '__main__':
-	app.run_server(debug=True)
+	parser = build_arg_parser()
+	args = parser.parse_args()
+	d = args.debug
+	display_debug = True
+	if(d == "False"):
+		display_debug = False
+	app.run_server(debug=display_debug)
