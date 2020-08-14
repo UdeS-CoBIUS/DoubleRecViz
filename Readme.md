@@ -31,7 +31,7 @@ DoubleRecViz takes as input one the following types of object:
 
  - a recPhylo object containing 1 gene tree (gnTree object) followed by 1 to n reconciled transcript trees (recTransTree object) 
 
-Examples of doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations can be found on the "testData" directory.
+Examples input data (doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations) can be found on the "testData" directory.
 
 ## Output
 
