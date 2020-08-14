@@ -31,7 +31,7 @@ DoubleRecViz takes as input one the following types of object:
 
  - a recPhylo object containing 1 gene tree (gnTree object) followed by 1 to n reconciled transcript trees (recTransTree object) 
 
-Examples input file data (doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations) can be found on the "testData" directory.
+Examples input file data (doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations) can be found in the "testData" directory.
 
 ## Output
 
@@ -41,11 +41,11 @@ The reconciled trees are displayed in the browser.
 
 ## Generation of test data from sequence data
 
-Utility scripts to compute test data from real transcript sequence data of a gene family are provided in the "testData" directory. The script requires as parameter the name of a directory containing (1) a transcript sequence file at Fasta format, (2) a file indicating the correspondance between each transcript and its gene name, (3) a file indicating the correspondance between each gene and its species name, (4) a species tree at the Newick format. A gene tree can also be provided optionnaly. The script first computes transcripts trees and gene trees using the TreeBest software (https://github.com/Ensembl/treebest) with different options (best and phyml), and then computes all transcript-gene and gene-species reconciliations, and store them in a  doubleRecPhyloXML file. The locations of output files of each step are displayed in the standard output.
+Utility scripts to compute additional input data from real transcript sequence data of a gene family are provided in the "testData" directory. The script requires as parameter the name of a directory containing (1) a transcript sequence file at Fasta format, (2) a file indicating the correspondance between each transcript and its gene name, (3) a file indicating the correspondance between each gene and its species name, (4) a species tree at the Newick format. An input gene tree can also be provided optionnaly. The script first computes transcripts trees and gene trees using the TreeBest software (https://github.com/Ensembl/treebest) with different options (best and phyml), and then computes all transcript-gene and gene-species reconciliations, and store them in a  doubleRecPhyloXML file. The locations of output files generated at each step are displayed on the standard output.
 
 To run the script, the TreeBest software (https://github.com/Ensembl/treebest) must be installed.
 
-Examples of command to generate real test data:
+Examples of command to generate input data from transcript sequence data:
 
 ```
 python testData/generate_test_data.py testData/realData/ENSGT00390000015814
