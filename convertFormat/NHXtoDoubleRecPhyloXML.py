@@ -133,7 +133,7 @@ def build_arg_parser():
     parser.add_argument('-t', '--type', help="type of reconciled trees: genespecies, transcriptgene, or double (required)" )
     parser.add_argument('-s', '--speciesTree', help="name of the species tree file at Newick format (required if -t double, or -t genespecies)")
     parser.add_argument('-rg', '--recGeneTree', help="name of the file containing reconciled gene trees at NHX format (required if -t genespecies)")
-    parser.add_argument('-rgt', '--recGeneTransTree', help="name of the file containing reconciled gene and transcript trees at NHX format (required if -t double)")
+    parser.add_argument('-rgt', '--recGeneTransTree', help="name of the file containing reconciled gene and transcript trees at NHX format  (required if -t double)")
     parser.add_argument('-g', '--geneTree', help="name of the gene tree file at Newick format (required if -t transcriptgene)")
     parser.add_argument('-rt', '--recTransTree', help="name of the file containing reconciled transcript trees at NHX format (required if -t trancriptgene)")
     parser.add_argument('-o', '--output', help="name of the output file (optional, default is reconciliation_file + \".xml\")")
@@ -192,7 +192,7 @@ if __name__ == '__main__':
             else:
                 if(o == None):
                     o = rt+".xml"
-                b = NHXtoDoubleRecPhyloXML(rt, g,"transcript")
+                b = NHXtoRecPhyloXML(rt, g,"transcript")
                 write_tree(b,o,'w')
     else:
         print("Argument -t <type> : type must be double, gene, or transcript")
