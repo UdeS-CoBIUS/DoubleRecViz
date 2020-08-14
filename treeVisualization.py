@@ -1601,14 +1601,14 @@ def display_confirm(n_clicks, input_xml):
 		tmp_xml.close()
 		try:
 			xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
-			xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/doubleRecPhylo.xsd")
+			xml_validator = lxml.etree.XMLSchema(file="./XSD/doubleRecPhylo.xsd")
 			if xml_file.getroot().tag == "recPhylo":
 				if xml_file.find(".//spTree"):
 					recPhylo_spTree_recGene = True
-					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_spTree_recGene.xsd")
+					xml_validator = lxml.etree.XMLSchema(file="./XSD/recPhylo_spTree_recGene.xsd")
 				if xml_file.find(".//gnTree"):
 					recPhylo_gnTree_recTrans = True
-					xml_validator = lxml.etree.XMLSchema(file="./Data/xsd/recPhylo_gnTree_recTrans.xsd")
+					xml_validator = lxml.etree.XMLSchema(file="./XSD/recPhylo_gnTree_recTrans.xsd")
 			is_valid = xml_validator.validate(xml_file)
 			if is_valid:
 				if recPhylo_spTree_recGene:
