@@ -1511,7 +1511,7 @@ app.layout = html.Div(children=[
 		'figProteinGene.pdf',
 		id='figProteinGene_pdf',
 		download="figProteinGene.pdf",
-		href=get_local_fig_base64("./Data/figProteinGene.pdf", "pdf"),
+		href=get_local_fig_base64("./Input/figProteinGene.pdf", "pdf"),
 		target="_blank"
 	)
 	]),
@@ -1520,7 +1520,7 @@ app.layout = html.Div(children=[
 		'figProteinGene.svg',
 		id='figProteinGene_svg',
 		download="figProteinGene.svg",
-		href=get_local_fig_base64("./Data/figProteinGene.svg", "svg"),
+		href=get_local_fig_base64("./Input/figProteinGene.svg", "svg"),
 		target="_blank"
 	)
 	]),
