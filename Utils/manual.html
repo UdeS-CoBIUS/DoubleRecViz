@@ -48,8 +48,9 @@
       </h3> -->
 
       <div class="blog-post">
-        <h2 class="blog-post-title">doubleRecPhyloXML</h2>
-        <p class="blog-post-meta">XML for transcript-gene-species tree</p>
+        <h2 class="blog-post-title">doubleRecPhyloXML and recTransTreeXML</h2>
+        <p class="blog-post-meta">XML for transcript-gene-species tree reconciliation</p>
+        <p>XML Schema Definition (XSD) files: see <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/XSD">here</a></li>
 
 
         <!-- <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
@@ -64,14 +65,19 @@
           <a class="anchor" href="#introduction" aria-hidden="true"> </a>
           Introduction
         </h2>
-        <p>The <strong>doubleRecPhyloXML</strong> is designed to represent transcript-gene-species tree reconciliations.</p>
+        <p>The <strong>doubleRecPhyloXML</strong> format is designed to represent transcript-gene-species tree reconciliations. The <strong>recTransTreeXML</strong> format is designed to represent transcript-gene tree reconciliations. They are extensions of the  <a href="https://github.com/WandrilleD/recPhyloXML/tree/master/xsd">recPhyloXML</a> and  <a href="https://github.com/WandrilleD/recPhyloXML/tree/master/xsd">recGeneTreeXML</a> grammars which were designed to describe gene-species tree reconciliations</p>
 
         <h2 id="doubleRecPhylo">
           <a class="anchor" href="#doubleRecPhylo" aria-hidden="true"> </a>
-          doubleRecPhylo
+          doubleRecPhyloXML
         </h2>
+
+	<p>The <a href="https://github.com/WandrilleD/recPhyloXML/tree/master/xsd/recPhyloXML.xsd">recPhyloXML</a> grammar describes a reconciliation as a set comprised of a species tree ( <code>&lt;spTree&gt;</code> tag) followed by one or more reconciled gene trees ( <code>&lt;recGeneTree&gt;</code> tag).</p>
+
+<p>The doubleRecPhyloXML grammar enriches the recPhyloXML grammar by allowing reconciled gene trees to be followed by one or more reconciled transcript trees ( <code>&lt;recTransTree&gt;</code> tag described below).</p>
+
         <p>
-          Skeleton of a <code>&lt;doubleRecPhylo&gt;</code> object with a species tree, followed by a first reconciled gene tree with two reconciled transcript trees, a second reconciled gene tree with one reconciled transcript tree, and a third reconciled gene tree with zero reconciled transcript tree.
+          Below is the skeleton of a <code>&lt;doubleRecPhylo&gt;</code> object with a species tree, followed by a first reconciled gene tree with two reconciled transcript trees, a second reconciled gene tree with one reconciled transcript tree, and a third reconciled gene tree with zero reconciled transcript tree.
         </p>
 
         <pre class="code highlight js-syntax-highlight xml dark">
@@ -120,12 +126,14 @@
           <a class="anchor" href="#recTransTreeXML" aria-hidden="true"> </a>
           recTransTreeXML
         </h2>
-        <p>
-          The <strong>recTransTreeXML</strong> format is designed to represent transcript-gene tree reconciliations.
-        </p>
+     
 
         <p>
-          The <a href="http://phylariane.univ-lyon1.fr/recphyloxml/">recGeneTreeXML grammar</a> contains an <code>&lt;eventsRec&gt;</code> tag that is included inside a <code>&lt;clade&gt;</code> tag to allow the representation of the evolutionary events associated to branches and nodes of a reconciled gene tree. The recTransTreeXML grammar enriches the recGeneTreeXML grammar by extending the set of evolutionary events that can be included in an <code>&lt;eventsRec&gt;</code> object.
+          The <a href="https://github.com/WandrilleD/recPhyloXML/tree/master/xsd/recGeneTreeXML.xsd">recGeneTreeXML </a> grammar contains an <code>&lt;eventsRec&gt;</code> tag that is included inside a <code>&lt;clade&gt;</code> tag to allow the representation of the evolutionary events associated to branches and nodes of a reconciled gene tree.
+        </p>  
+
+        <p>
+	  The recTransTreeXML grammar enriches the recGeneTreeXML grammar by extending the set of evolutionary events that can be included in an <code>&lt;eventsRec&gt;</code> object.
         </p>  
 
         <p>
@@ -140,24 +148,26 @@
             - those specific to the recTransTreeXML grammar: <code>&lt;creation&gt;</code>, and <code>&lt;loss&gt;</code>. A <code>&lt;creation&gt;</code> tag describes a transcript lineage undergoing a bifurcation due to the creation of a new lineage of transcript isoforms, and a <code>&lt;loss&gt;</code> tag describes the loss of a transcript isoform.
         </p>
 
-        <p> 
-          See examples of <code>&lt;recTransTree&gt;</code> objects in input files examples on the <a href="https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz/">webserver</a>.
-        </p>
 
         <h2 id="files">
           <a class="anchor" href="#files" aria-hidden="true"> </a>
-          Files
+          Examples
         </h2>
+
+
         <ul>
-          <li>.xsd files: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/DoubleRecViz.xsd">get them here</a></li>
-          <li>doubleRecPhylo Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/doubleRecPhylo.xml" download="">Download here</a></li>
-          <li>recPhyloGeneSpecies Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/recPhyloGeneSpecies.xml" download="">Download here</a></li>
-          <li>recPhyloTranscriptGene Example: <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/Data/recPhyloTranscriptGene.xml" download="">Download here</a></li>
+          <li>doubleRecPhylo example for transcript-gene-species tree reconciliations: Download <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/testData/toyData/doubleRecPhylo_example1.xml" download="">here</a></li>
+          <li>recPhylo example for gene-species tree reconciliations: Download <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/testData/toyData/recPhylo_genespecies.xml" download="">here</a></li>
+          <li>recPhylo example for transcript-gene tree reconciliations: Download <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/testData/toyData/recPhylo_transcriptgene.xml" download="">here</a></li>
         </ul>
-        
+
+                <p> 
+          See additional examples of  <code>&lt;doubleRecPhylo>&gt;</code> and <code>&lt;recPhylo&gt;</code> objects containing <code>&lt;recTransTree&gt;</code> tags in input files examples provided in the <a href="https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz/blob/master/testData">GitHub repository</a>.
+        </p>
+
         <h2 id="tools">
           <a class="anchor" href="#tools" aria-hidden="true"> </a>
-          Tools
+          Webserver
         </h2>
         <ul>
           <li><a href="https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz/">DoubleRecViz</a></li>
