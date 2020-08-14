@@ -21,7 +21,7 @@ python treeVisualisation.py
 
 ## Input files
 
-DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in https://doublerecviz.cobius.usherbrooke.ca/manual.html
+DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in "manual.html" and in the "XSD" directory. Utility scripts for conversion between the NHX and doubleRecPhyloXML formats are also provided in the "convertFormat" directory.
 
 DoubleRecViz takes as input one the following types of object:
 
@@ -31,7 +31,7 @@ DoubleRecViz takes as input one the following types of object:
 
  - a recPhylo object containing 1 gene tree (gnTree object) followed by 1 to n reconciled transcript trees (recTransTree object) 
 
-Examples input data (doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations) can be found on the "testData" directory.
+Examples input file data (doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations) can be found on the "testData" directory.
 
 ## Output
 
