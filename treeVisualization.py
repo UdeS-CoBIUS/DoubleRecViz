@@ -1287,13 +1287,13 @@ def dataFromFile(path):
 
 
 def textarea_example():
-	file_tree = open("./Data/doubleRecPhylo.xml", "r")
+	file_tree = open("./Input/tmp_tree.xml", "r")
 	tree_nw = file_tree.read()
 	return tree_nw
 
 
 def get_recGeneSpecie_recProteinTree():
-	recTree = dataFromDoubleRecFile("./Data/doubleRecPhylo.xml")
+	recTree = dataFromDoubleRecFile("./Input/tmp_tree.xml")
 	if len(recTree) == 2 :
 		if recTree[0][1] == "geneSpecie":
 			recGeneSpecie = recTree[0][0]
@@ -1468,7 +1468,7 @@ app.layout = html.Div(children=[
 		'figGeneSpecie.pdf',
 		id='figGeneSpecie_pdf',
 		download="figGeneSpecie.pdf",
-		href=get_local_fig_base64("./Data/figGeneSpecie.pdf", "pdf"),
+		href=get_local_fig_base64("./Input/figGeneSpecie.pdf", "pdf"),
 		target="_blank"
 	)
 	]),
@@ -1477,7 +1477,7 @@ app.layout = html.Div(children=[
 		'figGeneSpecie.svg',
 		id='figGeneSpecie_svg',
 		download="figGeneSpecie.svg",
-		href=get_local_fig_base64("./Data/figGeneSpecie.svg", "svg"),
+		href=get_local_fig_base64("./Input/figGeneSpecie.svg", "svg"),
 		target="_blank"
 	)
 	]),
@@ -1596,11 +1596,11 @@ def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
 		recPhylo_spTree_recGene = False
 		recPhylo_gnTree_recTrans = False
-		tmp_xml = open("./Data/tmp_xml.xml", "w")
+		tmp_xml = open("./Input/tmp_xml.xml", "w")
 		tmp_xml.write(input_xml)
 		tmp_xml.close()
 		try:
-			xml_file = lxml.etree.parse("./Data/tmp_xml.xml")
+			xml_file = lxml.etree.parse("./Input/tmp_xml.xml")
 			xml_validator = lxml.etree.XMLSchema(file="./XSD/doubleRecPhylo.xsd")
 			if xml_file.getroot().tag == "recPhylo":
 				if xml_file.find(".//spTree"):
@@ -1657,10 +1657,10 @@ def update_output(n_clicks, output_confirm, input2):
 			multiple_reconciliation_figProteinGene = []
 
 			if output_confirm == "YES":
-				tmp_tree = open("./Data/tmp_tree.nw", "w")
+				tmp_tree = open("./Input/tmp_tree.xml", "w")
 				tmp_tree.write(input2)
 				tmp_tree.close()
-				recTree = dataFromDoubleRecFile("./Data/tmp_tree.nw")
+				recTree = dataFromDoubleRecFile("./Input/tmp_tree.xml")
 				
 				for i in range(len(recTree)):
 					if recTree[i][1] == "geneSpecie":
