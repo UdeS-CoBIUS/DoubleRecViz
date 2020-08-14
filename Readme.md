@@ -1,5 +1,5 @@
 # DoubleRecViz
-DoubleRecViz is a tool for visualizing and editing double reconciliations between phylogenetic trees at three levels: transcript, gene and species. It displays reconciled gene trees embedded in species trees and reconciled transcript trees embedded in gene trees, with annotations on the nodes of the trees corresponding to the underlying co-evolutionary events.
+DoubleRecViz is a tool for visualizing double reconciliations between phylogenetic trees at three levels: transcript, gene and species. It displays reconciled gene trees embedded in species trees and reconciled transcript trees embedded in gene trees, with annotations on the nodes of the trees corresponding to the underlying co-evolutionary events.
 
 #### Esaie Kuitche, Yanchun Qi, Nadia Tahiri, Jack Parmer, Aïda Ouangraoua
 
@@ -21,7 +21,7 @@ python treeVisualisation.py
 
 ## Input files
 
-DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see http://phylariane.univ-lyon1.fr/recphyloxml/ for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in https://doublerecviz.cobius.usherbrooke.ca/DoubleRecViz.pdf
+DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in https://doublerecviz.cobius.usherbrooke.ca/manual.html
 
 DoubleRecViz takes as input one the following types of object:
 
@@ -31,7 +31,7 @@ DoubleRecViz takes as input one the following types of object:
 
  - a recPhylo object containing 1 gene tree (gnTree object) followed by 1 to n reconciled transcript trees (recTransTree object) 
 
-An example of doubleRecPhylo object for a transcript-gene-species tree reconciliation, and two recPhylo objects for a transcript-gene tree reconciliation and a gene-species tree reconciliation can be found on the "Data" directory.
+Examples of doubleRecPhylo objects for a transcript-gene-species tree reconciliation, and recPhylo objects for a transcript-gene tree reconciliations and gene-species tree reconciliations can be found on the "testData" directory.
 
 ## Output
 
