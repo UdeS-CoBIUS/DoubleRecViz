@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/python3.7
+'''
+@author : Esaie Kuitche
+@date : April 2020
+
+@location : University of Sherbrooke
+
+'''
 import xml.etree.ElementTree
 from Bio import Phylo
 from ete3 import Tree
