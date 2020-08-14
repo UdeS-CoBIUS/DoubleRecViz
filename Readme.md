@@ -3,7 +3,7 @@ DoubleRecViz is a tool for visualizing double reconciliations between phylogenet
 
 #### Esaie Kuitche, Yanchun Qi, Nadia Tahiri, Jack Parmer, Aïda Ouangraoua
 
-##### Contact Esaie.Kuitche.Kamela@USherbrooke.ca
+##### Contact Yanchun.Qi@USherbrooke.ca
 
 ## Requirements
 The program requires the following to be available
@@ -21,7 +21,7 @@ python treeVisualisation.py
 
 ## Input files
 
-DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in "manual.html" and in the "XSD" directory. 
+DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in https://doublerecviz.cobius.usherbrooke.ca/manual.html and in the "XSD" directory. 
 
 DoubleRecViz takes as input one the following types of object:
 
@@ -41,6 +41,13 @@ The reconciled trees are displayed in the browser.
 
 ## Generation of test data from sequence data
 
+A Python script to compute test data from real transcript sequence data of a gene family are provided in the "testData" directory. The script requires as parameter the name of a directory containing (1) a transcript sequence file at Fasta format, (2) a file indicating the correspondance between each transcript and its gene name, (3) a file indicating the correspondance between each gene and its species name, (4) a species tree at the Newick format. It first computes transcripts trees and gene trees using the TreeBest method with different options (best and phyml), and then computes all transcript-gene and gene-species reconciliations, and store them in a  doubleRecPhyloXML file. The locations of input files of each step are displayed in the standard output.
+
+Examples of command to generate real test data:
+
+```
+python testData/generate_test_data.py testData/realData/ENSGT00390000015814
+```
 
 ## Conversion between the NHX and doubleRecPhyloXML formats
 
