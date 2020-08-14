@@ -4,28 +4,22 @@
       <clade>
         <name>SROOT</name>
         <clade>
-          <name>Nothoproctaperdicaria</name>
+          <name>Apteryx1</name>
+          <clade>
+            <name>Apteryx</name>
+            <clade>
+              <name>Apteryxowenii</name>
+            </clade>
+            <clade>
+              <name>Apteryxhaastii</name>
+            </clade>
+          </clade>
+          <clade>
+            <name>Apteryxrowi</name>
+          </clade>
         </clade>
         <clade>
-          <name>Palaeognathae</name>
-          <clade>
-            <name>Apteryx1</name>
-            <clade>
-              <name>Apteryx</name>
-              <clade>
-                <name>Apteryxowenii</name>
-              </clade>
-              <clade>
-                <name>Apteryxhaastii</name>
-              </clade>
-            </clade>
-            <clade>
-              <name>Apteryxrowi</name>
-            </clade>
-          </clade>
-          <clade>
-            <name>Dromaiusnovaehollandiae</name>
-          </clade>
+          <name>Dromaiusnovaehollandiae</name>
         </clade>
       </clade>
     </phylogeny>
@@ -35,7 +29,7 @@
       <clade>
         <name>GROOT</name>
         <eventsRec>
-          <speciation speciesLocation="Palaeognathae"></speciation>
+          <speciation speciesLocation="SROOT"></speciation>
         </eventsRec>
         <clade>
           <name>G1</name>
@@ -327,7 +321,7 @@
       <clade>
         <name>GROOT</name>
         <eventsRec>
-          <speciation speciesLocation="Palaeognathae"></speciation>
+          <speciation speciesLocation="SROOT"></speciation>
         </eventsRec>
         <clade>
           <name>G1</name>

@@ -1,0 +1,4320 @@
+<doubleRecPhylo>
+  <spTree>
+    <phylogeny>
+      <clade>
+        <name>SROOT</name>
+        <clade>
+          <name>Boreoeutheria</name>
+          <clade>
+            <name>Euarchontoglires</name>
+            <clade>
+              <name>Murinae</name>
+              <clade>
+                <name>Rattusnorvegicus</name>
+              </clade>
+              <clade>
+                <name>MusmusculusreferenceCL57BL6strain</name>
+              </clade>
+            </clade>
+            <clade>
+              <name>Homininae</name>
+              <clade>
+                <name>Homosapiens</name>
+              </clade>
+              <clade>
+                <name>Pantroglodytes</name>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>Bostaurus</name>
+          </clade>
+        </clade>
+        <clade>
+          <name>Gallusgallus</name>
+        </clade>
+      </clade>
+    </phylogeny>
+  </spTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <duplication speciesLocation="SROOT"></duplication>
+        </eventsRec>
+        <clade>
+          <name>10</name>
+          <eventsRec>
+            <speciation speciesLocation="SROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss speciesLocation="Gallusgallus"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>9</name>
+            <eventsRec>
+              <speciation speciesLocation="Boreoeutheria"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss speciesLocation="Bostaurus"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>G1</name>
+              <eventsRec>
+                <speciation speciesLocation="Euarchontoglires"></speciation>
+              </eventsRec>
+              <clade>
+                <name>G0</name>
+                <eventsRec>
+                  <speciation speciesLocation="Murinae"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>ENSRNOG00000001924</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Rattusnorvegicus"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSMUSG00000022510</name>
+                  <eventsRec>
+                    <leaf speciesLocation="MusmusculusreferenceCL57BL6strain"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>7</name>
+                <eventsRec>
+                  <speciation speciesLocation="Homininae"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss speciesLocation="Pantroglodytes"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSG00000078900</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Homosapiens"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>G4</name>
+          <eventsRec>
+            <speciation speciesLocation="SROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>G3</name>
+            <eventsRec>
+              <speciation speciesLocation="Boreoeutheria"></speciation>
+            </eventsRec>
+            <clade>
+              <name>15</name>
+              <eventsRec>
+                <speciation speciesLocation="Euarchontoglires"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss speciesLocation="Murinae"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>G2</name>
+                <eventsRec>
+                  <speciation speciesLocation="Homininae"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>ENSG00000073282</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Homosapiens"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSPTRG00000015733</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Pantroglodytes"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENSBTAG00000015460</name>
+              <eventsRec>
+                <leaf speciesLocation="Bostaurus"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSGALG00000007324</name>
+            <eventsRec>
+              <leaf speciesLocation="Gallusgallus"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <creation genesLocation="GROOT"></creation>
+        </eventsRec>
+        <clade>
+          <name>T25</name>
+          <eventsRec>
+            <creation genesLocation="GROOT"></creation>
+          </eventsRec>
+          <clade>
+            <name>T19</name>
+            <eventsRec>
+              <creation genesLocation="GROOT"></creation>
+            </eventsRec>
+            <clade>
+              <name>12</name>
+              <eventsRec>
+                <speciation genesLocation="GROOT"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="G4"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>11</name>
+                <eventsRec>
+                  <speciation genesLocation="G1"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSG00000078900"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T2</name>
+                  <eventsRec>
+                    <creation genesLocation="G0"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T1</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>T0</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSRNOG00000001924"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSRNOT00000002636</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSRNOT00000068116</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115306</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>9</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSRNOG00000001924"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000040231</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T18</name>
+              <eventsRec>
+                <creation genesLocation="GROOT"></creation>
+              </eventsRec>
+              <clade>
+                <name>T12</name>
+                <eventsRec>
+                  <creation genesLocation="GROOT"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T6</name>
+                  <eventsRec>
+                    <speciation genesLocation="GROOT"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>21</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSG00000078900"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T5</name>
+                      <eventsRec>
+                        <creation genesLocation="G0"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T3</name>
+                        <eventsRec>
+                          <speciation genesLocation="G0"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSRNOT00000036193</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115310</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T4</name>
+                        <eventsRec>
+                          <speciation genesLocation="G0"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSRNOT00000067251</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000065523</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>26</name>
+                    <eventsRec>
+                      <speciation genesLocation="G4"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSGALG00000007324"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>25</name>
+                      <eventsRec>
+                        <speciation genesLocation="G3"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="G2"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSBTAT00000020544</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>44</name>
+                  <eventsRec>
+                    <speciation genesLocation="GROOT"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="G1"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T11</name>
+                    <eventsRec>
+                      <speciation genesLocation="G4"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>41</name>
+                      <eventsRec>
+                        <speciation genesLocation="G3"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSBTAG00000015460"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T10</name>
+                        <eventsRec>
+                          <creation genesLocation="G2"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>36</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>-</name>
+                            <eventsRec>
+                              <loss genesLocation="ENSPTRG00000015733"></loss>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>T8</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T7</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>ENST00000320472</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000392460</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>ENST00000440651</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>T9</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000264731</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSPTRT00000029325</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>ENSGALT00000011850</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSGALG00000007324"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>62</name>
+                <eventsRec>
+                  <speciation genesLocation="GROOT"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="G1"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T17</name>
+                  <eventsRec>
+                    <speciation genesLocation="G4"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>59</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>58</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T16</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T15</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T14</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T13</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>ENST00000354600</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000449992</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>ENST00000456148</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392463</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>ENST00000392461</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENSGALT00000033346</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSGALG00000007324"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T24</name>
+            <eventsRec>
+              <creation genesLocation="GROOT"></creation>
+            </eventsRec>
+            <clade>
+              <name>T22</name>
+              <eventsRec>
+                <speciation genesLocation="GROOT"></speciation>
+              </eventsRec>
+              <clade>
+                <name>71</name>
+                <eventsRec>
+                  <speciation genesLocation="G1"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSG00000078900"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T21</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENSRNOT00000036179</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T20</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSMUSG00000022510"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSMUST00000115307</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115308</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>78</name>
+                <eventsRec>
+                  <speciation genesLocation="G4"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSGALG00000007324"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>77</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSBTAG00000015460"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>76</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSPTRG00000015733"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000418709</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000073282"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T23</name>
+              <eventsRec>
+                <speciation genesLocation="GROOT"></speciation>
+              </eventsRec>
+              <clade>
+                <name>84</name>
+                <eventsRec>
+                  <speciation genesLocation="G1"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSG00000078900"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>83</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSRNOG00000001924"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSMUST00000115305</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>91</name>
+                <eventsRec>
+                  <speciation genesLocation="G4"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSGALG00000007324"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>90</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSBTAG00000015460"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>89</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSPTRG00000015733"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000437221</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000073282"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>117</name>
+          <eventsRec>
+            <speciation genesLocation="GROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss genesLocation="G4"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>T34</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>98</name>
+              <eventsRec>
+                <speciation genesLocation="G0"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSRNOG00000001924"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENSMUST00000115304</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>T33</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T29</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T27</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T26</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000354437</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000378295</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378290</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T28</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENST00000378285</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378288</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>T32</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T31</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T30</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000378280</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000603362</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000604479</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000604074</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <creation genesLocation="GROOT"></creation>
+        </eventsRec>
+        <clade>
+          <name>20</name>
+          <eventsRec>
+            <speciation genesLocation="GROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss genesLocation="G4"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>19</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="G0"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>T34</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T30</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T28</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T27</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000354437</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000378295</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378290</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T29</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENST00000378285</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378288</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>T33</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T32</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T31</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000378280</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000603362</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000604479</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000604074</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T26</name>
+          <eventsRec>
+            <creation genesLocation="GROOT"></creation>
+          </eventsRec>
+          <clade>
+            <name>T25</name>
+            <eventsRec>
+              <creation genesLocation="GROOT"></creation>
+            </eventsRec>
+            <clade>
+              <name>27</name>
+              <eventsRec>
+                <speciation genesLocation="GROOT"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="G4"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>26</name>
+                <eventsRec>
+                  <speciation genesLocation="G1"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSG00000078900"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>25</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSRNOG00000001924"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSMUST00000115304</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T24</name>
+              <eventsRec>
+                <creation genesLocation="GROOT"></creation>
+              </eventsRec>
+              <clade>
+                <name>T22</name>
+                <eventsRec>
+                  <speciation genesLocation="GROOT"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>34</name>
+                  <eventsRec>
+                    <speciation genesLocation="G1"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSG00000078900"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T21</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000036179</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T20</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000115307</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115308</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>41</name>
+                  <eventsRec>
+                    <speciation genesLocation="G4"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSGALG00000007324"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>40</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>39</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000418709</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>T23</name>
+                <eventsRec>
+                  <speciation genesLocation="GROOT"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>47</name>
+                  <eventsRec>
+                    <speciation genesLocation="G1"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSG00000078900"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>46</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSRNOG00000001924"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115305</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>54</name>
+                  <eventsRec>
+                    <speciation genesLocation="G4"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSGALG00000007324"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>53</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>52</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000437221</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T19</name>
+            <eventsRec>
+              <creation genesLocation="GROOT"></creation>
+            </eventsRec>
+            <clade>
+              <name>68</name>
+              <eventsRec>
+                <speciation genesLocation="GROOT"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="G4"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>67</name>
+                <eventsRec>
+                  <speciation genesLocation="G1"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSG00000078900"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T18</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>T16</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSRNOG00000001924"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000002636</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSRNOT00000068116</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T17</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSMUSG00000022510"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSMUST00000040231</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115306</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T15</name>
+              <eventsRec>
+                <creation genesLocation="GROOT"></creation>
+              </eventsRec>
+              <clade>
+                <name>T14</name>
+                <eventsRec>
+                  <creation genesLocation="GROOT"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T13</name>
+                  <eventsRec>
+                    <creation genesLocation="GROOT"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T12</name>
+                    <eventsRec>
+                      <speciation genesLocation="GROOT"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>77</name>
+                      <eventsRec>
+                        <speciation genesLocation="G1"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSG00000078900"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T11</name>
+                        <eventsRec>
+                          <creation genesLocation="G0"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T9</name>
+                          <eventsRec>
+                            <speciation genesLocation="G0"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENSRNOT00000036193</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSMUST00000115310</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>T10</name>
+                          <eventsRec>
+                            <speciation genesLocation="G0"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENSRNOT00000067251</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSMUST00000065523</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>82</name>
+                      <eventsRec>
+                        <speciation genesLocation="G4"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSGALG00000007324"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>81</name>
+                        <eventsRec>
+                          <speciation genesLocation="G3"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="G2"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSBTAT00000020544</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>104</name>
+                    <eventsRec>
+                      <speciation genesLocation="GROOT"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="G1"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>103</name>
+                      <eventsRec>
+                        <speciation genesLocation="G4"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSGALG00000007324"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>102</name>
+                        <eventsRec>
+                          <speciation genesLocation="G3"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="ENSBTAG00000015460"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>T8</name>
+                          <eventsRec>
+                            <creation genesLocation="G2"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>89</name>
+                            <eventsRec>
+                              <speciation genesLocation="G2"></speciation>
+                            </eventsRec>
+                            <clade>
+                              <name>-</name>
+                              <eventsRec>
+                                <loss genesLocation="ENSPTRG00000015733"></loss>
+                              </eventsRec>
+                            </clade>
+                            <clade>
+                              <name>ENST00000320472</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>T7</name>
+                            <eventsRec>
+                              <creation genesLocation="G2"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>92</name>
+                              <eventsRec>
+                                <speciation genesLocation="G2"></speciation>
+                              </eventsRec>
+                              <clade>
+                                <name>-</name>
+                                <eventsRec>
+                                  <loss genesLocation="ENSPTRG00000015733"></loss>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000392460</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>T6</name>
+                              <eventsRec>
+                                <creation genesLocation="G2"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>95</name>
+                                <eventsRec>
+                                  <speciation genesLocation="G2"></speciation>
+                                </eventsRec>
+                                <clade>
+                                  <name>-</name>
+                                  <eventsRec>
+                                    <loss genesLocation="ENSPTRG00000015733"></loss>
+                                  </eventsRec>
+                                </clade>
+                                <clade>
+                                  <name>ENST00000264731</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <name>T5</name>
+                                <eventsRec>
+                                  <speciation genesLocation="G2"></speciation>
+                                </eventsRec>
+                                <clade>
+                                  <name>ENST00000440651</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                                <clade>
+                                  <name>ENSPTRT00000029325</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                                  </eventsRec>
+                                </clade>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>110</name>
+                  <eventsRec>
+                    <speciation genesLocation="GROOT"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="G1"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>109</name>
+                    <eventsRec>
+                      <speciation genesLocation="G4"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="G3"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSGALT00000011850</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSGALG00000007324"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>128</name>
+                <eventsRec>
+                  <speciation genesLocation="GROOT"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="G1"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T4</name>
+                  <eventsRec>
+                    <speciation genesLocation="G4"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>125</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>124</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T3</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T2</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T1</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T0</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>ENST00000354600</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000449992</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>ENST00000456148</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392463</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>ENST00000392461</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENSGALT00000033346</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSGALG00000007324"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <creation genesLocation="GROOT"></creation>
+        </eventsRec>
+        <clade>
+          <name>20</name>
+          <eventsRec>
+            <speciation genesLocation="GROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss genesLocation="G4"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>19</name>
+            <eventsRec>
+              <speciation genesLocation="G1"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="G0"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>T34</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T33</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENST00000354437</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T32</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T31</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T30</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSG00000078900"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENST00000378285</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000078900"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000378288</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000078900"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>ENST00000378290</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378295</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>T29</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T28</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T27</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000078900"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000378280</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000603362</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000078900"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENST00000604479</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000604074</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T26</name>
+          <eventsRec>
+            <creation genesLocation="GROOT"></creation>
+          </eventsRec>
+          <clade>
+            <name>T24</name>
+            <eventsRec>
+              <speciation genesLocation="GROOT"></speciation>
+            </eventsRec>
+            <clade>
+              <name>51</name>
+              <eventsRec>
+                <speciation genesLocation="G1"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSG00000078900"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>T23</name>
+                <eventsRec>
+                  <creation genesLocation="G0"></creation>
+                </eventsRec>
+                <clade>
+                  <name>30</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSMUSG00000022510"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T14</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSRNOG00000001924"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T13</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSRNOG00000001924"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSRNOT00000002636</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSRNOT00000068116</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>T12</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSRNOG00000001924"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSRNOT00000036193</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSRNOT00000067251</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T22</name>
+                  <eventsRec>
+                    <creation genesLocation="G0"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T21</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000036179</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T20</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T18</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSMUSG00000022510"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSMUST00000115304</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115305</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T19</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSMUSG00000022510"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSMUST00000115307</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115308</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>48</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSRNOG00000001924"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T17</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T16</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSMUSG00000022510"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSMUST00000040231</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115306</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T15</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSMUSG00000022510"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSMUST00000065523</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115310</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>86</name>
+              <eventsRec>
+                <speciation genesLocation="G4"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSGALG00000007324"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>T11</name>
+                <eventsRec>
+                  <speciation genesLocation="G3"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>T10</name>
+                  <eventsRec>
+                    <creation genesLocation="G2"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>57</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSPTRG00000015733"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T9</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSG00000073282"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENST00000418709</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000437221</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T8</name>
+                    <eventsRec>
+                      <creation genesLocation="G2"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>68</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T7</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T5</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000354600</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>T4</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>ENST00000449992</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                            <clade>
+                              <name>ENST00000456148</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>T6</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000392461</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392463</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>T3</name>
+                      <eventsRec>
+                        <creation genesLocation="G2"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>73</name>
+                        <eventsRec>
+                          <speciation genesLocation="G2"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="ENSPTRG00000015733"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>T2</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000320472</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392460</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T1</name>
+                        <eventsRec>
+                          <creation genesLocation="G2"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>76</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>-</name>
+                            <eventsRec>
+                              <loss genesLocation="ENSPTRG00000015733"></loss>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENST00000264731</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>T0</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000440651</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSPTRT00000029325</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENSBTAT00000020544</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>94</name>
+            <eventsRec>
+              <speciation genesLocation="GROOT"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="G1"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>93</name>
+              <eventsRec>
+                <speciation genesLocation="G4"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="G3"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>T25</name>
+                <eventsRec>
+                  <creation genesLocation="ENSGALG00000007324"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENSGALT00000011850</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSGALG00000007324"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSGALT00000033346</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSGALG00000007324"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recGeneTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>GROOT</name>
+        <eventsRec>
+          <duplication speciesLocation="SROOT"></duplication>
+        </eventsRec>
+        <clade>
+          <name>8</name>
+          <eventsRec>
+            <speciation speciesLocation="SROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss speciesLocation="Gallusgallus"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>7</name>
+            <eventsRec>
+              <speciation speciesLocation="Boreoeutheria"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss speciesLocation="Bostaurus"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>6</name>
+              <eventsRec>
+                <speciation speciesLocation="Euarchontoglires"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss speciesLocation="Murinae"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>5</name>
+                <eventsRec>
+                  <speciation speciesLocation="Homininae"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss speciesLocation="Pantroglodytes"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSG00000078900</name>
+                  <eventsRec>
+                    <leaf speciesLocation="Homosapiens"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>G4</name>
+          <eventsRec>
+            <speciation speciesLocation="SROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>G3</name>
+            <eventsRec>
+              <duplication speciesLocation="Boreoeutheria"></duplication>
+            </eventsRec>
+            <clade>
+              <name>15</name>
+              <eventsRec>
+                <speciation speciesLocation="Boreoeutheria"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss speciesLocation="Bostaurus"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>14</name>
+                <eventsRec>
+                  <speciation speciesLocation="Euarchontoglires"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss speciesLocation="Homininae"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>G2</name>
+                  <eventsRec>
+                    <speciation speciesLocation="Murinae"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENSRNOG00000001924</name>
+                    <eventsRec>
+                      <leaf speciesLocation="Rattusnorvegicus"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSMUSG00000022510</name>
+                    <eventsRec>
+                      <leaf speciesLocation="MusmusculusreferenceCL57BL6strain"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>G1</name>
+              <eventsRec>
+                <speciation speciesLocation="Boreoeutheria"></speciation>
+              </eventsRec>
+              <clade>
+                <name>20</name>
+                <eventsRec>
+                  <speciation speciesLocation="Euarchontoglires"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss speciesLocation="Murinae"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>G0</name>
+                  <eventsRec>
+                    <speciation speciesLocation="Homininae"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENSG00000073282</name>
+                    <eventsRec>
+                      <leaf speciesLocation="Homosapiens"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSPTRG00000015733</name>
+                    <eventsRec>
+                      <leaf speciesLocation="Pantroglodytes"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENSBTAG00000015460</name>
+                <eventsRec>
+                  <leaf speciesLocation="Bostaurus"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>ENSGALG00000007324</name>
+            <eventsRec>
+              <leaf speciesLocation="Gallusgallus"></leaf>
+            </eventsRec>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recGeneTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <creation genesLocation="GROOT"></creation>
+        </eventsRec>
+        <clade>
+          <name>88</name>
+          <eventsRec>
+            <speciation genesLocation="GROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>-</name>
+            <eventsRec>
+              <loss genesLocation="ENSG00000078900"></loss>
+            </eventsRec>
+          </clade>
+          <clade>
+            <name>T25</name>
+            <eventsRec>
+              <creation genesLocation="G4"></creation>
+            </eventsRec>
+            <clade>
+              <name>T19</name>
+              <eventsRec>
+                <creation genesLocation="G4"></creation>
+              </eventsRec>
+              <clade>
+                <name>T18</name>
+                <eventsRec>
+                  <creation genesLocation="G4"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T17</name>
+                  <eventsRec>
+                    <speciation genesLocation="G4"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>15</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="G2"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>14</name>
+                      <eventsRec>
+                        <speciation genesLocation="G1"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSBTAG00000015460"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>13</name>
+                        <eventsRec>
+                          <speciation genesLocation="G0"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="ENSPTRG00000015733"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>T16</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T15</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T14</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>T13</name>
+                                <eventsRec>
+                                  <creation genesLocation="ENSG00000073282"></creation>
+                                </eventsRec>
+                                <clade>
+                                  <name>ENST00000354600</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                                <clade>
+                                  <name>ENST00000449992</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <name>ENST00000456148</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>ENST00000392463</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392461</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>ENSGALT00000033346</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSGALG00000007324"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T12</name>
+                  <eventsRec>
+                    <creation genesLocation="G4"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T11</name>
+                    <eventsRec>
+                      <speciation genesLocation="G4"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>32</name>
+                      <eventsRec>
+                        <speciation genesLocation="G3"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="G2"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>31</name>
+                        <eventsRec>
+                          <speciation genesLocation="G1"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="ENSBTAG00000015460"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>T10</name>
+                          <eventsRec>
+                            <creation genesLocation="G0"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T9</name>
+                            <eventsRec>
+                              <speciation genesLocation="G0"></speciation>
+                            </eventsRec>
+                            <clade>
+                              <name>ENSPTRT00000029325</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                              </eventsRec>
+                            </clade>
+                            <clade>
+                              <name>ENST00000264731</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>29</name>
+                            <eventsRec>
+                              <speciation genesLocation="G0"></speciation>
+                            </eventsRec>
+                            <clade>
+                              <name>-</name>
+                              <eventsRec>
+                                <loss genesLocation="ENSPTRG00000015733"></loss>
+                              </eventsRec>
+                            </clade>
+                            <clade>
+                              <name>T8</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>T7</name>
+                                <eventsRec>
+                                  <creation genesLocation="ENSG00000073282"></creation>
+                                </eventsRec>
+                                <clade>
+                                  <name>ENST00000320472</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                                <clade>
+                                  <name>ENST00000392460</name>
+                                  <eventsRec>
+                                    <leaf genesLocation="ENSG00000073282"></leaf>
+                                  </eventsRec>
+                                </clade>
+                              </clade>
+                              <clade>
+                                <name>ENST00000440651</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>ENSGALT00000011850</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSGALG00000007324"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>47</name>
+                    <eventsRec>
+                      <speciation genesLocation="G4"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSGALG00000007324"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T6</name>
+                      <eventsRec>
+                        <speciation genesLocation="G3"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>38</name>
+                        <eventsRec>
+                          <speciation genesLocation="G1"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="G0"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSBTAT00000020544</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T5</name>
+                        <eventsRec>
+                          <creation genesLocation="G2"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T3</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENSRNOT00000036193</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSMUST00000115310</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>T4</name>
+                          <eventsRec>
+                            <speciation genesLocation="G2"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENSRNOT00000067251</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENSMUST00000065523</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>62</name>
+                <eventsRec>
+                  <speciation genesLocation="G4"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSGALG00000007324"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>61</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="G1"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T2</name>
+                    <eventsRec>
+                      <creation genesLocation="G2"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T1</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>T0</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSRNOG00000001924"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSRNOT00000002636</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSRNOT00000068116</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115306</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>59</name>
+                      <eventsRec>
+                        <speciation genesLocation="G2"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSRNOG00000001924"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000040231</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>86</name>
+              <eventsRec>
+                <speciation genesLocation="G4"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSGALG00000007324"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>T24</name>
+                <eventsRec>
+                  <creation genesLocation="G3"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T22</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>69</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>68</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000418709</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T21</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000036179</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T20</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000115307</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115308</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T23</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>80</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>79</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000437221</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>83</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSRNOG00000001924"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115305</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T34</name>
+          <eventsRec>
+            <speciation genesLocation="GROOT"></speciation>
+          </eventsRec>
+          <clade>
+            <name>95</name>
+            <eventsRec>
+              <speciation genesLocation="G4"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="ENSGALG00000007324"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>94</name>
+              <eventsRec>
+                <speciation genesLocation="G3"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="G1"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>93</name>
+                <eventsRec>
+                  <speciation genesLocation="G2"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSRNOG00000001924"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENSMUST00000115304</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T33</name>
+            <eventsRec>
+              <creation genesLocation="ENSG00000078900"></creation>
+            </eventsRec>
+            <clade>
+              <name>T29</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T27</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T26</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENST00000354437</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378295</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000378290</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>T28</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENST00000378285</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENST00000378288</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>T32</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T31</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T30</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENST00000378280</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENST00000603362</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000604479</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENST00000604074</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T26</name>
+          <eventsRec>
+            <creation genesLocation="G4"></creation>
+          </eventsRec>
+          <clade>
+            <name>T19</name>
+            <eventsRec>
+              <creation genesLocation="G4"></creation>
+            </eventsRec>
+            <clade>
+              <name>T15</name>
+              <eventsRec>
+                <creation genesLocation="G4"></creation>
+              </eventsRec>
+              <clade>
+                <name>T4</name>
+                <eventsRec>
+                  <speciation genesLocation="G4"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>14</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="G2"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>13</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>12</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T3</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T2</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T1</name>
+                            <eventsRec>
+                              <creation genesLocation="ENSG00000073282"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T0</name>
+                              <eventsRec>
+                                <creation genesLocation="ENSG00000073282"></creation>
+                              </eventsRec>
+                              <clade>
+                                <name>ENST00000354600</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000449992</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>ENST00000456148</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>ENST00000392463</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>ENST00000392461</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENSGALT00000033346</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSGALG00000007324"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>T14</name>
+                <eventsRec>
+                  <speciation genesLocation="G4"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>T13</name>
+                  <eventsRec>
+                    <creation genesLocation="G3"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>35</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="G2"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>34</name>
+                      <eventsRec>
+                        <speciation genesLocation="G1"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSBTAG00000015460"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T8</name>
+                        <eventsRec>
+                          <creation genesLocation="G0"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>T7</name>
+                          <eventsRec>
+                            <creation genesLocation="G0"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>T6</name>
+                            <eventsRec>
+                              <creation genesLocation="G0"></creation>
+                            </eventsRec>
+                            <clade>
+                              <name>T5</name>
+                              <eventsRec>
+                                <speciation genesLocation="G0"></speciation>
+                              </eventsRec>
+                              <clade>
+                                <name>ENSPTRT00000029325</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000440651</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                            <clade>
+                              <name>24</name>
+                              <eventsRec>
+                                <speciation genesLocation="G0"></speciation>
+                              </eventsRec>
+                              <clade>
+                                <name>-</name>
+                                <eventsRec>
+                                  <loss genesLocation="ENSPTRG00000015733"></loss>
+                                </eventsRec>
+                              </clade>
+                              <clade>
+                                <name>ENST00000264731</name>
+                                <eventsRec>
+                                  <leaf genesLocation="ENSG00000073282"></leaf>
+                                </eventsRec>
+                              </clade>
+                            </clade>
+                          </clade>
+                          <clade>
+                            <name>28</name>
+                            <eventsRec>
+                              <speciation genesLocation="G0"></speciation>
+                            </eventsRec>
+                            <clade>
+                              <name>-</name>
+                              <eventsRec>
+                                <loss genesLocation="ENSPTRG00000015733"></loss>
+                              </eventsRec>
+                            </clade>
+                            <clade>
+                              <name>ENST00000392460</name>
+                              <eventsRec>
+                                <leaf genesLocation="ENSG00000073282"></leaf>
+                              </eventsRec>
+                            </clade>
+                          </clade>
+                        </clade>
+                        <clade>
+                          <name>32</name>
+                          <eventsRec>
+                            <speciation genesLocation="G0"></speciation>
+                          </eventsRec>
+                          <clade>
+                            <name>-</name>
+                            <eventsRec>
+                              <loss genesLocation="ENSPTRG00000015733"></loss>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENST00000320472</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T12</name>
+                    <eventsRec>
+                      <speciation genesLocation="G3"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>38</name>
+                      <eventsRec>
+                        <speciation genesLocation="G1"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="G0"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSBTAT00000020544</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>T11</name>
+                      <eventsRec>
+                        <creation genesLocation="G2"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T9</name>
+                        <eventsRec>
+                          <speciation genesLocation="G2"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSRNOT00000036193</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000115310</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T10</name>
+                        <eventsRec>
+                          <speciation genesLocation="G2"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSRNOT00000067251</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENSMUST00000065523</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENSGALT00000011850</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSGALG00000007324"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+            </clade>
+            <clade>
+              <name>61</name>
+              <eventsRec>
+                <speciation genesLocation="G4"></speciation>
+              </eventsRec>
+              <clade>
+                <name>-</name>
+                <eventsRec>
+                  <loss genesLocation="ENSGALG00000007324"></loss>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>60</name>
+                <eventsRec>
+                  <speciation genesLocation="G3"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="G1"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T18</name>
+                  <eventsRec>
+                    <speciation genesLocation="G2"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>T16</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSRNOG00000001924"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000002636</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSRNOT00000068116</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T17</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSMUSG00000022510"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSMUST00000040231</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115306</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>91</name>
+            <eventsRec>
+              <speciation genesLocation="G4"></speciation>
+            </eventsRec>
+            <clade>
+              <name>-</name>
+              <eventsRec>
+                <loss genesLocation="ENSGALG00000007324"></loss>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>T25</name>
+              <eventsRec>
+                <creation genesLocation="G3"></creation>
+              </eventsRec>
+              <clade>
+                <name>T24</name>
+                <eventsRec>
+                  <creation genesLocation="G3"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T22</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>68</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>67</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000418709</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T21</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000036179</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T20</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000115307</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115308</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>T23</name>
+                  <eventsRec>
+                    <speciation genesLocation="G3"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>79</name>
+                    <eventsRec>
+                      <speciation genesLocation="G1"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSBTAG00000015460"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>78</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENST00000437221</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSG00000073282"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>82</name>
+                    <eventsRec>
+                      <speciation genesLocation="G2"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSRNOG00000001924"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSMUST00000115305</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>89</name>
+                <eventsRec>
+                  <speciation genesLocation="G3"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="G1"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>88</name>
+                  <eventsRec>
+                    <speciation genesLocation="G2"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSRNOG00000001924"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENSMUST00000115304</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T34</name>
+          <eventsRec>
+            <creation genesLocation="ENSG00000078900"></creation>
+          </eventsRec>
+          <clade>
+            <name>T30</name>
+            <eventsRec>
+              <creation genesLocation="ENSG00000078900"></creation>
+            </eventsRec>
+            <clade>
+              <name>T28</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T27</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENST00000354437</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENST00000378295</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENST00000378290</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>T29</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>ENST00000378285</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+              <clade>
+                <name>ENST00000378288</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T33</name>
+            <eventsRec>
+              <creation genesLocation="ENSG00000078900"></creation>
+            </eventsRec>
+            <clade>
+              <name>T32</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T31</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENST00000378280</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENST00000603362</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENST00000604479</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENST00000604074</name>
+              <eventsRec>
+                <leaf genesLocation="ENSG00000078900"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+  <recTransTree>
+    <phylogeny rooted="true">
+      <clade>
+        <name>TROOT</name>
+        <eventsRec>
+          <speciation genesLocation="GROOT"></speciation>
+        </eventsRec>
+        <clade>
+          <name>T26</name>
+          <eventsRec>
+            <speciation genesLocation="G4"></speciation>
+          </eventsRec>
+          <clade>
+            <name>T24</name>
+            <eventsRec>
+              <speciation genesLocation="G3"></speciation>
+            </eventsRec>
+            <clade>
+              <name>T11</name>
+              <eventsRec>
+                <speciation genesLocation="G1"></speciation>
+              </eventsRec>
+              <clade>
+                <name>T10</name>
+                <eventsRec>
+                  <creation genesLocation="G0"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T8</name>
+                  <eventsRec>
+                    <creation genesLocation="G0"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T3</name>
+                    <eventsRec>
+                      <creation genesLocation="G0"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T1</name>
+                      <eventsRec>
+                        <creation genesLocation="G0"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T0</name>
+                        <eventsRec>
+                          <speciation genesLocation="G0"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENSPTRT00000029325</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSPTRG00000015733"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENST00000440651</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>5</name>
+                        <eventsRec>
+                          <speciation genesLocation="G0"></speciation>
+                        </eventsRec>
+                        <clade>
+                          <name>-</name>
+                          <eventsRec>
+                            <loss genesLocation="ENSPTRG00000015733"></loss>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENST00000264731</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>11</name>
+                      <eventsRec>
+                        <speciation genesLocation="G0"></speciation>
+                      </eventsRec>
+                      <clade>
+                        <name>-</name>
+                        <eventsRec>
+                          <loss genesLocation="ENSPTRG00000015733"></loss>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>T2</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENST00000320472</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENST00000392460</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>23</name>
+                    <eventsRec>
+                      <speciation genesLocation="G0"></speciation>
+                    </eventsRec>
+                    <clade>
+                      <name>-</name>
+                      <eventsRec>
+                        <loss genesLocation="ENSPTRG00000015733"></loss>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>T7</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSG00000073282"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>T5</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENST00000354600</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>T4</name>
+                          <eventsRec>
+                            <creation genesLocation="ENSG00000073282"></creation>
+                          </eventsRec>
+                          <clade>
+                            <name>ENST00000449992</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                          <clade>
+                            <name>ENST00000456148</name>
+                            <eventsRec>
+                              <leaf genesLocation="ENSG00000073282"></leaf>
+                            </eventsRec>
+                          </clade>
+                        </clade>
+                      </clade>
+                      <clade>
+                        <name>T6</name>
+                        <eventsRec>
+                          <creation genesLocation="ENSG00000073282"></creation>
+                        </eventsRec>
+                        <clade>
+                          <name>ENST00000392461</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                        <clade>
+                          <name>ENST00000392463</name>
+                          <eventsRec>
+                            <leaf genesLocation="ENSG00000073282"></leaf>
+                          </eventsRec>
+                        </clade>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>29</name>
+                  <eventsRec>
+                    <speciation genesLocation="G0"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSPTRG00000015733"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T9</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSG00000073282"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENST00000418709</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000073282"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENST00000437221</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSG00000073282"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENSBTAT00000020544</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSBTAG00000015460"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>T23</name>
+              <eventsRec>
+                <creation genesLocation="G2"></creation>
+              </eventsRec>
+              <clade>
+                <name>41</name>
+                <eventsRec>
+                  <speciation genesLocation="G2"></speciation>
+                </eventsRec>
+                <clade>
+                  <name>-</name>
+                  <eventsRec>
+                    <loss genesLocation="ENSMUSG00000022510"></loss>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>T14</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSRNOG00000001924"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>T13</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSRNOG00000001924"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000002636</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSRNOT00000068116</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                  <clade>
+                    <name>T12</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSRNOG00000001924"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>ENSRNOT00000036193</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                    <clade>
+                      <name>ENSRNOT00000067251</name>
+                      <eventsRec>
+                        <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                      </eventsRec>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+              <clade>
+                <name>T22</name>
+                <eventsRec>
+                  <creation genesLocation="G2"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T21</name>
+                  <eventsRec>
+                    <speciation genesLocation="G2"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENSRNOT00000036179</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSRNOG00000001924"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T20</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSMUSG00000022510"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T18</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000115304</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115305</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>T19</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000115307</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115308</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>59</name>
+                  <eventsRec>
+                    <speciation genesLocation="G2"></speciation>
+                  </eventsRec>
+                  <clade>
+                    <name>-</name>
+                    <eventsRec>
+                      <loss genesLocation="ENSRNOG00000001924"></loss>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>T17</name>
+                    <eventsRec>
+                      <creation genesLocation="ENSMUSG00000022510"></creation>
+                    </eventsRec>
+                    <clade>
+                      <name>T16</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000040231</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115306</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                    <clade>
+                      <name>T15</name>
+                      <eventsRec>
+                        <creation genesLocation="ENSMUSG00000022510"></creation>
+                      </eventsRec>
+                      <clade>
+                        <name>ENSMUST00000065523</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                      <clade>
+                        <name>ENSMUST00000115310</name>
+                        <eventsRec>
+                          <leaf genesLocation="ENSMUSG00000022510"></leaf>
+                        </eventsRec>
+                      </clade>
+                    </clade>
+                  </clade>
+                </clade>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T25</name>
+            <eventsRec>
+              <creation genesLocation="ENSGALG00000007324"></creation>
+            </eventsRec>
+            <clade>
+              <name>ENSGALT00000011850</name>
+              <eventsRec>
+                <leaf genesLocation="ENSGALG00000007324"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>ENSGALT00000033346</name>
+              <eventsRec>
+                <leaf genesLocation="ENSGALG00000007324"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+        <clade>
+          <name>T34</name>
+          <eventsRec>
+            <creation genesLocation="ENSG00000078900"></creation>
+          </eventsRec>
+          <clade>
+            <name>T33</name>
+            <eventsRec>
+              <creation genesLocation="ENSG00000078900"></creation>
+            </eventsRec>
+            <clade>
+              <name>ENST00000354437</name>
+              <eventsRec>
+                <leaf genesLocation="ENSG00000078900"></leaf>
+              </eventsRec>
+            </clade>
+            <clade>
+              <name>T32</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T31</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>T30</name>
+                  <eventsRec>
+                    <creation genesLocation="ENSG00000078900"></creation>
+                  </eventsRec>
+                  <clade>
+                    <name>ENST00000378285</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                  <clade>
+                    <name>ENST00000378288</name>
+                    <eventsRec>
+                      <leaf genesLocation="ENSG00000078900"></leaf>
+                    </eventsRec>
+                  </clade>
+                </clade>
+                <clade>
+                  <name>ENST00000378290</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENST00000378295</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+          </clade>
+          <clade>
+            <name>T29</name>
+            <eventsRec>
+              <creation genesLocation="ENSG00000078900"></creation>
+            </eventsRec>
+            <clade>
+              <name>T28</name>
+              <eventsRec>
+                <creation genesLocation="ENSG00000078900"></creation>
+              </eventsRec>
+              <clade>
+                <name>T27</name>
+                <eventsRec>
+                  <creation genesLocation="ENSG00000078900"></creation>
+                </eventsRec>
+                <clade>
+                  <name>ENST00000378280</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+                <clade>
+                  <name>ENST00000603362</name>
+                  <eventsRec>
+                    <leaf genesLocation="ENSG00000078900"></leaf>
+                  </eventsRec>
+                </clade>
+              </clade>
+              <clade>
+                <name>ENST00000604479</name>
+                <eventsRec>
+                  <leaf genesLocation="ENSG00000078900"></leaf>
+                </eventsRec>
+              </clade>
+            </clade>
+            <clade>
+              <name>ENST00000604074</name>
+              <eventsRec>
+                <leaf genesLocation="ENSG00000078900"></leaf>
+              </eventsRec>
+            </clade>
+          </clade>
+        </clade>
+      </clade>
+    </phylogeny>
+  </recTransTree>
+</doubleRecPhylo>
+
