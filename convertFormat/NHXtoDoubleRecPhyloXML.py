@@ -130,12 +130,12 @@ def NHXtoDoubleRecPhyloXML(file_nhx, file_species_tree):
 
 def build_arg_parser():
     parser = argparse.ArgumentParser(description="Convert NHX to DoubleRecPhyloXML")
-    parser.add_argument('-t', '--type', help="type of reconciled trees: gene, transcript, or double (required)" )
-    parser.add_argument('-s', '--speciesTree', help="name of the species tree file at Newick format (required if -t double, or -t gene)")
-    parser.add_argument('-rg', '--recGeneTree', help="name of the file containing reconciled gene trees at NHX format (required if -t gene)")
+    parser.add_argument('-t', '--type', help="type of reconciled trees: genespecies, transcriptgene, or double (required)" )
+    parser.add_argument('-s', '--speciesTree', help="name of the species tree file at Newick format (required if -t double, or -t genespecies)")
+    parser.add_argument('-rg', '--recGeneTree', help="name of the file containing reconciled gene trees at NHX format (required if -t genespecies)")
     parser.add_argument('-rgt', '--recGeneTransTree', help="name of the file containing reconciled gene and transcript trees at NHX format (required if -t double)")
-    parser.add_argument('-g', '--geneTree', help="name of the gene tree file at Newick format (required if -t transcript)")
-    parser.add_argument('-rt', '--recTransTree', help="name of the file containing reconciled transcript trees at NHX format (required if -t trancript)")
+    parser.add_argument('-g', '--geneTree', help="name of the gene tree file at Newick format (required if -t transcriptgene)")
+    parser.add_argument('-rt', '--recTransTree', help="name of the file containing reconciled transcript trees at NHX format (required if -t trancriptgene)")
     parser.add_argument('-o', '--output', help="name of the output file (optional, default is reconciliation_file + \".xml\")")
     return parser
 
@@ -164,7 +164,7 @@ if __name__ == '__main__':
                     o = rgt+".xml"
                 b = NHXtoDoubleRecPhyloXML(rgt, s)
                 write_tree(b,o,'w')
-    elif(type == "gene"):
+    elif(type == "genespecies"):
         s = args.speciesTree
         if(s == None):
             print("Argument -s <speciesTree> is required")
@@ -177,9 +177,9 @@ if __name__ == '__main__':
             else:
                 if(o == None):
                     o = rg+".xml"
-                b = NHXtoRecPhyloXML(rg, s, type)
+                b = NHXtoRecPhyloXML(rg, s, "gene")
                 write_tree(b,o,'w')
-    elif(type == "transcript"):
+    elif(type == "transcriptgene"):
         g = args.geneTree
         if(g == None):
             print("Argument -g <geneTree> is required")
@@ -192,7 +192,7 @@ if __name__ == '__main__':
             else:
                 if(o == None):
                     o = rt+".xml"
-                b = NHXtoDoubleRecPhyloXML(rt, g)
+                b = NHXtoDoubleRecPhyloXML(rt, g,"transcript")
                 write_tree(b,o,'w')
     else:
         print("Argument -t <type> : type must be double, gene, or transcript")
