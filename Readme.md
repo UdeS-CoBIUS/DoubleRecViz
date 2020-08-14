@@ -21,7 +21,7 @@ python treeVisualisation.py
 
 ## Input files
 
-DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in "manual.html" and in the "XSD" directory. Utility scripts for conversion between the NHX and doubleRecPhyloXML formats are also provided in the "convertFormat" directory.
+DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (see https://github.com/WandrilleD/recPhyloXML/tree/master/xsd for a detailed description of the recPhyloXML and recGeneTreeXML grammars). A detailed description of the doubleRecPhyloXML and recTransTreeXML grammars can be found in "manual.html" and in the "XSD" directory. 
 
 DoubleRecViz takes as input one the following types of object:
 
@@ -37,4 +37,25 @@ Examples input file data (doubleRecPhylo objects for a transcript-gene-species t
 
 ```
 The reconciled trees are displayed in the browser.
+```
+
+## Generation of test data from sequence data
+
+
+## Conversion between the NHX and doubleRecPhyloXML formats
+
+Utility scripts for conversion between the NHX and doubleRecPhyloXML formats are also provided in the "convertFormat" directory. Use -h option when running the scripts to display the description.
+
+Examples of commands to convert from  NHX to doubleRecPhyloXML:
+
+```
+python convertFormat/NHXtoDoubleRecPhyloXML.py -t double -s testData/realData/ENSGT00390000015814/Trees/ENSGT00390000015814_pruned_speciestree.nw -rgt testData/realData/ENSGT00390000015814_double.nhx 
+```
+
+```
+python convertFormat/NHXtoDoubleRecPhyloXML.py -t genespecies -s testData/realData/ENSGT00390000015814/Trees/ENSGT00390000015814_pruned_speciestree.nw -rg testData/realData/ENSGT00390000015814_genespecies.nhx 
+```
+
+```
+python convertFormat/NHXtoDoubleRecPhyloXML.py -t transcriptgene -g testData/realData/ENSGT00390000015814/Trees/ENSGT00390000015814_genetree_init.nw -rt testData/realData/ENSGT00390000015814_transcriptgene.nhx
 ```
