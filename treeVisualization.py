@@ -559,7 +559,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 	"""define a shape of type 'line', for branch
 	"""
 	
-
+	# print(x_coords)
 	x_parent = x_coords[clade]
 	x_child = x_coords[child]
 	y_parent = y_coords[clade]
@@ -959,7 +959,8 @@ def addInternalTreeGeneSpecie(clade, rec_gene_tree, species_mapping, x_coords, y
 					
 					
 def create_tree(recData, slanted, recType, textcolor):
-	dist = 10
+	# change: fit the window
+	dist = 9
 
 	sptree, rec_gene_tree, species_mapping, node_mapping_to_parent = parse_rec(recData, recType)	
 
@@ -968,7 +969,7 @@ def create_tree(recData, slanted, recType, textcolor):
 	nb_creat = 0
 	for node, events in species_mapping.items():
 		for event in events:
-			print (event)
+			# print ("Debug 1st", event)
 			if event[1] == "duplication":
 				nb_dup +=1
 			elif event[1] == "loss":
@@ -995,10 +996,8 @@ def create_tree(recData, slanted, recType, textcolor):
 	width = (val2*2.0)/val1 + 6.5
 	
 	x_coords = get_x_coordinates(tree, width)
-	#y_coords = get_y_coordinates_old(tree, x_coords, width, dist)
 	y_coords = get_y_coordinates(tree, width, dist)			  
-	# print(y_coords)
-	# print(x_coords)
+	
 	line_shapes = []
 	child = None
 	if recType == "geneSpecie":	
@@ -1064,7 +1063,7 @@ def create_tree(recData, slanted, recType, textcolor):
 			selected_events_name = []
 			index_selected = []
 			for e in events:
-				print(k.name, "\t",e[0], e[1])
+				# print("Debug 2nd: ", k.name, "\t",e[0], e[1])
 				if e[1] == "leaf" or e[1] == "loss" or e[1] == "duplication" or e[1] == "creation" or e[1] == "speciation": 
 					selected_events_name.append(e[0])
 					index_selected.append(events.index(e))
@@ -1436,96 +1435,98 @@ app.layout = html.Div(children=[
 			id='confirm',
 			message='Input is not accepted, please check your input!!!',
 		),
+	dcc.ConfirmDialog(
+			id='copute_error',
+			message='Input Error: Please put <recGeneTree> before <recTransTree>',
+		),
 	dcc.Input(
 		id='output-confirm',
 		type='text',
 		style={'display': 'none'}
 		),
-	dcc.Graph(
-	
-		#style={
-		 #   'width': 600,
-		#	'height':600
-		#},
-		id='figGeneSpecie',
-		#Gene Specie Reconciliation
-		figure=draw_example_figGeneSpecie(),
+	html.Div(id= 'webserver_example_fig', children=[
+		dcc.Graph(
+		
+			#style={
+			 #   'width': 600,
+			#	'height':600
+			#},
+			id='figGeneSpecie',
+			#Gene Specie Reconciliation
+			figure=draw_example_figGeneSpecie(),
 
-		# Customize Download Plot figure's format:svg 
-		config = {
-		  'toImageButtonOptions': {
-			'format': 'png', # one of png, svg, jpeg, webp
-			'filename': 'figGeneSpecie',
-			'height': 1000,
-			'width': 2000,
-			'scale': 1
-		  }
-		}
-	),
-	html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
-	html.Div(children=[
+			# Customize Download Plot figure's format:svg 
+			config = {
+			  'toImageButtonOptions': {
+				'format': 'png', # one of png, svg, jpeg, webp
+				'filename': 'figGeneSpecie',
+				'height': 1000,
+				'width': 2000,
+				'scale': 1
+			  }
+			}
+		),
+		html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+		html.Div(children=[
+			html.A(
+			'figGeneSpecie.pdf',
+			id='figGeneSpecie_pdf',
+			download="figGeneSpecie.pdf",
+			href=get_local_fig_base64("./Input/figGeneSpecie.pdf", "pdf"),
+			target="_blank"
+		)
+		]),
+		html.Div(children=[
 		html.A(
-		'figGeneSpecie.pdf',
-		id='figGeneSpecie_pdf',
-		download="figGeneSpecie.pdf",
-		href=get_local_fig_base64("./Input/figGeneSpecie.pdf", "pdf"),
-		target="_blank"
-	)
-	]),
-	html.Div(children=[
-	html.A(
-		'figGeneSpecie.svg',
-		id='figGeneSpecie_svg',
-		download="figGeneSpecie.svg",
-		href=get_local_fig_base64("./Input/figGeneSpecie.svg", "svg"),
-		target="_blank"
-	)
-	]),
+			'figGeneSpecie.svg',
+			id='figGeneSpecie_svg',
+			download="figGeneSpecie.svg",
+			href=get_local_fig_base64("./Input/figGeneSpecie.svg", "svg"),
+			target="_blank"
+		)
+		]),
+		dcc.Graph(
+		
+			#style={
+			 #   'width': 600,
+			#	'height':600
+			#},
+			id='figProteinGene',
+			#Protein Gene Reconciliation',
+			figure=draw_example_figProteinGene(),
 
-	html.Div(id='multiple_reconciliation_figGeneSpecie'),	
-
-	dcc.Graph(
-	
-		#style={
-		 #   'width': 600,
-		#	'height':600
-		#},
-		id='figProteinGene',
-		#Protein Gene Reconciliation',
-		figure=draw_example_figProteinGene(),
-
-		# Customize Download Plot figure's format:svg 
-		config = {
-		  'toImageButtonOptions': {
-			'format': 'png', # one of png, svg, jpeg, webp
-			'filename': 'figProteinGene',
-			'height': 1000,
-			'width': 2000,
-			'scale': 1
-		  }
-		}
-	),
-	html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
-	html.Div(children=[
-	html.A(
-		'figProteinGene.pdf',
-		id='figProteinGene_pdf',
-		download="figProteinGene.pdf",
-		href=get_local_fig_base64("./Input/figProteinGene.pdf", "pdf"),
-		target="_blank"
-	)
-	]),
-	html.Div(children=[
-	html.A(
-		'figProteinGene.svg',
-		id='figProteinGene_svg',
-		download="figProteinGene.svg",
-		href=get_local_fig_base64("./Input/figProteinGene.svg", "svg"),
-		target="_blank"
-	)
-	]),
-
-	html.Div(id='multiple_reconciliation_figProteinGene'),	
+			# Customize Download Plot figure's format:svg 
+			config = {
+			  'toImageButtonOptions': {
+				'format': 'png', # one of png, svg, jpeg, webp
+				'filename': 'figProteinGene',
+				'height': 1000,
+				'width': 2000,
+				'scale': 1
+			  }
+			}
+		),
+		html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+		html.Div(children=[
+		html.A(
+			'figProteinGene.pdf',
+			id='figProteinGene_pdf',
+			download="figProteinGene.pdf",
+			href=get_local_fig_base64("./Input/figProteinGene.pdf", "pdf"),
+			target="_blank"
+		)
+		]),
+		html.Div(children=[
+		html.A(
+			'figProteinGene.svg',
+			id='figProteinGene_svg',
+			download="figProteinGene.svg",
+			href=get_local_fig_base64("./Input/figProteinGene.svg", "svg"),
+			target="_blank"
+		)
+		]),
+		]),
+	html.Div(id='multiple_reconciliation_figGeneSpecie'),
 ])
 
 """
@@ -1632,29 +1633,26 @@ def display_confirm(value, n_clicks):
 	return dash.no_update
 
 
+
 @app.callback(
 	[
-	Output('figGeneSpecie', 'figure'),
-	Output('figGeneSpecie_pdf', 'href'),
-	Output('figGeneSpecie_svg', 'href'),
 	Output('multiple_reconciliation_figGeneSpecie','children'),
-	Output('figProteinGene', 'figure'),
-	Output('figProteinGene_pdf', 'href'),
-	Output('figProteinGene_svg', 'href'),
-	Output('multiple_reconciliation_figProteinGene','children')
+	Output('webserver_example_fig', 'style'),
+	Output('copute_error', 'displayed'),
 	],
 	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
 	[State('proteinGeneSpecies', 'value')],
 	)
 def update_output(n_clicks, output_confirm, input2):
 	if n_clicks > 0:
+		display_error_message = False
 		if output_confirm in ["YES", "YES_recPhylo_spTree_recGene", "YES_recPhylo_gnTree_recTrans"]:
 			# add multiple reconciliation figs
+			figGeneSpecie_figProteinGene = dict()
+			error_message = ""
+
 			multiple_reconciliation_figGeneSpecie_list = []
 			multiple_reconciliation_figs = []
-
-			multiple_reconciliation_figProteinGene_list = []
-			multiple_reconciliation_figProteinGene = []
 
 			if output_confirm == "YES":
 				tmp_tree = open("./Input/tmp_xml.xml", "w")
@@ -1669,29 +1667,75 @@ def update_output(n_clicks, output_confirm, input2):
 
 					if recTree[i][1] == "transcriptGene":
 						fig_ProteinGene,options_list = create_tree(recTree[i][0], False, "transcriptGene", "blue")
-						multiple_reconciliation_figProteinGene_list.append(fig_ProteinGene)
+						if multiple_reconciliation_figGeneSpecie_list:
+							key = len(multiple_reconciliation_figGeneSpecie_list) - 1
+							if key not in figGeneSpecie_figProteinGene:
+								figGeneSpecie_figProteinGene[key] = []
+							figGeneSpecie_figProteinGene[key].append(fig_ProteinGene)
+						else:
+							display_error_message = True
+						
+				for i in range(len(multiple_reconciliation_figGeneSpecie_list)):
+					iteration_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[i]
+					iteration_figProteinGenes = figGeneSpecie_figProteinGene[i]
 
-				first_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[0]
-				first_recProteinTree = multiple_reconciliation_figProteinGene_list[0]
+					encoded_figGeneSpecie_pdf = base64.b64encode(iteration_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+					encoded_figGeneSpecie_svg = base64.b64encode(iteration_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+					div = html.Div([
+						dcc.Graph(figure=iteration_figGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+						html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+						html.Div(children=[
+							html.A(
+							'figGeneSpecie.pdf',
+							download="figGeneSpecie.pdf",
+							href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+							target="_blank"
+							)
+						]),
+						html.Div(children=[
+						html.A(
+							'figGeneSpecie.svg',
+							download="figGeneSpecie.svg",
+							href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+							target="_blank"
+							)
+						])
+					])
+					multiple_reconciliation_figs.append(div)
+					for recProteinTree in iteration_figProteinGenes:
+						encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+						encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+						div = html.Div([
+							dcc.Graph(figure=recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+							
+							html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+							html.Div(children=[
+								html.A(
+								'figProteinGene.pdf',
+								download="figProteinGene.pdf",
+								href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+								target="_blank"
+							)
+							]),
+							html.Div(children=[
+							html.A(
+								'figProteinGene.svg',
+								download="figProteinGene.svg",
+								href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+								target="_blank"
+							)
+							]),
+						])
+						multiple_reconciliation_figs.append(div)
+
 
 				
 			if output_confirm == "YES_recPhylo_spTree_recGene":
 				first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
-
-			if output_confirm == "YES_recPhylo_gnTree_recTrans":
-				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
-			
-			encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-			encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
-
-			encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-			encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
-
-			for recGeneSpecie in multiple_reconciliation_figGeneSpecie_list[1:]:
-				encoded_figGeneSpecie_pdf = base64.b64encode(recGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figGeneSpecie_svg = base64.b64encode(recGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
 				div = html.Div([
-					dcc.Graph(figure=recGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+					dcc.Graph(figure=first_figGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
 					html.Div(children=[
 						html.A(
@@ -1699,7 +1743,7 @@ def update_output(n_clicks, output_confirm, input2):
 						download="figGeneSpecie.pdf",
 						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
 						target="_blank"
-					)
+						)
 					]),
 					html.Div(children=[
 					html.A(
@@ -1707,16 +1751,17 @@ def update_output(n_clicks, output_confirm, input2):
 						download="figGeneSpecie.svg",
 						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
 						target="_blank"
-					)
-					]),
+						)
+					])
 				])
 				multiple_reconciliation_figs.append(div)
 
-			for recProteinTree in multiple_reconciliation_figProteinGene_list[1:]:
-				encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+			if output_confirm == "YES_recPhylo_gnTree_recTrans":
+				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
+				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
 				div = html.Div([
-					dcc.Graph(figure=recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+					dcc.Graph(figure=first_recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					
 					html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
 					html.Div(children=[
@@ -1736,13 +1781,13 @@ def update_output(n_clicks, output_confirm, input2):
 					)
 					]),
 				])
-				multiple_reconciliation_figProteinGene.append(div)
+				multiple_reconciliation_figs.append(div)
 
-			result_multiple_reconciliation_figGeneSpecie = html.Div(children = multiple_reconciliation_figs)
-			result_multiple_reconciliation_figProteinGene = html.Div(children = multiple_reconciliation_figProteinGene)
+			result_multiple_reconciliation = html.Div(children = multiple_reconciliation_figs)
 
-			return first_figGeneSpecie, 'data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()), result_multiple_reconciliation_figGeneSpecie, first_recProteinTree, 'data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()), 'data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode()), result_multiple_reconciliation_figProteinGene
+			return result_multiple_reconciliation, {'display' : 'None'}, display_error_message
 	return dash.no_update
+
 
 import argparse
 def build_arg_parser():
