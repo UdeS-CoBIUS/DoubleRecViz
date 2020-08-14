@@ -1657,10 +1657,10 @@ def update_output(n_clicks, output_confirm, input2):
 			multiple_reconciliation_figProteinGene = []
 
 			if output_confirm == "YES":
-				tmp_tree = open("./Input/tmp_tree.xml", "w")
+				tmp_tree = open("./Input/tmp_xml.xml", "w")
 				tmp_tree.write(input2)
 				tmp_tree.close()
-				recTree = dataFromDoubleRecFile("./Input/tmp_tree.xml")
+				recTree = dataFromDoubleRecFile("./Input/tmp_xml.xml")
 				
 				for i in range(len(recTree)):
 					if recTree[i][1] == "geneSpecie":
