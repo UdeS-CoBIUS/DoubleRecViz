@@ -1,0 +1,20 @@
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">What is DoubleRecViz?</h2>
+    
+        <p>      DoubleRecViz is a tool for visualizing and editing double reconciliations between phylogenetic trees at three levels: transcript, gene and species. DoubleRecViz makes use of an extension of the <a href="https://github.com/WandrilleD/recPhyloXML/tree/master">recPhyloXML</a> model (developed for gene-species tree reconciliation) to represent joint transcript-gene and gene-species tree reconciliations. DoubleRecViz is implemented using the <a href="https://plot.ly/Dash">Dash</a> library, which is a toolbox that provides dynamic visualization functionalities for web data visualization in Python.</p>
+
+<p>DoubleRecViz takes as input one the following types of object:</p>
+
+ <ul>
+          <li> a <code>&lt;doubleRecPhylo&gt;</code> object containing 1 species tree (<code>&lt;spTree&gt;</code> object) followed by 1 to n sets such that each set is composed of 1 reconciled gene tree (<code>&lt;recGeneTree&gt;</code> object) followed by 0 to n reconciled transcript trees (<code>&lt;recTranscriptTree&gt;</code> object).
+<li> a <code>&lt;recPhylo&gt;</code> object containing 1 species tree (<code>&lt;spTree&gt;</code> object) followed by 1 to n reconciled gene trees (<code>&lt;recGeneTree&gt;</code> object)
+<li> a <code>&lt;recPhylo&gt;</code> object containing 1 gene tree (<code>&lt;gnTree&gt;</code> object) followed by 1 to n reconciled transcript trees (<code>&lt;recTransTree&gt;</code> object)
+ </ul>
+ 
+<p>DoubleRecViz makes use of the doubleRecPhyloXML and recTransTreeXML grammars which are extensions of the recPhyloXML and recGeneTreeXML grammars inherited from phyloXML and designed to describe reconciled gene-species tree reconciliations (<a href="https://github.com/WandrilleD/recPhyloXML/tree/master/xsd">detailed description of the recPhyloXML and recGeneTreeXML grammars</a>).</p>
+
+<p>Example of <code>&lt;doubleRecPhylo&gt;</code> objects for transcript-gene-species tree reconciliations, and <code>&lt;recPhylo&gt;</code> objects for a transcript-gene and gene-species tree reconciliations can be found in the  <a href="https://github.com/UdeS-CoBIUS/DoubleRecViz/blob/master/testData">testData directory of the GitHub repository</a>.</p>
+
+<p>A detailed description of the doubleRecPhyloXML and the recTransTreeXML formats can be found in the <a href="https://doublerecviz.cobius.usherbrooke.ca/manual.html">manual</a>.</p>
+</div>
