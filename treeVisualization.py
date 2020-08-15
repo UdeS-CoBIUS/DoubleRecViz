@@ -558,8 +558,6 @@ def get_clade_lines_slanted(clade, line_shapes, width, child, line_color='rgb(25
 def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line_color='rgb(25,25,25)', line_width=3, x_coords=[0,0], y_coords=[0,0], species_mapping={}, node_mapping_to_parent={}):
 	"""define a shape of type 'line', for branch
 	"""
-	
-	# print(x_coords)
 	x_parent = x_coords[clade]
 	x_child = x_coords[child]
 	y_parent = y_coords[clade]
@@ -569,7 +567,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 					   line=dict(color=line_color,
 								 width=line_width)
 					   )
-   
+	
 	if (len(x_coords[clade]) == len(y_coords[clade]) == 2) and (len(x_coords[child]) == len(y_coords[child]) == 1):
 		line_shapes.append(
 			dict(type='line',
@@ -723,9 +721,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 	else:
 		pass
 	return line_shapes
-
-
-
+		
 
 def draw_clade(clade, slanted, line_shapes, width, child, line_color='rgb(15,15,15)', line_width=3, x_coords=[0,0], y_coords=[0,0]):
 	"""Recursively draw the tree branches, down from the given clade"""   
@@ -755,8 +751,6 @@ def draw_clade_inter(recType, clade, slanted, line_shapes, width, child, line_co
 	else:
 		if slanted == False:
 			line_shapes = get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)
-		else:
-			line_shapes = get_clade_lines_slanted_inter(recType, clade, line_shapes, width, child, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)
 			
 		if len(child.clades) > 0:
 			for next_child in child.clades:
@@ -1020,7 +1014,7 @@ def create_tree(recData, slanted, recType, textcolor):
 	child = None
 	x_coords_internal[tree.root] = x_coords[tree.root]
 	y_coords_internal[tree.root] = y_coords[tree.root]   
-
+	
 	draw_clade_inter(recType,tree.root, slanted, line_shapes, 20*width, child, line_color=textcolor, line_width=3, x_coords=x_coords_internal, y_coords=y_coords_internal, species_mapping =species_mapping, node_mapping_to_parent=node_mapping_to_parent)
 	my_tree_clades = x_coords.keys()
 	X = []
@@ -1262,12 +1256,6 @@ def read_tree_nw(tree_nw):
 
 	return tree
 	
-	
-def read_metadata(filename):
-	df = pd.read_csv(filename)
-	return df
-
-
 def create_title(virus, nb_genome):
 	graph_title = "Phylogeny of " + virus.title() + " Virus<br>" + str(
 		nb_genome) + " genomes colored according to region and country"
@@ -1280,19 +1268,19 @@ def random_color():
 	color = random.choice(colors)
 	return tuple(color)
 
-def dataFromFile(path):
-	file = open(path, "r")
-	return file.read()
-
-
 def textarea_example():
 	file_tree = open("./Input/tmp_tree.xml", "r")
 	tree_nw = file_tree.read()
+	file_tree.close()
 	return tree_nw
 
 
 def get_recGeneSpecie_recProteinTree():
-	recTree = dataFromDoubleRecFile("./Input/tmp_tree.xml")
+	tmp_file = open("./Input/tmp_tree.xml", 'rb')
+	encoded_fig = base64.b64encode(tmp_file.read())
+	tmp_file.close()
+	decoded = base64.b64decode(encoded_fig)
+	recTree = dataFromDoubleRecFile(StringIO(decoded.decode('utf-8')))
 	if len(recTree) == 2 :
 		if recTree[0][1] == "geneSpecie":
 			recGeneSpecie = recTree[0][0]
@@ -1337,7 +1325,7 @@ app.layout = html.Div(children=[
 	html.H1(children='Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
 
 	html.H6(children='''
-	   This web application allows the join representation of a genes tree embeded inside a species tree and transcripts tree embeded inside a genes tree.
+		This web application allows visualizing transcript-gene-species tree reconciliations, as a combination of a gene tree embedded in a species tree and a transcript tree embedded inside a gene tree.
 	''', style={'textAlign': 'center', 'color': '#000000'}),
 
 	
@@ -1597,11 +1585,11 @@ def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
 		recPhylo_spTree_recGene = False
 		recPhylo_gnTree_recTrans = False
-		tmp_xml = open("./Input/tmp_xml.xml", "w")
-		tmp_xml.write(input_xml)
-		tmp_xml.close()
+		# tmp_xml = open("./Input/tmp_xml.xml", "w")
+		# tmp_xml.write(input_xml)
+		# tmp_xml.close()
 		try:
-			xml_file = lxml.etree.parse("./Input/tmp_xml.xml")
+			xml_file = lxml.etree.parse(StringIO(input_xml))
 			xml_validator = lxml.etree.XMLSchema(file="./XSD/doubleRecPhylo.xsd")
 			if xml_file.getroot().tag == "recPhylo":
 				if xml_file.find(".//spTree"):
@@ -1655,10 +1643,10 @@ def update_output(n_clicks, output_confirm, input2):
 			multiple_reconciliation_figs = []
 
 			if output_confirm == "YES":
-				tmp_tree = open("./Input/tmp_xml.xml", "w")
-				tmp_tree.write(input2)
-				tmp_tree.close()
-				recTree = dataFromDoubleRecFile("./Input/tmp_xml.xml")
+				# tmp_tree = open("./Input/tmp_xml.xml", "w")
+				# tmp_tree.write(input2)
+				# tmp_tree.close()
+				recTree = dataFromDoubleRecFile(StringIO(input2))
 				
 				for i in range(len(recTree)):
 					if recTree[i][1] == "geneSpecie":
@@ -1696,7 +1684,7 @@ def update_output(n_clicks, output_confirm, input2):
 						html.A(
 							'figGeneSpecie.svg',
 							download="figGeneSpecie.svg",
-							href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+							href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
 							target="_blank"
 							)
 						])
@@ -1721,7 +1709,7 @@ def update_output(n_clicks, output_confirm, input2):
 							html.A(
 								'figProteinGene.svg',
 								download="figProteinGene.svg",
-								href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+								href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
 								target="_blank"
 							)
 							]),
@@ -1749,7 +1737,7 @@ def update_output(n_clicks, output_confirm, input2):
 					html.A(
 						'figGeneSpecie.svg',
 						download="figGeneSpecie.svg",
-						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+						href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
 						target="_blank"
 						)
 					])
@@ -1776,7 +1764,7 @@ def update_output(n_clicks, output_confirm, input2):
 					html.A(
 						'figProteinGene.svg',
 						download="figProteinGene.svg",
-						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+						href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
 						target="_blank"
 					)
 					]),

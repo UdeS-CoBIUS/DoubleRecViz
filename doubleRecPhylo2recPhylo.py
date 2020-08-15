@@ -8,12 +8,12 @@
 '''
 import xml.etree.ElementTree
 
-def dataFromDoubleRecFile(path):
+def dataFromDoubleRecFile(stringio_object):
         recPhylo = []
         spTree = ""
         gnTree = ""
-        file = open(path, "r")
-        lines = file.readlines()
+        # file = open(path, "r")
+        lines = stringio_object.readlines()
         i = 0
         while(i < len(lines)):
                 if("<spTree>" in lines[i]):
