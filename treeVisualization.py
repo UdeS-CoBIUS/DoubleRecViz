@@ -1325,7 +1325,7 @@ app.layout = html.Div(children=[
 	html.H1(children='Double reconciliation visualization tool',style={'textAlign': 'center', 'color': '#000000'}),
 
 	html.H6(children='''
-	   This web application allows the join representation of a genes tree embeded inside a species tree and transcripts tree embeded inside a genes tree.
+		This web application allows visualizing transcript-gene-species tree reconciliations, as a combination of a gene tree embedded in a species tree and a transcript tree embedded inside a gene tree.
 	''', style={'textAlign': 'center', 'color': '#000000'}),
 
 	
