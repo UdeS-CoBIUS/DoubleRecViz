@@ -1724,8 +1724,10 @@ def update_output(n_clicks, output_confirm, input2):
 				
 			if output_confirm == "YES_recPhylo_spTree_recGene":
 				first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
-				encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				# encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				# encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
+				encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
 				div = html.Div([
 					dcc.Graph(figure=first_figGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
@@ -1750,8 +1752,10 @@ def update_output(n_clicks, output_confirm, input2):
 
 			if output_confirm == "YES_recPhylo_gnTree_recTrans":
 				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
-				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				# encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				# encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", width=2000, height=1000, scale=2))
 				div = html.Div([
 					dcc.Graph(figure=first_recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					
