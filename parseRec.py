@@ -67,7 +67,7 @@ def buildTreeFromXml(sptre, tree):
         if  len(sptre.keys()) == 1:
             k = list(sptre.keys())[0]
             v = sptre[k]
-            if type(sptre) ==  dict:#len(v) == 2:
+            if type(v) ==  dict:#len(v) == 2:
                 tree.add_child(name=v['name'])
                 clade = tree.search_nodes(name=v["name"])[0]
                 return buildTreeFromXml(v["clade"], clade)
