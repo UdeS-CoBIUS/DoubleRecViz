@@ -573,21 +573,12 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child,rec_e
 
 	assert(len(x_parent)==len(y_parent) and len(x_child)==len(y_child))
 	if(clade.name == "999990"):
-		xp = 0
-		yp = 0
-		if(len(x_parent)==2):
-			xp=(x_parent[0]+x_parent[1])/2.0
-			yp=(y_parent[0]+y_parent[1])/2.0
-		else:
-			xp=x_parent[0]
-			yp=y_parent[0]
-                        
 		line_shapes.append(
                         dict(type='line',
                              layer='below',
                              line=dict(color=line_color, width=line_width),
-                             x0=xp,
-                             y0=yp,
+                             x0=x_parent[0],
+                             y0=y_child[0],
                              x1=x_child[0],
                              y1=y_child[0]
                      )
