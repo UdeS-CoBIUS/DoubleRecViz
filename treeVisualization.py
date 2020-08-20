@@ -228,7 +228,7 @@ def get_clade_lines(clade, line_shapes, width, child, line_color='rgb(25,25,25)'
 				 y1=y_child[1]
 				 )
 		)	   
-	elif len(x_coords[clade]) == 2 and len(x_coords[child]) == 9:					
+	elif len(x_coords[clade]) == 2 and len(x_coords[child]) == 9:
 		line_shapes.append(
 			dict(type='line',
 				 layer='below',
@@ -400,7 +400,9 @@ def get_clade_lines(clade, line_shapes, width, child, line_color='rgb(25,25,25)'
 				)
 			) 
 			  
-		
+	else:
+		#print("get_clade_lines",clade,child)
+		pass
 	return line_shapes
 
 
@@ -417,7 +419,7 @@ def get_clade_lines_slanted(clade, line_shapes, width, child, line_color='rgb(25
 					   line=dict(color=line_color,
 								 width=line_width)
 					   )
-			  
+	assert(len(x_parent)==len(y_parent) and len(x_child)==len(y_child))		  
 	if len(x_coords[clade]) ==  len(x_coords[child]) == 2:
 		line_shapes.append(
 			dict(type='line',
@@ -439,7 +441,7 @@ def get_clade_lines_slanted(clade, line_shapes, width, child, line_color='rgb(25
 				 y1=y_child[1]
 				 )
 		)	   
-	elif len(x_coords[clade]) == 2 and len(x_coords[child]) == 9:					
+	elif len(x_coords[clade]) == 2 and len(x_coords[child]) == 9:
 		line_shapes.append(
 			dict(type='line',
 				 layer='below',
@@ -551,11 +553,12 @@ def get_clade_lines_slanted(clade, line_shapes, width, child, line_color='rgb(25
 					 )
 			)			
 	else:
+		#print("get_clade_lines_slanted",clade,child)
 		pass
 	return line_shapes
 
 
-def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line_color='rgb(25,25,25)', line_width=3, x_coords=[0,0], y_coords=[0,0], species_mapping={}, node_mapping_to_parent={}):
+def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child,rec_edges, line_color='rgb(25,25,25)', line_width=3, x_coords=[0,0], y_coords=[0,0], species_mapping={}, node_mapping_to_parent={}):
 	"""define a shape of type 'line', for branch
 	"""
 	x_parent = x_coords[clade]
@@ -567,46 +570,83 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 					   line=dict(color=line_color,
 								 width=line_width)
 					   )
-	
-	if (len(x_coords[clade]) == len(y_coords[clade]) == 2) and (len(x_coords[child]) == len(y_coords[child]) == 1):
+
+	assert(len(x_parent)==len(y_parent) and len(x_child)==len(y_child))
+	if(clade.name == "999990"):
+		xp = 0
+		yp = 0
+		if(len(x_parent)==2):
+			xp=(x_parent[0]+x_parent[1])/2.0
+			yp=(y_parent[0]+y_parent[1])/2.0
+		else:
+			xp=x_parent[0]
+			yp=y_parent[0]
+                        
 		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=(x_parent[0] + x_parent[1])/2.0,
-				 y0=(y_parent[0] + y_parent[1])/2.0,
-				 x1=x_child[0],
-				 y1=y_child[0]
-				 )
-		)
-		
-	   
-	elif len(x_coords[clade]) == len(y_coords[clade]) == len(x_coords[child]) == len(y_coords[child]) == 1:		
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_parent[0],
-				 y0=y_parent[0],
-				 x1=x_parent[0],
-				 y1=y_child[0]
-				 )
-		)
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_parent[0],
-				 y0=y_child[0],
-				 x1=x_child[0],
-				 y1=y_child[0]
-				 )
-		) 
-		
-		if species_mapping[child.name][0][1] == "loss" :
-			x0=x_child[0],
-			x0 = x0[0]
-			y0=y_child[0]
+                        dict(type='line',
+                             layer='below',
+                             line=dict(color=line_color, width=line_width),
+                             x0=xp,
+                             y0=yp,
+                             x1=x_child[0],
+                             y1=y_child[0]
+                     )
+                )
+
+	for i in range(len(x_child)):
+		for j in range(len(x_child)):
+			if([species_mapping[child.name][i][0],species_mapping[child.name][j][0]] in rec_edges):
+				#print([species_mapping[child.name][i][0],species_mapping[child.name][j][0]])
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_child[i],
+                                             y0=y_child[i],
+                                             x1=x_child[i],
+                                             y1=y_child[j]
+                                     )
+                                )
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_child[i],
+                                             y0=y_child[j],
+                                             x1=x_child[j],
+                                             y1=y_child[j]
+                                     )
+                                )
+
+			elif(child.name != "999990" and [species_mapping[child.name][j][0],species_mapping[child.name][i][0]] in rec_edges):
+				#print([species_mapping[child.name][j][0],species_mapping[child.name][i][0]])
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_child[j],
+                                             y0=y_child[j],
+                                             x1=x_child[j],
+                                             y1=y_child[i]
+                                     )
+                                )
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_child[j],
+                                             y0=y_child[i],
+                                             x1=x_child[i],
+                                             y1=y_child[i]
+                                     )
+                                )
+
+	for i in range(len(x_child)):
+		x0=x_child[i],
+		x0 = x0[0]
+		y0=y_child[i]
+
+		if species_mapping[child.name][i][1] == "loss" :
 			line_shapes.append(
 				dict(
 				type = 'path',
@@ -627,73 +667,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 				 )			
 				)		
 			)			   
-			
-
-	elif (len(x_coords[clade]) == len(y_coords[clade]) == 1) and (len(x_coords[child]) == len(y_coords[child]) == 3) and ((species_mapping[child.name][0][1]=="speciation") or (species_mapping[child.name][0][1]=="duplication")or(species_mapping[child.name][0][1]=="creation")):
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_parent[0],
-				 y0=y_parent[0],
-				 x1=x_parent[0],
-				 y1=y_child[0]
-				 )
-		)
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_parent[0],
-				 y0=y_child[0],
-				 x1=x_child[0],
-				 y1=y_child[0]
-				 )
-		)  
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_child[0],
-				 y0=y_child[0],
-				 x1=x_child[0],
-				 y1=y_child[1]
-				 )
-		)		  
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_child[0],
-				 y0=y_child[0],
-				 x1=x_child[0],
-				 y1=y_child[2]
-				 )
-		)		  
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_child[0],
-				 y0=y_child[1],
-				 x1=x_child[1],
-				 y1=y_child[1]
-				 )
-		)		  
-		line_shapes.append(
-			dict(type='line',
-				 layer='below',
-				 line=dict(color=line_color, width=line_width),
-				 x0=x_child[0],
-				 y0=y_child[2],
-				 x1=x_child[2],
-				 y1=y_child[2]
-				 )
-		)   
-		if recType=="geneSpecie":
-			x0=x_child[0],
-			x0 = x0[0]
-			y0=y_child[0]
+		elif species_mapping[child.name][i][1] == "duplication" :
 			line_shapes.append(
 				dict(
 				type = 'path',
@@ -704,7 +678,7 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 				 )			
 				)		
 			)					   
-		elif recType=="transcriptGene":			 
+		elif species_mapping[child.name][i][1] == "creation":			 
 			x0=x_child[0],
 			x0 = x0[0]
 			y0=y_child[0]
@@ -717,15 +691,38 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line
 				   color = 'black',
 				 )			
 				)		
-			)								  
-	else:
-		pass
+			)							
+	for i in range(len(x_parent)):
+		for j in range(len(x_child)):
+			if(clade.name != "999990" and [species_mapping[clade.name][i][0],species_mapping[child.name][j][0]] in rec_edges):
+				#print([species_mapping[clade.name][i][0],species_mapping[child.name][j][0]])
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_parent[i],
+                                             y0=y_parent[i],
+                                             x1=x_parent[i],
+                                             y1=y_child[j]
+                                     )
+                                )
+				line_shapes.append(
+                                        dict(type='line',
+                                             layer='below',
+                                             line=dict(color=line_color, width=line_width),
+                                             x0=x_parent[i],
+                                             y0=y_child[j],
+                                             x1=x_child[j],
+                                             y1=y_child[j]
+                                     )
+                                )
+                                
 	return line_shapes
 		
 
 def draw_clade(clade, slanted, line_shapes, width, child, line_color='rgb(15,15,15)', line_width=3, x_coords=[0,0], y_coords=[0,0]):
 	"""Recursively draw the tree branches, down from the given clade"""   
-	
+
 	if child == None:
 		if len(clade.clades) > 0:
 			for next_child in clade.clades:
@@ -741,20 +738,21 @@ def draw_clade(clade, slanted, line_shapes, width, child, line_color='rgb(15,15,
 				draw_clade(child, slanted, line_shapes, width, next_child, line_color, line_width, x_coords, y_coords)	
 
 
-def draw_clade_inter(recType, clade, slanted, line_shapes, width, child, line_color='rgb(255,0,0)', line_width=3, x_coords=[0,0], y_coords=[0,0], species_mapping={}, node_mapping_to_parent={}):
+def draw_clade_inter(recType, clade, slanted, line_shapes, width, child,rec_edges, line_color='rgb(255,0,0)', line_width=3, x_coords=[0,0], y_coords=[0,0], species_mapping={}, node_mapping_to_parent={}):
+
 	"""Recursively draw the tree branches, down from the given clade"""   
 	
 	if child == None:
 		if len(clade.clades) > 0:
 			for next_child in clade.clades:
-				draw_clade_inter(recType,clade, slanted, line_shapes, width, next_child, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)	
+				draw_clade_inter(recType,clade, slanted, line_shapes, width, next_child,rec_edges, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)	
 	else:
-		if slanted == False:
-			line_shapes = get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)
+		if slanted == False or slanted == True:
+			line_shapes = get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child,rec_edges, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)
 			
 		if len(child.clades) > 0:
 			for next_child in child.clades:
-				draw_clade_inter(recType, child, slanted, line_shapes, width, next_child, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)	
+				draw_clade_inter(recType, child, slanted, line_shapes, width, next_child,rec_edges, line_color, line_width, x_coords, y_coords, species_mapping, node_mapping_to_parent)	
 
 			
 def random_color():
@@ -858,9 +856,8 @@ def addInternalTreeTransGene(clade, rec_gene_tree, species_mapping, x_coords, y_
 			addInternalTreeTransGene(next_child, rec_gene_tree, species_mapping, x_coords, y_coords, x_coords_internal, y_coords_internal, x_name_coords, width, clade, tree, node_mapping_to_parent, nb_inter_elt)
 
 
-def addInternalTreeGeneSpecie(clade, rec_gene_tree, species_mapping, x_coords, y_coords, x_coords_internal, y_coords_internal, x_name_coords, width, parent, tree, node_mapping_to_parent, nb_inter_elt ={}):		
+def addInternalTreeGeneSpecie(clade, rec_gene_tree, species_mapping, x_coords, y_coords, x_coords_internal, y_coords_internal, x_name_coords, width, parent, tree, node_mapping_to_parent, nb_inter_elt ={}):
 	if clade.name in species_mapping.keys():
-
 		for inter_clade in species_mapping[clade.name]:			
 			nb_inter_nodes = len(species_mapping[clade.name])	 
 			
@@ -956,8 +953,12 @@ def create_tree(recData, slanted, recType, textcolor):
 	# change: fit the window
 	dist = 9
 
-	sptree, rec_gene_tree, species_mapping, node_mapping_to_parent = parse_rec(recData, recType)	
-
+	sptree, rec_gene_tree, species_mapping, node_mapping_to_parent = parse_rec(recData, recType)
+	rec_edges = []
+	t = Tree(rec_gene_tree,format=1)
+	for parent in t.traverse("postorder"):
+		for child in parent.get_children():
+			rec_edges.append([parent.name,child.name])        
 	nb_dup = 0
 	nb_loss = 0
 	nb_creat = 0
@@ -1011,11 +1012,12 @@ def create_tree(recData, slanted, recType, textcolor):
 	elif recType == "transcriptGene":
 		addInternalTreeTransGene(tree.root, rec_gene_tree, species_mapping, x_coords, y_coords, x_coords_internal, y_coords_internal, x_name_coords, width, None, tree, node_mapping_to_parent, nb_inter_elt = {})
 		
+
 	child = None
 	x_coords_internal[tree.root] = x_coords[tree.root]
 	y_coords_internal[tree.root] = y_coords[tree.root]   
-	
-	draw_clade_inter(recType,tree.root, slanted, line_shapes, 20*width, child, line_color=textcolor, line_width=3, x_coords=x_coords_internal, y_coords=y_coords_internal, species_mapping =species_mapping, node_mapping_to_parent=node_mapping_to_parent)
+
+	draw_clade_inter(recType,tree.root, slanted, line_shapes, 20*width, child,rec_edges, line_color=textcolor, line_width=3, x_coords=x_coords_internal, y_coords=y_coords_internal, species_mapping =species_mapping, node_mapping_to_parent=node_mapping_to_parent)
 	my_tree_clades = x_coords.keys()
 	X = []
 	Y = []
@@ -1026,9 +1028,6 @@ def create_tree(recData, slanted, recType, textcolor):
 
 	label_legend = []
 	
-
-	rec_gene_tree
-
 	rec_tree = read_tree_nw(rec_gene_tree)	
 
 	terminal_gene = rec_tree.get_terminals()
@@ -1056,6 +1055,8 @@ def create_tree(recData, slanted, recType, textcolor):
 			events = species_mapping[k.name]
 			selected_events_name = []
 			index_selected = []
+			#print(k.name,species_mapping[k.name])
+
 			for e in events:
 				# print("Debug 2nd: ", k.name, "\t",e[0], e[1])
 				if e[1] == "leaf" or e[1] == "loss" or e[1] == "duplication" or e[1] == "creation" or e[1] == "speciation": 
@@ -1064,29 +1065,40 @@ def create_tree(recData, slanted, recType, textcolor):
 				#else:
 				#	selected_events_name.append(e[0])
 				#	index_selected.append(events.index(e))  
-
+			#print(x_coords_internal[k],x_coords[k])
 			if len(x_coords_internal[k])==1:
 					X.append(x_coords_internal[k][0])
 					Y.append(y_coords_internal[k][0]) 
-					leaf_name = selected_events_name.pop()
+					#leaf_name = selected_events_name.pop()
+					leaf_name = selected_events_name[0]
 					label_legend.append("\t" + "\t" + leaf_name)
 					
 			elif len(x_coords_internal[k])==3:
 					X.append(x_coords_internal[k][2])
 					Y.append(y_coords_internal[k][2]) 
-					leaf_name = selected_events_name.pop()
+					#leaf_name = selected_events_name.pop()
+					leaf_name = selected_events_name[2]
 					label_legend.append("\t" + "\t" + leaf_name)
 
 					X.append(x_coords_internal[k][1])
 					Y.append(y_coords_internal[k][1]) 
-					leaf_name = selected_events_name.pop()
+					#leaf_name = selected_events_name.pop()
+					leaf_name = selected_events_name[1]
 					label_legend.append("\t" + "\t" + leaf_name)
 
 					X.append(x_coords_internal[k][0])
 					Y.append(y_coords_internal[k][0]) 
-					leaf_name = selected_events_name.pop()
+					#leaf_name = selected_events_name.pop()
+					leaf_name = selected_events_name[0]
 					label_legend.append("\t" + "\t" + leaf_name)
 
+			else:# Added d  by Aida: this else
+					for ii in range(len(x_coords_internal[k])):
+                                            X.append(x_coords_internal[k][ii])
+                                            Y.append(y_coords_internal[k][ii]) 
+                                            #leaf_name = selected_events_name.pop()
+                                            leaf_name = selected_events_name[ii]
+                                            label_legend.append("\t" + "\t" + leaf_name)
 	"""    			    
 			for j in range(len(x_coords_internal[k])):
 				if j in index_selected:
@@ -1107,7 +1119,9 @@ def create_tree(recData, slanted, recType, textcolor):
 	"""
 	host_leaves_names = []
 	for x in terminalNodeNameHost:
-		host_leaves_names.append({"label": x, 'value': x})					
+		host_leaves_names.append({"label": x, 'value': x})
+
+	#print(host_leaves_names)		
 	
 	parasite_leaves_names = []
 	for x in terminalNodeNamePara:
@@ -1115,7 +1129,9 @@ def create_tree(recData, slanted, recType, textcolor):
 		if x in ["LOSS", "Loss", "loss"]:
 			continue
 		else:
-			parasite_leaves_names.append({"label": x, 'value': x})	
+			parasite_leaves_names.append({"label": x, 'value': x})
+                        
+	#print(parasite_leaves_names)		
 
 
 	for cl in my_tree_clades:
@@ -1131,7 +1147,11 @@ def create_tree(recData, slanted, recType, textcolor):
 				label_legend.append(cl.name)
 				X.append(x_coords[cl][1])
 				Y.append(y_coords[cl][1])			
-				text.append(cl.name)		        
+				text.append(cl.name)
+				for ii in range(2,len(x_coords[cl])): # Added d  by Aida: this for
+					X.append(x_coords[cl][ii])
+					Y.append(y_coords[cl][ii])
+					label_legend.append("")
 				"""
 				label_legend.append(cl.name)
 				X.append(x_coords[cl][2])
@@ -1143,6 +1163,7 @@ def create_tree(recData, slanted, recType, textcolor):
 				Y.append(y_coords[cl][3])			
 				text.append(cl.name)						        
 				"""
+
 				
 	axis = dict(showline=False,
 				zeroline=False,
@@ -1585,11 +1606,12 @@ def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
 		recPhylo_spTree_recGene = False
 		recPhylo_gnTree_recTrans = False
-		# tmp_xml = open("./Input/tmp_xml.xml", "w")
-		# tmp_xml.write(input_xml)
-		# tmp_xml.close()
+		tmp_xml = open("./Input/tmp_xml.xml", "w")
+		tmp_xml.write(input_xml)
+		tmp_xml.close()
 		try:
-			xml_file = lxml.etree.parse(StringIO(input_xml))
+			#xml_file = lxml.etree.parse(StringIO(input_xml))
+			xml_file = lxml.etree.parse("./Input/tmp_xml.xml")
 			xml_validator = lxml.etree.XMLSchema(file="./XSD/doubleRecPhylo.xsd")
 			if xml_file.getroot().tag == "recPhylo":
 				if xml_file.find(".//spTree"):
@@ -1667,8 +1689,8 @@ def update_output(n_clicks, output_confirm, input2):
 					iteration_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[i]
 					iteration_figProteinGenes = figGeneSpecie_figProteinGene[i]
 
-					# encoded_figGeneSpecie_pdf = base64.b64encode(iteration_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-					# encoded_figGeneSpecie_svg = base64.b64encode(iteration_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+					#encoded_figGeneSpecie_pdf = base64.b64encode(iteration_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+					#encoded_figGeneSpecie_svg = base64.b64encode(iteration_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
 					encoded_figGeneSpecie_pdf = base64.b64encode(iteration_figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
 					encoded_figGeneSpecie_svg = base64.b64encode(iteration_figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
 					div = html.Div([
@@ -1693,8 +1715,8 @@ def update_output(n_clicks, output_confirm, input2):
 					])
 					multiple_reconciliation_figs.append(div)
 					for recProteinTree in iteration_figProteinGenes:
-						# encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-						# encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+						#encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+						#encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
 						encoded_figGeneSpecie_pdf = base64.b64encode(recProteinTree.to_image(format="pdf", width=2000, height=1000, scale=2))
 						encoded_figGeneSpecie_svg = base64.b64encode(recProteinTree.to_image(format="svg", width=2000, height=1000, scale=2))
 						div = html.Div([
@@ -1724,8 +1746,9 @@ def update_output(n_clicks, output_confirm, input2):
 				
 			if output_confirm == "YES_recPhylo_spTree_recGene":
 				first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
-				# encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				# encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				#encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				#encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+
 				encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
 				encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
 				div = html.Div([
@@ -1752,10 +1775,8 @@ def update_output(n_clicks, output_confirm, input2):
 
 			if output_confirm == "YES_recPhylo_gnTree_recTrans":
 				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
-				# encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				# encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
 				div = html.Div([
 					dcc.Graph(figure=first_recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					

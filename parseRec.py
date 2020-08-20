@@ -86,17 +86,25 @@ def buildTreeFromXml(sptre, tree):
     return tree
 
 def buildRecTreeFromXml(sptre, tree, recType):
-
+    i = 0
+    n = ""
     if type(sptre) ==  dict:
 
         if  len(sptre.keys()) == 1:
             k = list(sptre.keys())[0]
             v = sptre[k]
             if len(v) == 3:
-                tree.add_child(name=v['name'])
-                clade = tree.search_nodes(name=v["name"])[0]
+                #tree.add_child(name=v['name'])
                 event_recs = list(v["eventsRec"].keys())
                 event_rec = event_recs[0]
+                if(event_rec == "loss"):
+                    n = "loss"+str(i)
+                    i += 1
+                else:
+                    n = v['name']
+                tree.add_child(name=n)
+                clade = tree.search_nodes(name=n)[0]
+
                 if recType == "geneSpecie":
                     species_location =v["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
@@ -111,10 +119,17 @@ def buildRecTreeFromXml(sptre, tree, recType):
                 return tree
                 
         elif  len(sptre.keys()) == 2:
-                tree.add_child(name=sptre['name'])
-                clade = tree.search_nodes(name=sptre["name"])[0]
+                #tree.add_child(name=sptre['name'])
                 event_recs = list(sptre["eventsRec"].keys())
                 event_rec = event_recs[0]
+                if(event_rec == "loss"):
+                    n = "loss"+str(i)
+                    i += 1
+                else:
+                    n = sptre['name']
+                tree.add_child(name=n)
+                clade = tree.search_nodes(name=n)[0]
+
                 if recType == "geneSpecie":                
                     species_location =sptre["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
@@ -127,10 +142,18 @@ def buildRecTreeFromXml(sptre, tree, recType):
                                 
         elif  len(sptre.keys()) == 3:
 
-                tree.add_child(name=sptre['name'])
-                clade = tree.search_nodes(name=sptre["name"])[0]
+                #tree.add_child(name=sptre['name'])
                 event_recs = list(sptre["eventsRec"].keys())
                 event_rec = event_recs[0]
+                if(event_rec == "loss"):
+                    n = "loss"+str(i)
+                    i += 1
+                else:
+                    n = sptre['name']
+                tree.add_child(name=n)
+                clade = tree.search_nodes(name=n)[0]
+
+
                 if recType == "geneSpecie":                
                     species_location =sptre["eventsRec"][event_rec]["speciesLocation"]
                     clade.add_feature("event_rec", event_rec)
