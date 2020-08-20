@@ -1775,8 +1775,10 @@ def update_output(n_clicks, output_confirm, input2):
 
 			if output_confirm == "YES_recPhylo_gnTree_recTrans":
 				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
-				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				#encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+				#encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", width=2000, height=1000, scale=2))
+				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", width=2000, height=1000, scale=2))
 				div = html.Div([
 					dcc.Graph(figure=first_recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
 					
@@ -1785,7 +1787,7 @@ def update_output(n_clicks, output_confirm, input2):
 						html.A(
 						'figProteinGene.pdf',
 						download="figProteinGene.pdf",
-						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+						href='data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()),
 						target="_blank"
 					)
 					]),
@@ -1793,7 +1795,7 @@ def update_output(n_clicks, output_confirm, input2):
 					html.A(
 						'figProteinGene.svg',
 						download="figProteinGene.svg",
-						href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+						href='data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode()),
 						target="_blank"
 					)
 					]),
