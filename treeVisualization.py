@@ -24,6 +24,7 @@ from parseRec import *
 from doubleRecPhylo2recPhylo import *
 import base64
 import lxml
+import uuid
 
 
 app = dash.Dash()
@@ -1432,10 +1433,6 @@ app.layout = html.Div(children=[
 			id='confirm',
 			message='Input is not accepted, please check your input!!!',
 		),
-	dcc.ConfirmDialog(
-			id='copute_error',
-			message='Input Error: Please put <recGeneTree> before <recTransTree>',
-		),
 	dcc.Input(
 		id='output-confirm',
 		type='text',
@@ -1594,18 +1591,20 @@ def display_confirm(n_clicks, input_xml):
 	if n_clicks > 0:
 		recPhylo_spTree_recGene = False
 		recPhylo_gnTree_recTrans = False
-		tmp_xml = open("./Input/tmp_xml.xml", "w")
+		#add unique file name
+		file_path = "./Input/" + str(uuid.uuid4()) + "_tmp_xml.xml"
+		tmp_xml = open(file_path, "w")
 		tmp_xml.write(input_xml)
 		tmp_xml.close()
 		try:
 			#xml_file = lxml.etree.parse(StringIO(input_xml))
-			xml_file = lxml.etree.parse("./Input/tmp_xml.xml")
+			xml_file = lxml.etree.parse(file_path)
 			xml_validator = lxml.etree.XMLSchema(file="./XSD/doubleRecPhylo.xsd")
 			if xml_file.getroot().tag == "recPhylo":
-				if xml_file.find(".//spTree"):
+				if xml_file.find(".//spTree") is not None:
 					recPhylo_spTree_recGene = True
 					xml_validator = lxml.etree.XMLSchema(file="./XSD/recPhylo_spTree_recGene.xsd")
-				if xml_file.find(".//gnTree"):
+				if xml_file.find(".//gnTree") is not None:
 					recPhylo_gnTree_recTrans = True
 					xml_validator = lxml.etree.XMLSchema(file="./XSD/recPhylo_gnTree_recTrans.xsd")
 			is_valid = xml_validator.validate(xml_file)
@@ -1636,7 +1635,6 @@ def display_confirm(value, n_clicks):
 	[
 	Output('multiple_reconciliation_figGeneSpecie','children'),
 	Output('webserver_example_fig', 'style'),
-	Output('copute_error', 'displayed'),
 	],
 	[Input('button', 'n_clicks'), Input('output-confirm', 'value')],
 	[State('proteinGeneSpecies', 'value')],
@@ -1650,29 +1648,30 @@ def update_output(n_clicks, output_confirm, input2):
 			error_message = ""
 
 			multiple_reconciliation_figGeneSpecie_list = []
+			multiple_reconciliation_figProteinGene_list = []
 			multiple_reconciliation_figs = []
 
-			if output_confirm == "YES":
-				# tmp_tree = open("./Input/tmp_xml.xml", "w")
-				# tmp_tree.write(input2)
-				# tmp_tree.close()
-				recTree = dataFromDoubleRecFile(StringIO(input2))
-				
-				for i in range(len(recTree)):
-					if recTree[i][1] == "geneSpecie":
-						fig_GeneSpecie,options_list = create_tree(recTree[i][0], False, "geneSpecie", "red")
-						multiple_reconciliation_figGeneSpecie_list.append(fig_GeneSpecie)
+			
+			# tmp_tree = open("./Input/tmp_xml.xml", "w")
+			# tmp_tree.write(input2)
+			# tmp_tree.close()
+			recTree = dataFromDoubleRecFile(StringIO(input2))
+			
+			for i in range(len(recTree)):
+				if recTree[i][1] == "geneSpecie":
+					fig_GeneSpecie,options_list = create_tree(recTree[i][0], False, "geneSpecie", "red")
+					multiple_reconciliation_figGeneSpecie_list.append(fig_GeneSpecie)
 
-					if recTree[i][1] == "transcriptGene":
-						fig_ProteinGene,options_list = create_tree(recTree[i][0], False, "transcriptGene", "blue")
-						if multiple_reconciliation_figGeneSpecie_list:
-							key = len(multiple_reconciliation_figGeneSpecie_list) - 1
-							if key not in figGeneSpecie_figProteinGene:
-								figGeneSpecie_figProteinGene[key] = []
-							figGeneSpecie_figProteinGene[key].append(fig_ProteinGene)
-						else:
-							display_error_message = True
-						
+				if recTree[i][1] == "transcriptGene":
+					fig_ProteinGene,options_list = create_tree(recTree[i][0], False, "transcriptGene", "blue")
+					multiple_reconciliation_figProteinGene_list.append(fig_ProteinGene)
+					if multiple_reconciliation_figGeneSpecie_list:
+						key = len(multiple_reconciliation_figGeneSpecie_list) - 1
+						if key not in figGeneSpecie_figProteinGene:
+							figGeneSpecie_figProteinGene[key] = []
+						figGeneSpecie_figProteinGene[key].append(fig_ProteinGene)
+
+			if output_confirm == "YES":
 				for i in range(len(multiple_reconciliation_figGeneSpecie_list)):
 					iteration_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[i]
 					iteration_figProteinGenes = figGeneSpecie_figProteinGene[i]
@@ -1733,66 +1732,71 @@ def update_output(n_clicks, output_confirm, input2):
 
 				
 			if output_confirm == "YES_recPhylo_spTree_recGene":
-				first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
-				#encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				#encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+				for i in range(len(multiple_reconciliation_figGeneSpecie_list)):
+					iteration_figGeneSpecie = multiple_reconciliation_figGeneSpecie_list[i]
 
-				encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
-				encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
-				div = html.Div([
-					dcc.Graph(figure=first_figGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
-					html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
-					html.Div(children=[
+					# first_figGeneSpecie,options_list = create_tree(input2, False, "geneSpecie", "red")
+					#encoded_figGeneSpecie_pdf = base64.b64encode(first_figGeneSpecie.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+					#encoded_figGeneSpecie_svg = base64.b64encode(first_figGeneSpecie.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+
+					encoded_figGeneSpecie_pdf = base64.b64encode(iteration_figGeneSpecie.to_image(format="pdf", width=2000, height=1000, scale=2))
+					encoded_figGeneSpecie_svg = base64.b64encode(iteration_figGeneSpecie.to_image(format="svg", width=2000, height=1000, scale=2))
+					div = html.Div([
+						dcc.Graph(figure=iteration_figGeneSpecie, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+						html.H6(children='Download Gene-species reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+						html.Div(children=[
+							html.A(
+							'figGeneSpecie.pdf',
+							download="figGeneSpecie.pdf",
+							href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
+							target="_blank"
+							)
+						]),
+						html.Div(children=[
 						html.A(
-						'figGeneSpecie.pdf',
-						download="figGeneSpecie.pdf",
-						href='data:application/pdf;base64,{}'.format(encoded_figGeneSpecie_pdf.decode()),
-						target="_blank"
-						)
-					]),
-					html.Div(children=[
-					html.A(
-						'figGeneSpecie.svg',
-						download="figGeneSpecie.svg",
-						href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
-						target="_blank"
-						)
+							'figGeneSpecie.svg',
+							download="figGeneSpecie.svg",
+							href='data:application/svg;base64,{}'.format(encoded_figGeneSpecie_svg.decode()),
+							target="_blank"
+							)
+						])
 					])
-				])
-				multiple_reconciliation_figs.append(div)
+					multiple_reconciliation_figs.append(div)
 
 			if output_confirm == "YES_recPhylo_gnTree_recTrans":
-				first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
-				#encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
-				#encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", width=2000, height=1000, scale=2))
-				encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", width=2000, height=1000, scale=2))
-				div = html.Div([
-					dcc.Graph(figure=first_recProteinTree, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
-					
-					html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
-					html.Div(children=[
+				for i in range(len(multiple_reconciliation_figProteinGene_list)):
+					iteration_figProteinGene = multiple_reconciliation_figProteinGene_list[i]
+					# first_recProteinTree,options_list = create_tree(input2, False, "transcriptGene", "blue")
+					#encoded_figProteinGene_pdf = base64.b64encode(first_recProteinTree.to_image(format="pdf", engine="kaleido", width=2000, height=1000, scale=2))
+					#encoded_figProteinGene_svg = base64.b64encode(first_recProteinTree.to_image(format="svg", engine="kaleido", width=2000, height=1000, scale=2))
+					encoded_figProteinGene_pdf = base64.b64encode(iteration_figProteinGene.to_image(format="pdf", width=2000, height=1000, scale=2))
+					encoded_figProteinGene_svg = base64.b64encode(iteration_figProteinGene.to_image(format="svg", width=2000, height=1000, scale=2))
+					div = html.Div([
+						dcc.Graph(figure=iteration_figProteinGene, config = {'toImageButtonOptions': {'format': 'png', 'filename': 'figGeneSpecie', 'height': 1000, 'width': 2000, 'scale': 1}}),
+						
+						html.H6(children='Download Transcript-gene reconciliation result',style={'textAlign': 'left', 'color': '#000000'}),
+						html.Div(children=[
+							html.A(
+							'figProteinGene.pdf',
+							download="figProteinGene.pdf",
+							href='data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()),
+							target="_blank"
+						)
+						]),
+						html.Div(children=[
 						html.A(
-						'figProteinGene.pdf',
-						download="figProteinGene.pdf",
-						href='data:application/pdf;base64,{}'.format(encoded_figProteinGene_pdf.decode()),
-						target="_blank"
-					)
-					]),
-					html.Div(children=[
-					html.A(
-						'figProteinGene.svg',
-						download="figProteinGene.svg",
-						href='data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode()),
-						target="_blank"
-					)
-					]),
-				])
-				multiple_reconciliation_figs.append(div)
+							'figProteinGene.svg',
+							download="figProteinGene.svg",
+							href='data:application/svg;base64,{}'.format(encoded_figProteinGene_svg.decode()),
+							target="_blank"
+						)
+						]),
+					])
+					multiple_reconciliation_figs.append(div)
 
 			result_multiple_reconciliation = html.Div(children = multiple_reconciliation_figs)
 
-			return result_multiple_reconciliation, {'display' : 'None'}, display_error_message
+			return result_multiple_reconciliation, {'display' : 'None'}
 	return dash.no_update
 
 
