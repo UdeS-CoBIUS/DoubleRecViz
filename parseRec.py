@@ -85,8 +85,8 @@ def buildTreeFromXml(sptre, tree):
                      
     return tree
 
-def buildRecTreeFromXml(sptre, tree, recType):
-    i = 0
+def buildRecTreeFromXml(sptre, tree, recType,loss_index):
+    i = loss_index
     n = ""
     if type(sptre) ==  dict:
 
@@ -114,9 +114,9 @@ def buildRecTreeFromXml(sptre, tree, recType):
                     clade.add_feature("event_rec", event_rec)
                     clade.add_feature("location", species_location)
                                                     
-                return buildRecTreeFromXml(v["clade"], clade, recType)
+                return buildRecTreeFromXml(v["clade"], clade, recType,i)
             else:
-                return tree
+                return tree,i
                 
         elif  len(sptre.keys()) == 2:
                 #tree.add_child(name=sptre['name'])
@@ -138,7 +138,7 @@ def buildRecTreeFromXml(sptre, tree, recType):
                     species_location =sptre["eventsRec"][event_rec]["genesLocation"]
                     clade.add_feature("event_rec", event_rec)
                     clade.add_feature("location", species_location)                                
-                return clade
+                return clade,i
                                 
         elif  len(sptre.keys()) == 3:
 
@@ -163,12 +163,12 @@ def buildRecTreeFromXml(sptre, tree, recType):
                     clade.add_feature("event_rec", event_rec)
                     clade.add_feature("location", species_location)
                                     
-                return buildRecTreeFromXml(sptre["clade"], clade, recType)        
+                return buildRecTreeFromXml(sptre["clade"], clade, recType,i)        
     elif type(sptre) == list:
-        buildRecTreeFromXml(sptre[0], tree, recType)
-        buildRecTreeFromXml(sptre[1], tree, recType)
+        null,i = buildRecTreeFromXml(sptre[0], tree, recType,i)
+        null,i = buildRecTreeFromXml(sptre[1], tree, recType, i)
                      
-    return tree
+    return tree,i
                             
 def parseDictTree(dict_tree):
     if len(dict_tree.keys()) == 1 and list(dict_tree.keys())[0] == "recPhylo":
@@ -236,7 +236,7 @@ def parse_rec(my_xml, recType):
         sp_tree_tmp = sp_tree        
         add_branch_length(sp_tree)
         sp_tree = sp_tree_tmp.write(format=1)
-        rec_gene_tree_nw = buildRecTreeFromXml(recGeneTree, rec_gene_tree, recType)    
+        rec_gene_tree_nw,null = buildRecTreeFromXml(recGeneTree, rec_gene_tree, recType,0)    
         speciesMapping, node_mapping_to_parent = makeMapping(rec_gene_tree_nw)
         browseSpTree(sptre_nw, node_mapping_to_parent)
         rec_gene_tree = rec_gene_tree_nw.write(format=1)
