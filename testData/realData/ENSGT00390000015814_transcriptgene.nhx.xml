@@ -1,6 +1,5 @@
 <recPhylo>
-  <recTransTree>
-  <spTree>
+  <gnTree>
     <phylogeny>
       <clade>
         <name>GROOT</name>
@@ -30,7 +29,8 @@
         </clade>
       </clade>
     </phylogeny>
-  </spTree>
+  </gnTree>
+  <recTransTree>
     <phylogeny rooted="true">
       <clade>
         <name>TROOT</name>
