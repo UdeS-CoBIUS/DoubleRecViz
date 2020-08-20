@@ -679,9 +679,6 @@ def get_clade_lines_slanted_inter(recType,clade, line_shapes, width, child,rec_e
 				)		
 			)					   
 		elif species_mapping[child.name][i][1] == "creation":			 
-			x0=x_child[0],
-			x0 = x0[0]
-			y0=y_child[0]
 			line_shapes.append(
 				dict(
 				type = 'path',
